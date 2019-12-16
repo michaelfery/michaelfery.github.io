@@ -25,6 +25,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-feed
+  - jekyll-redirect-from
   - jemoji
 
 paginate: 8
