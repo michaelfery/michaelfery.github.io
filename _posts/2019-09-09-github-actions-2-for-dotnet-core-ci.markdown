@@ -51,61 +51,39 @@ Regardons un peu notre fichier YAML de workflow.
 
 ![github-actions-aspnetcore-template.png](/assets/img/posts/github-actions-aspnetcore-template_637035321061673205.png)
 
-&nbsp;
-
 Il faut tout d'abord d&eacute;finir le "trigger" ou "d&eacute;clencheur" du workflow. A chaque push sur le repository, le workflow sera d&eacute;clench&eacute;.
 
-<div style="color: #d4d4d4; background-color: #1e1e1e; font-family: Consolas, 'Courier New', monospace; line-height: 19px; white-space: pre;">
-
-<div><span style="color: #569cd6;">on</span>: [<span style="color: #ce9178;">push</span>]</div>
-
-</div>
-
-&nbsp;
+```yml
+on: [push]
+```
 
 Ok, maintenant on s'attaque au build puisque l'on souhaite r&eacute;aliser notre int&eacute;gration continue.
 
-<div style="color: #d4d4d4; background-color: #1e1e1e; font-family: Consolas, 'Courier New', monospace; line-height: 19px; white-space: pre;">
-
-<div><span style="color: #569cd6;">jobs</span>:</div>
-
-<div><span style="color: #569cd6;">build</span>:</div>
-
-</div>
-
-&nbsp;
+```yml
+jobs:
+build:
+```
 
 On fait du .NET Core donc on peut compiler sur une distrbution Linux et on ne va pas se priver.
 
-<div style="color: #d4d4d4; background-color: #1e1e1e; font-family: Consolas, 'Courier New', monospace; line-height: 19px; white-space: pre;"><span style="color: #569cd6;">runs-on</span>: <span style="color: #ce9178;">ubuntu-latest</span></div>
-
-&nbsp;
+```yml
+runs-on: ubuntu-latest
+```
 
 On utilise ici une action packag&eacute;e et propos&eacute;e par Github pour installer la CLI dotnet sur l'agent en sp&eacute;cifiant la version.
 
-<div style="color: #d4d4d4; background-color: #1e1e1e; font-family: Consolas, 'Courier New', monospace; line-height: 19px; white-space: pre;">
-
-<div><span style="color: #569cd6;">uses</span>: <span style="color: #ce9178;">actions/setup-dotnet@v1</span></div>
-
-<div><span style="color: #569cd6;">with</span>:</div>
-
-<div><span style="color: #569cd6;">dotnet-version</span>: <span style="color: #b5cea8;">2.2.108</span></div>
-
-</div>
-
-&nbsp;
+```yml
+uses: actions/setup-dotnet@v1
+with:
+dotnet-version: 2.2.108
+```
 
 Enfin, on utilise la CLI dotnet pour lancer la commande de build de notre projet. Nous ne sp&eacute;cifions pas le dossier dans cet exemple mais, selon votre arborescence de repository, il faudra peut-&ecirc;tre sp&eacute;cifier le ou les fichiers .csproj &agrave; compiler.
 
-<div style="color: #d4d4d4; background-color: #1e1e1e; font-family: Consolas, 'Courier New', monospace; line-height: 19px; white-space: pre;">
-
-<div>- <span style="color: #569cd6;">name</span>: <span style="color: #ce9178;">Build with dotnet</span></div>
-
-<div><span style="color: #569cd6;">run</span>: <span style="color: #ce9178;">dotnet build --configuration Release</span></div>
-
-</div>
-
-&nbsp;
+```yml
+- name: Build with dotnet
+  run: dotnet build --configuration Release
+```
 
 # Logs
 
@@ -117,7 +95,9 @@ Par d&eacute;faut un email est envoy&eacute; en cas d'&eacute;chec du workflow.
 
 Vous pouvez &eacute;galement ajouter un petit badge dans le d&eacute;scriptif de votre repository ou tout autre endroit pertinent en utilisant le format d'url suivant :
 
-<span style="color: #1c1c1c; font-family: 'Noto Mono', Menlo, Monaco, Consolas, monospace; font-size: 13px; white-space: pre; background-color: #f6f7f8;">https://github.com/{github_id}/{repository}/workflows/{workflow_name}/badge.svg</span>
+```
+https://github.com/{github_id}/{repository}/workflows/{workflow_name}/badge.svg
+```
 
 ![](https://github.com/michaelfery/pipelines-dotnet-core/workflows/ASP.NET%20Core%20CI-CD/badge.svg)
 
@@ -131,13 +111,10 @@ Vous avez raison, notre application compile, c'est bien mais pas suffisant pour 
 
 La CLI dotnet comporte une commande **test**&nbsp;qu'il ne nous reste qu'&agrave; ajouter comme step de notre fichier de workflow :
 
-<div style="color: #d4d4d4; background-color: #1e1e1e; font-family: Consolas, 'Courier New', monospace; line-height: 19px; white-space: pre;">
-
-<div>- <span style="color: #569cd6;">name</span>: <span style="color: #ce9178;">Test with dotnet</span></div>
-
-<div><span style="color: #569cd6;">run</span>: <span style="color: #ce9178;">dotnet test --configuration Release</span></div>
-
-</div>
+```yml
+- name: Test with dotnet
+  run: dotnet test --configuration Release
+```
 
 L&agrave; encore, je ne pr&eacute;cise pas les projets de tests car mon arborescence me le permet, mais libre &agrave; vous de les sp&eacute;cifier.
 
@@ -149,29 +126,20 @@ Pour cela, rien de plus simple, il nous suffit de rajouter quelques steps.
 
 Tout d'abord, nous allons **packager** notre application :
 
-<div style="color: #d4d4d4; background-color: #1e1e1e; font-family: Consolas, 'Courier New', monospace; line-height: 19px; white-space: pre;">
-
-<div>- <span style="color: #569cd6;">name</span>: <span style="color: #ce9178;">Package with dotnet</span></div>
-
-<div><span style="color: #569cd6;">run</span>: <span style="color: #ce9178;">dotnet publish --configuration Release</span></div>
-
-</div>
+```yml
+- name: Package with dotnet
+  run: dotnet publish --configuration Release
+```
 
 Et enfin, nous allons publier le r&eacute;sultat dans un **artifact**.
 
-<div style="color: #d4d4d4; background-color: #1e1e1e; font-family: Consolas, 'Courier New', monospace; line-height: 19px; white-space: pre;">
-
-<div>- <span style="color: #569cd6;">name</span>: <span style="color: #ce9178;">Publish artifact</span></div>
-
-<div><span style="color: #569cd6;">uses</span>: <span style="color: #ce9178;">actions/upload-artifact@master</span></div>
-
-<div><span style="color: #569cd6;">with</span>:</div>
-
-<div><span style="color: #569cd6;">name</span>: <span style="color: #ce9178;">webapp</span></div>
-
-<div><span style="color: #569cd6;">path</span>: <span style="color: #ce9178;">bin/Release/netcoreapp2.2/publish</span></div>
-
-</div>
+```yml
+name: Publish artifact
+uses: actions/upload-artifact@master
+with:
+  name: webapp
+  path: bin/Release/netcoreapp2.2/publish
+```
 
 Nous utilisons ici l'action packag&eacute;e et propos&eacute;e par Github **actions/upload-artifact**. Cette action n&eacute;cessite de d&eacute;finir un nom ainsi que le r&eacute;pertoire &agrave; inclure dans cet artifact.
 

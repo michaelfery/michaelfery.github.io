@@ -21,7 +21,7 @@ Vous pourrez m&ecirc;me afficher un petit badge ;)
 
 ## Pr&eacute;paration
 
-Tout d'abord, il faut avoir Github Actions activ&eacute;. Oui, je l'ai d&eacute;j&agrave; dit lorsque l'on a mis en place l'int&eacute;gration continue mais bon... Encore une fois, [allez faire votre demande d'acc&egrave;s rapidement](https://github.com/features/actions)&nbsp;ou attendez le 13 novembre pour la disponibilit&eacute; g&eacute;n&eacute;rale.
+Tout d'abord, il faut avoir Github Actions activ&eacute;. Oui, je l'ai d&eacute;j&agrave; dit lorsque l'on a mis en place l'int&eacute;gration continue mais bon... Encore une fois, [allez faire votre demande d'acc&egrave;s rapidement](https://github.com/features/actions) ou attendez le 13 novembre pour la disponibilit&eacute; g&eacute;n&eacute;rale.
 
 Il vous faudra &eacute;galement avoir packag&eacute; votre application et cr&eacute;&eacute; un **artifact**. Pour cela je vous invite &agrave; revenir &agrave; [mon article pr&eacute;c&eacute;dent](../github-actions-2-for-dotnet-core-ci), et notamment la section [Package &amp; Artifacts](../github-actions-2-for-dotnet-core-ci#package).
 
@@ -29,13 +29,11 @@ Vous devriez voir votre artifact dans la partie en haut &agrave; droite de vos l
 
 ![](/assets/img/posts/github-actions-artifact_637035344507674284.png)
 
-&nbsp;
-
 ## Azure Web App
 
 Pour d&eacute;ployer notre application dans une Web App Azure, il nous faut ... ? Allez je vous laisse encore quelques sencondes... une Web App?! Ouiiii! Bravo !
 
-&nbsp;
+ 
 
 ## Provisionnement
 
@@ -45,7 +43,7 @@ Pour les allergiques du clic ou afficionados de l'automatisation pouss&eacute;e,
 
 Bref, dans tous les cas, on partira ici du principe que votre Web App est provisionn&eacute;e, et que votre artifact s'appelle webapp.
 
-&nbsp;
+ 
 
 ## Publishing Profile
 
@@ -59,13 +57,11 @@ Dans la barre de commandes en haut, cliquez sur "**Get publish profile**".
 
 Une fois le fichier t&eacute;l&eacute;charg&eacute;, ouvrez-le avec un &eacute;diteur de texte et copiez le contenu du fichier XML :
 
-&lt;publishData&gt;&lt;publishProfile&nbsp;profileName\="actionsSampleApp&nbsp;-&nbsp;Web&nbsp;Deploy"&nbsp;publishMethod\="MSDeploy"&nbsp;...
-
-&nbsp;
+`<publishData><publishProfile profileName="actionsSampleApp - Web Deploy" publishMethod\="MSDeploy" ...`
 
 Retournons maintenant dans notre repository Github.
 
-Ouvrez le menu **Settings,**&nbsp;puis dans le menu de gauche, ouvrez le panneau **Secrets**.
+Ouvrez le menu **Settings,** puis dans le menu de gauche, ouvrez le panneau **Secrets**.
 
 ![github-secrets.png](/assets/img/posts/github-secrets_637041579443940522.png)
 
@@ -77,85 +73,52 @@ Vous devriez donc avoir un nouveau secret dans votre repo :
 
 Passons ensuite au workflow et aux &eacute;tapes de d&eacute;ploiement.
 
-&nbsp;
-
 ## Workflow de d&eacute;ploiement
 
 Nous reprendrons ici le fichier workflow que nous avions commenc&eacute; dans l'[article sur l'int&eacute;gration continue](../github-actions-2-for-dotnet-core-ci/).
 
-/.github/workflows/{workflow\_name}.yml
+`/.github/workflows/{workflow_name}.yml`
 
-&nbsp;
+Dans ce fichier, nous allons ajouter des &eacute;tapes de d&eacute;ploiement, en commen&ccedil;ant par d&eacute;clarer un **job** que nous appelerons **"deploy"** et qui n&eacute;cessite l'&eacute;x&eacute;cution du job **"build"** au pr&eacute;alable.
 
-Dans ce fichier, nous allons ajouter des &eacute;tapes de d&eacute;ploiement, en commen&ccedil;ant par d&eacute;clarer un **job**&nbsp;que nous appelerons&nbsp;**"deploy"** et qui n&eacute;cessite l'&eacute;x&eacute;cution du job **"build"** au pr&eacute;alable.
+name: ASP.NET Core CI
 
-name:&nbsp;ASP.NET&nbsp;Core&nbsp;CI
-
-  
-
-on:&nbsp;\[push\]
-
-  
-
+```yml
+on: [push]
 jobs:
-
-&nbsp;&nbsp;build:
-
+  build:
 ...
-
-&nbsp;
-
-&nbsp;&nbsp;deploy:
-
-  
-
-&nbsp;&nbsp;&nbsp;&nbsp;needs:&nbsp;build
-
-&nbsp;&nbsp;&nbsp;&nbsp;runs-on:&nbsp;windows-latest
-
-&nbsp;
+  deploy:
+    needs: build
+    runs-on: windows-latest
+```
 
 La premi&egrave;re &eacute;tape consiste &agrave; r&eacute;cup&eacute;rer le **package de notre application**, c'est-&agrave;-dire l'**artifact**. Pour cela, nous utiliserons l'action **download-artifact** en lui pr&eacute;cisant le nom de l'artifact **webapp**.
 
-&nbsp;&nbsp;&nbsp;&nbsp;steps:
-
-&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name:&nbsp;Download&nbsp;Artifacts
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses:&nbsp;actions/download-artifact@master
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;webapp
-
-&nbsp;
+```yml
+    steps:
+    - name: Download Artifacts
+      uses: actions/download-artifact@master
+      with:
+        name: webapp
+```
 
 Nous voici enfin &agrave; l'&eacute;tape tant attendue de d&eacute;ploiement.
 
 Nous utiliserons ici l'action **appservice-actions/webapp**. Il faudra pr&eacute;ciser &agrave; l'action le nom de la Web App, le nom du package, ainsi que le nom du Secret au format :
 
-&nbsp;**secrets.{secret\_name}**.
+ **secrets.{secret\_name}**.
 
-&nbsp;&nbsp;&nbsp;&nbsp;steps:
-
-&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;...
-
-  
-
-&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name:&nbsp;Deploy&nbsp;to&nbsp;Azure&nbsp;App&nbsp;Service
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses:&nbsp;azure/appservice-actions/webapp@master
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with:
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;app-name:&nbsp;actionsSampleApp
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;package:&nbsp;webapp
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;publish-profile:&nbsp;${{&nbsp;secrets.webappPublishProfile&nbsp;}}
-
-&nbsp;
-
-&nbsp;
+```yml
+    steps:
+    - ...
+    - name: Deploy to Azure App Service
+      uses: azure/appservice-actions/webapp@master
+      with:
+        app-name: actionsSampleApp
+        package: webapp
+        publish-profile: ${{ secrets.webappPublishProfile }}
+```
 
 Il ne vous restera alors qu'&agrave; d&eacute;marrer manuellement votre pipeline ou &agrave; attendre votre prochain commit sur master, via une PR &eacute;videmment ;)
 
@@ -167,4 +130,4 @@ Dans cet article, nous avons d&eacute;couvert comment utiliser Github Actions 2.
 
 Dans un prochain article, nous d&eacute;couvrirons des fonctionnalit&eacute;s avanc&eacute;es de Github Actions pour Azure.
 
-A bient&ocirc;t !
+A bientôt !
