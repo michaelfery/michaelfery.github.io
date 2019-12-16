@@ -6,7 +6,9 @@ date:   2019-09-09 05:30:00.000
 # description: 
 img: posts/github-actions-banner.png
 tags: [dotnet, Github Actions, DevOps, Continuous Integration, Github]
-redirect_from: "/blog/github-actions-2-for-dotnet-core-ci"
+redirect_from: 
+    - /blog/github-actions-2-for-dotnet-core-ci
+    - /blog/github-actions-2-for-dotnet-core-ci/
 ---
 
 Il y a quelques jours j'ai re&ccedil;u le Saint-Graal: l'activation de la fonctionnalit&eacute; Actions de Github.

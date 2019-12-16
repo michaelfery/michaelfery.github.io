@@ -6,7 +6,9 @@ date:   2019-10-05 08:32:49.067
 # description: 
 img: posts/github-actions-banner.png
 tags: [Azure, Github Actions, DevOps]
-redirect_from: "/blog/github-actions-2-for-continuous-deployment-on-azure"
+redirect_from: 
+    - /blog/github-actions-2-for-continuous-deployment-on-azure
+    - /blog/github-actions-2-for-continuous-deployment-on-azure/
 ---
 
 Cet article est le second d'une s&eacute;rie sur **Github Actions** et la mise en place d'une cha&icirc;ne CI/CD.

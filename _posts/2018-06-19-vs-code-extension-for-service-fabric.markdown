@@ -6,7 +6,9 @@ date:   2018-06-19 11:00:00
 description: "Vous avez découvert dans un post précédent comment disposer d'un cluster Service Fabric de test, gratuit et en quelques clics. Je vous présente maintenant comment vous passer de Visual Studio en utilisant l'outil multi-plateformes:: VS Code et ses extensions pour créer vos premiers microservices sur Service Fabric."
 img: posts/vscode-banner.png
 tags: ["service fabric", "vs code", "extension", "microservices"]
-redirect_from: "/blog/vs-code-extension-for-service-fabric"
+redirect_from: 
+  - /blog/vs-code-extension-for-service-fabric
+  - /blog/vs-code-extension-for-service-fabric/
 ---
 
 **Service Fabric** est une plateforme qui offre une solution simple au développement de conteneurs et microservices et à la gestion de leur cycle de vie et pouvant fonctionner sur Linux ou Windows. Il semble donc tout naturel de ne pas être contraint à utiliser Visual Studio pour créer, compiler et déployer des applications sur un cluster Service Fabric.

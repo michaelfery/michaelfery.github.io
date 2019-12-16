@@ -6,7 +6,9 @@ date:   2018-10-01 06:06:10
 img: posts/azure-banner.png
 description: Dans cet article nous allons voir comment Azure API Management peut jouer le rôle de proxy entre les ressources Azure Storage et vos utilisateurs afin d'y apporter sécurité, cache, etc.
 tags: ["azure", "storage", "proxy", "api management"]
-redirect_from: "/blog/azure-storage-proxy-api-management"
+redirect_from: 
+    - /blog/azure-storage-proxy-api-management
+    - /blog/azure-storage-proxy-api-management/
 ---
 
 [Azure API Management](https://azure.microsoft.com/en-in/services/api-management/)<span style="color: #333333; font-family: Lato, sans-serif;"> est un service Azure sécurisé, fiable et scalable permettant de publier, consommer et gérer des APIs. Cette plateforme permet de renforcer la sécurité et d'analyser l'usage des APIs.</span>

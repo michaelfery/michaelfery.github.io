@@ -7,7 +7,9 @@ description: "Cet article traite de la suppression totale ou partielle des entit
 Nous y aborderons les suppressions complète de table, les batchs et le requêtage par segmentation et les limitations de ces différentes méthodes"
 img: posts/azure-banner.png
 tags: ["azure", "storage"]
-redirect_from: "/blog/previous_url"
+redirect_from: 
+  - /blog/azure_storage_table_suppression_massive_d_entitees
+  - /blog/azure_storage_table_suppression_massive_d_entitees/
 ---
 
 Cet article traite de la suppression totale ou partielle des entités présentes dans dans une Table Azure Storage.  

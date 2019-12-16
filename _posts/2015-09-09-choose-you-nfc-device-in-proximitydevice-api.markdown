@@ -7,7 +7,9 @@ description: "When your application turns on a phone, you have only one reader. 
 There is a method for that : ProximityDevice.FromID(string deviceID)"
 img: posts/windows-banner.png
 tags: ["uwp", "nfc"]
-redirect_from: "/blog/choose-you-nfc-device-in-proximitydevice-api"
+redirect_from: 
+  - /blog/choose-you-nfc-device-in-proximitydevice-api
+  - /blog/choose-you-nfc-device-in-proximitydevice-api/
 ---
 
 A lot of samples explain how to use the **ProximityDevice** API. I wrote about it too.

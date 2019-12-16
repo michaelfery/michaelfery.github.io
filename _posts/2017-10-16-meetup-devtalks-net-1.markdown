@@ -8,7 +8,9 @@ It’s not a big problem if the webview is navigating to an online content becau
 But, what if you have a local html file you want to display inside your app ?"
 img: posts/chat-banner.png
 tags: ["meetup", "devtalks", "mvp"]
-redirect_from: "/blog/meetup-devtalks-net-1"
+redirect_from: 
+    - /blog/meetup-devtalks-net-1
+    - /blog/meetup-devtalks-net-1/
 ---
 
 Ce 15 novembre j'ai eu l'occasion de faire un talk au Meetup DevTalks .Net #1 à Paris.

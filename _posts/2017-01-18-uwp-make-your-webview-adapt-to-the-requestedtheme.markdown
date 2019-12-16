@@ -8,7 +8,9 @@ It’s not a big problem if the webview is navigating to an online content becau
 But, what if you have a local html file you want to display inside your app ?"
 img: posts/windows-banner.png
 tags: ["uwp", "apps", "navigatetostring", "requestedtheme", "webview"]
-redirect_from: "/blog/uwp-make-your-webview-adapt-to-the-requestedtheme"
+redirect_from: 
+  - /blog/uwp-make-your-webview-adapt-to-the-requestedtheme
+  - /blog/uwp-make-your-webview-adapt-to-the-requestedtheme/
 ---
 
 In UWP applications WebView do not care at all about the requested theme you set.

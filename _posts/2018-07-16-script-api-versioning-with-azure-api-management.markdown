@@ -7,7 +7,9 @@ description: "Les versions permettent de regrouper plusieurs versions d'une mêm
 Nous allons nous concentrer dans cet article sur le versionning d'API en créant un Version Set et en y ajoutant une première version d'API."
 img: posts/azure-banner.png
 tags: ["azure", "api management"]
-redirect_from: "/blog/script-api-versioning-with-azure-api-management"
+redirect_from: 
+    - /blog/script-api-versioning-with-azure-api-management
+    - /blog/script-api-versioning-with-azure-api-management/
 ---
 
 [Azure API Management](https://azure.microsoft.com/en-us/services/api-management) propose depuis quelques mois une fonctionnalité très attendue : la gestion des [versions et révisions](https://blogs.msdn.microsoft.com/apimanagement/2018/01/11/versions-revisions-general-availibility).

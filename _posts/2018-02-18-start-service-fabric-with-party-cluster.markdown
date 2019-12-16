@@ -5,7 +5,9 @@ date:   2018-02-18 09:08:35
 # categories: blog
 description: Pour débuter avec les micro-services, Service Fabric est une plateforme qui offre une solution simple au développement de conteneurs et microservices et à la gestion de leur cycle de vie. Mais que faire quand vous n'avez pas de machine Windows Server sous la main et que vous ne souhaitez pas payer l'hébergement d'un Cluster sur Azure, uniquement pour faire quelques tests? Party Cluster est là pour répondre à ce besoin !
 tags: ["azure", "service fabric", "party cluster"]
-redirect_from: "/blog/start-service-fabric-with-party-cluster"
+redirect_from: 
+  - /blog/start-service-fabric-with-party-cluster
+  - /blog/start-service-fabric-with-party-cluster/
 ---
 
 Pour débuter avec les micro-services, Service Fabric est une plateforme qui offre une solution simple au développement de conteneurs et microservices et à la gestion de leur cycle de vie.

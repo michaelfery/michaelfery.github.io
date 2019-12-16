@@ -6,7 +6,9 @@ date:   2019-01-13 13:54:28.422
 description: Comment faire en sorte que le process de déploiement Azure DevOps fasse le ménage dans le dossier wwwroot de destination d'un App Service avant tout nouveau déploiement
 img: posts/azure-banner.png
 tags: ["azure", "app service", "azure devops"]
-redirect_from: "/blog/azure-devops-app-service-wwwroot-clean"
+redirect_from: 
+    - /blog/azure-devops-app-service-wwwroot-clean
+    - /blog/azure-devops-app-service-wwwroot-clean/
 ---
 
 <span style="color: #242729; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px;">Après plusieurs dizaines, voire centaines de déploiement, le dossier</span>`wwwroot`<span style="color: #242729; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 15px;"> de votre **Azure App Service** est complétement rempli de fichiers, pas forcément tous utiles.</span>

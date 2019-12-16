@@ -6,7 +6,9 @@ date:   2018-08-07 06:00:11
 description: A l'heure du Server-less, Microsoft nous propose du Cluster-less avec la Public Preview d'Azure Service Fabric Mesh.
 img: posts/sfmesh-banner.png
 tags: ["service fabric mesh", "azure"]
-redirect_from: "/blog/service-fabric-mesh-public-preview"
+redirect_from: 
+    - /blog/service-fabric-mesh-public-preview
+    - /blog/service-fabric-mesh-public-preview/
 ---
 
 Pour ceux qui suivent un peu mon blog et les différents talks que j'ai pu faire cette année, vous avez vu que Service Fabric en est le fil rouge. Il n'y a qu'à voir les [TechLabs](https://www.meetup.com/fr-FR/TechLabs-by-SOAT/events/253376557/) que j'anime avec Wilfried Woivré sur le sujet.

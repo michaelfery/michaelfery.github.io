@@ -6,6 +6,9 @@ date:   2019-08-20 11:10:14.108
 # description: 
 img: posts/chat-banner.png
 tags: [mvp]
+redirect_from: 
+    - /blog/fin-de-la-pause-conge-parental
+    - /blog/fin-de-la-pause-conge-parental/
 ---
 
 Après plusieurs mois d'inactivité sur ce blog je suis de retour.

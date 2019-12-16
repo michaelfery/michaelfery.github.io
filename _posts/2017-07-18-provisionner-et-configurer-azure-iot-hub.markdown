@@ -6,7 +6,9 @@ date:   2017-07-18 09:25:55
 description: Dans cet article nous verrons comment provisionner un Hub, le configurer et enregistrer nos premiers devices. Cela servira de préparatifs à la mise en place d’une suite logicielle IOT.
 img: posts/azure-banner.png
 tags: ["azure", "iot", "azure iot hub"]
-redirect_from: "/blog/provisionner-et-configurer-azure-iot-hub"
+redirect_from: 
+  - /blog/provisionner-et-configurer-azure-iot-hub
+  - /blog/provisionner-et-configurer-azure-iot-hub/
 ---
 
 Dans cet article nous verrons comment provisionner un Hub, le configurer et enregistrer nos premiers devices. Cela servira de préparatifs à la mise en place d’une suite logicielle IOT.

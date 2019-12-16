@@ -6,7 +6,9 @@ date:   2017-10-02 17:11:38
 description: Windows évolue et sa présence à travers tout le médium numérique nécessitait une refonte totale de ses paradigmes. Venez découvrir comment le design des interfaces Windows a évolué et de quelle manière il sert aujourd'hui les interfaces de 0 à 4D le 4 octobre 2017 à Microsoft Experiences.
 img: posts/windows-banner.png
 tags: ["uwp", "fluent design", "talks", "experiences", "apps", "microsoft", "mvp"]
-redirect_from: "/blog/fluent-design-system-les-nouvelles-interfaces-Windows"
+redirect_from: 
+    - /blog/fluent-design-system-les-nouvelles-interfaces-Windows
+    - /blog/fluent-design-system-les-nouvelles-interfaces-Windows/
 ---
 
 Windows évolue et sa présence à travers tout le médium numérique nécessitait une refonte totale de ses paradigmes. Venez découvrir comment le design des interfaces Windows a évolué et de quelle manière il sert aujourd'hui les interfaces de 0 à 4D le 4 octobre 2017 à Microsoft Experiences.

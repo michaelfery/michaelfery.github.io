@@ -6,7 +6,9 @@ date:   2018-06-05 12:00:00
 description: Dans cet article nous ferons une présentation très rapide d’Azure IOT Hub qui sert à ingérer les messages et nous essaierons d’éclaircir l’intérêt des endpoints Event Hub et des partitions.
 img: posts/azure-banner.png
 tags: ["azure", "iot", "azure iot hub"]
-redirect_from: "/blog/azure-iot-hub-event-hub-partitions"
+redirect_from: 
+    - /blog/azure-iot-hub-event-hub-partitions
+    - /blog/azure-iot-hub-event-hub-partitions/
 ---
 
 Lorsque l’on souhaite créer un backend IOT, deux types de services principaux sont nécessaires:

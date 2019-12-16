@@ -6,7 +6,9 @@ date:   2019-10-05 08:32:49.067
 # description: 
 img: posts/dotnet-core-banner.png
 tags: [Azure, dotnet, .net core 3.0]
-redirect_from: "/blog/dotnet-core-3-azure-availability"
+redirect_from: 
+    - /blog/dotnet-core-3-azure-availability
+    - /blog/dotnet-core-3-azure-availability/
 ---
 TLDR;) Lisez le titre et vous avez l'info.
 
