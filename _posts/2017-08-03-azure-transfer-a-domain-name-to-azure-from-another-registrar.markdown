@@ -4,6 +4,7 @@ title:  Transfer a domain name to Azure from another registrar
 date:   2017-08-03 00:17:18
 # categories: blog
 description: Since a while, we could order and manage custom domain names from Azure. The missing part of this service was the ability to transfer a domain name from another registrar to Azure. I mean, not only DNS, but migrate the billing and ownership to Azure. Let’s see how to do this !
+img: posts/azure-banner.png
 tags: ["azure", "domain"]
 redirect_from: "/blog/azure-transfer-a-domain-name-to-azure-from-another-registrar"
 ---

@@ -4,6 +4,7 @@ title:  Azure IOT Hub, Event Hub endpoints et Partitions
 date:   2018-06-05 12:00:00
 # categories: blog
 description: Dans cet article nous ferons une présentation très rapide d’Azure IOT Hub qui sert à ingérer les messages et nous essaierons d’éclaircir l’intérêt des endpoints Event Hub et des partitions.
+img: posts/azure-banner.png
 tags: ["azure", "iot", "azure iot hub"]
 redirect_from: "/blog/azure-iot-hub-event-hub-partitions"
 ---

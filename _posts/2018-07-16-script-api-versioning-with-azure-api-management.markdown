@@ -5,7 +5,7 @@ date:   2018-07-16 10:38:31
 # categories: blog
 description: "Les versions permettent de regrouper plusieurs versions d'une même API au sein d'un Version Set alors que les révisions permettent de tester et déployer serinement des changements d'API.
 Nous allons nous concentrer dans cet article sur le versionning d'API en créant un Version Set et en y ajoutant une première version d'API."
-# img: /posts/636670925255471048/azure-api-version-set.png
+img: posts/azure-banner.png
 tags: ["azure", "api management"]
 redirect_from: "/blog/script-api-versioning-with-azure-api-management"
 ---

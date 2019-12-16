@@ -4,6 +4,7 @@ title:  "IOT Core Dashboard Device Provisioning: No Wi-fi profiles were found on
 date:   2018-01-01 10:42:00
 # categories: blog
 description: "IOT Core Dashboard let you set up the wifi profile on a new device only if your computer has already been connected to the wifi network through a profile. If not you will see the error \"No Wi-fi profiles were found on this PC\"."
+img: posts/windows-banner.png
 tags: ["iot", "windows iot core"]
 redirect_from: "/blog/no-wi-fi-profiles-were-found-on-this-pc"
 ---

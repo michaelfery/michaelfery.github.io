@@ -4,7 +4,7 @@ title:  "Azure DevOps &amp; App Service : faîtes le ménage dans le dossier www
 date:   2019-01-13 13:54:28.422
 # categories: blog
 description: Comment faire en sorte que le process de déploiement Azure DevOps fasse le ménage dans le dossier wwwroot de destination d'un App Service avant tout nouveau déploiement
-img: /posts/azureDevopsWebDeployTaskRemoveDestinationFiles_636829856231953279.png
+img: posts/azure-banner.png
 tags: ["azure", "app service", "azure devops"]
 redirect_from: "/blog/azure-devops-app-service-wwwroot-clean"
 ---

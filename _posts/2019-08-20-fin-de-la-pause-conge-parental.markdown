@@ -4,7 +4,7 @@ title:  Fin de la pause congé parental
 date:   2019-08-20 11:10:14.108
 # categories: blog
 # description: 
-img: /posts/baby-using-computer-416x277.jpg
+img: posts/chat-banner.png
 tags: [mvp]
 ---
 

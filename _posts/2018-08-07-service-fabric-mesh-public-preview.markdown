@@ -4,7 +4,7 @@ title:  Service Fabric Mesh Public Preview
 date:   2018-08-07 06:00:11
 # categories: blog
 description: A l'heure du Server-less, Microsoft nous propose du Cluster-less avec la Public Preview d'Azure Service Fabric Mesh.
-img: posts/service-fabric-mesh-preview.jpg
+img: posts/sfmesh-banner.png
 tags: ["service fabric mesh", "azure"]
 redirect_from: "/blog/service-fabric-mesh-public-preview"
 ---

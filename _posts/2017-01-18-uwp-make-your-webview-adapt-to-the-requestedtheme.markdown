@@ -6,6 +6,7 @@ date:   2017-01-18 07:14:38
 description: "In UWP applications WebView do not care at all about the requested theme you set.
 It’s not a big problem if the webview is navigating to an online content because this content will probably set a specific design for the background, fonts, etc.
 But, what if you have a local html file you want to display inside your app ?"
+img: posts/windows-banner.png
 tags: ["uwp", "apps", "navigatetostring", "requestedtheme", "webview"]
 redirect_from: "/blog/uwp-make-your-webview-adapt-to-the-requestedtheme"
 ---

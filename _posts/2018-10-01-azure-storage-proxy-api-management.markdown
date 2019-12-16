@@ -3,7 +3,7 @@ layout: post
 title:  Créer un Proxy pour Azure Storage avec Azure API Management
 date:   2018-10-01 06:06:10
 # categories: blog
-img: posts/apim_storage_proxy.png
+img: posts/azure-banner.png
 description: Dans cet article nous allons voir comment Azure API Management peut jouer le rôle de proxy entre les ressources Azure Storage et vos utilisateurs afin d'y apporter sécurité, cache, etc.
 tags: ["azure", "storage", "proxy", "api management"]
 redirect_from: "/blog/azure-storage-proxy-api-management"

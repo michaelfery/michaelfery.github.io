@@ -4,7 +4,7 @@ title:  Github Actions 2.0 pour une CI .NET Core
 date:   2019-09-09 05:30:00.000
 # categories: blog
 # description: 
-img: /posts/github-actions-build-success_637035344507261652.png
+img: posts/github-actions-banner.png
 tags: [dotnet, Github Actions, DevOps, Continuous Integration, Github]
 redirect_from: "/blog/github-actions-2-for-dotnet-core-ci"
 ---

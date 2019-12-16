@@ -5,6 +5,7 @@ date:   2015-09-09 21:29:00
 # categories: blog
 description: "When your application turns on a phone, you have only one reader. When your application turns on a PC, you probably have none but you can plug an external reader. But, what if the laptop already has an embedded reader and you want to use an external one ?
 There is a method for that : ProximityDevice.FromID(string deviceID)"
+img: posts/windows-banner.png
 tags: ["uwp", "nfc"]
 redirect_from: "/blog/choose-you-nfc-device-in-proximitydevice-api"
 ---

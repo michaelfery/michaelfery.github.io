@@ -4,7 +4,7 @@ title:  "Github Actions 2.0 : Déploiement Continu sur Azure"
 date:   2019-10-05 08:32:49.067
 # categories: blog
 # description: 
-img: posts/github-actions-deploy-success_637041601022595331.png
+img: posts/github-actions-banner.png
 tags: [Azure, Github Actions, DevOps]
 redirect_from: "/blog/github-actions-2-for-continuous-deployment-on-azure"
 ---

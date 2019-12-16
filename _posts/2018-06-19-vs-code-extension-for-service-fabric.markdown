@@ -4,7 +4,7 @@ title:  Visual Studio Code Extension pour Service Fabric
 date:   2018-06-19 11:00:00
 # categories: blog
 description: "Vous avez découvert dans un post précédent comment disposer d'un cluster Service Fabric de test, gratuit et en quelques clics. Je vous présente maintenant comment vous passer de Visual Studio en utilisant l'outil multi-plateformes:: VS Code et ses extensions pour créer vos premiers microservices sur Service Fabric."
-# img: /posts/636649190560587483/SF_Extension_MarketPlace.png
+img: posts/vscode-banner.png
 tags: ["service fabric", "vs code", "extension", "microservices"]
 redirect_from: "/blog/vs-code-extension-for-service-fabric"
 ---

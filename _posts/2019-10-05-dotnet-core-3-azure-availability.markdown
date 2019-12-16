@@ -4,7 +4,7 @@ title:  .NET Core 3.0 disponible sur Azure App Service
 date:   2019-10-05 08:32:49.067
 # categories: blog
 # description: 
-img: posts/dotnetcore3.0_appservice_637060591370494645.png
+img: posts/dotnet-core-banner.png
 tags: [Azure, dotnet, .net core 3.0]
 redirect_from: "/blog/dotnet-core-3-azure-availability"
 ---

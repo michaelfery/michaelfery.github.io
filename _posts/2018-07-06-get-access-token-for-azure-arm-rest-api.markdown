@@ -5,7 +5,7 @@ date:   2018-07-06 10:00:00
 # categories: blog
 description: "Il est parfois nécessaire d'utiliser l'API REST d'Azure ARM directement plutôt que via Powershell ou la CLI, notamment quand des fonctionnalités de l'API n'y sont pas encore implémentées.
 Voici comment récuper un token d'accès sans passer par le portail."
-# img: /posts/636649190560587484/GetAzureRMAccessToken.png
+img: posts/azure-banner.png
 tags: ["azure", "arm"]
 redirect_from: "/blog/get-access-token-for-azure-arm-rest-api"
 ---
