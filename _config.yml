@@ -1,10 +1,10 @@
-title: DevOps journey
+title: Michaël Fery
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://mfery.com"
 twitter_username: _mfery
 github_username:  michaelfery
 
@@ -31,6 +31,6 @@ plugins:
 paginate: 8
 paginate_path: "/page/:num"
 
-permalink: pretty
+permalink: '/:year/:month/:title'
 
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
