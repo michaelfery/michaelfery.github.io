@@ -117,7 +117,7 @@ Nous utiliserons ici l'action **appservice-actions/webapp**. Il faudra pr&eacute
       with:
         app-name: actionsSampleApp
         package: webapp
-        publish-profile: ${{ secrets.webappPublishProfile }}
+        publish-profile: {% raw %}${{ secrets.webappPublishProfile }}{% endraw %}
 ```
 
 Il ne vous restera alors qu'&agrave; d&eacute;marrer manuellement votre pipeline ou &agrave; attendre votre prochain commit sur master, via une PR &eacute;videmment ;)
