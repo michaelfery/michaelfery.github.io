@@ -1,0 +1,28 @@
+name: Nightly Build
+on:
+  schedule:
+    - cron:  '5 * * * *'
+
+jobs:
+  request-build:
+    runs-on: ubuntu-latest
+    steps:
+      # Create check run
+      - uses: octokit/request-action@v2.x
+        id: request_build
+        with:
+          route: POST /repos/:repository/pages/builds
+          repository: ${{ github.repository }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+          
+
+      # Parse steps.create_check_run.outputs.data, since it is a string
+      - id: parse_response
+        uses: gr2m/get-json-paths-action@v1.x
+        with:
+          json: ${{ steps.request_build.outputs.data }}
+          status: "status"
+          url: "url"
+  
+      - run: "echo build status: '${{ steps.parse_response.outputs.status }}'"
