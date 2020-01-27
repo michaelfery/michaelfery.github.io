@@ -122,7 +122,7 @@ Pour cela nous avons introduit un nouveau **secret**: `{% raw %}${{ secrets.AZUR
 L'identité nécessaire pour publier notre application doit donc avoir les droits associés. Cela se fait en générant un Service Principal sur un scope défini via la cli depuis **Azure Cloud Shell** par exemple.
 
 Plusieurs options s'offrent à nous. Soit on scope la souscription, soit le ressource group contenant l'appservice, soit la ressource app service directement.
-Dans une approche **least privilege** je ne saurais que vous conseillez de restreindre les droits à la ressource.
+Dans une approche **least privilege** je ne saurais que vous conseiller de restreindre les droits à la ressource.
 
 ```bash
 az ad sp create-for-rbac --name "my-service-principal-name" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> --sdk-auth
