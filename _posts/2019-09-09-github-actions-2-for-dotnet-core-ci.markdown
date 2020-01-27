@@ -11,6 +11,12 @@ redirect_from:
     - /blog/github-actions-2-for-dotnet-core-ci/
 ---
 
+Cet article est le premier d'une s&eacute;rie sur **Github Actions** et la mise en place d'une cha&icirc;ne CI/CD.
+
+* [Github Actions 2.0 pour une CI .NET Core](/2019/09/github-actions-2-for-dotnet-core-ci)
+* [Github Actions 2.0 : Déploiement Continu sur Azure](/2019/10/github-actions-2-for-continuous-deployment-on-azure)
+* [Github Actions : Azure CLI & Service Principal](/2020/01/github-actions-az-cli)
+
 Il y a quelques jours j'ai re&ccedil;u le Saint-Graal: l'activation de la fonctionnalit&eacute; Actions de Github.
 
 Il s'agit l&agrave; de pouvoir g&eacute;rer ses pipelines de Continuous Delivery directement depuis Github.

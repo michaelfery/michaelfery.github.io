@@ -13,6 +13,10 @@ redirect_from:
 
 Cet article est le second d'une s&eacute;rie sur **Github Actions** et la mise en place d'une cha&icirc;ne CI/CD.
 
+* [Github Actions 2.0 pour une CI .NET Core](/2019/09/github-actions-2-for-dotnet-core-ci)
+* [Github Actions 2.0 : Déploiement Continu sur Azure](/2019/10/github-actions-2-for-continuous-deployment-on-azure)
+* [Github Actions : Azure CLI & Service Principal](/2020/01/github-actions-az-cli)
+
 Aujourd'hui, nous verrons comment cr&eacute;er un pipeline de d&eacute;ploiement d'applications sur Azure PaaS.
 
 Vous pourrez m&ecirc;me afficher un petit badge ;)
