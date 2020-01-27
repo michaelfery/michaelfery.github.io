@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Github Actions : Azure CLI & Service Principal"
+date:   2020-01-27 07:00:00.000 +01:00
 # categories: blog
 # description: 
 img: posts/github-actions-banner.png
@@ -27,18 +28,13 @@ Voici donc le fichier auquel nous avions abouti, avec de très légères amélio
 
 ```yml
 name: CI/CD Classic
-
 on: [push]
-
 env:
   ARTIFACT_NAME : webapp
   AZURE_WEBAPP_NAME: actionsSampleApp
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
     - name: Setup .NET Core
@@ -47,7 +43,6 @@ jobs:
         dotnet-version: 2.2.108
     - name: Build with dotnet
       run: dotnet build ./src --configuration Release
-
     - name: Package with dotnet
       run: dotnet publish ./src --configuration Release
     - name: Publish artifact
@@ -55,9 +50,7 @@ jobs:
       with:
         name: {% raw %}${{ secrets.ARTIFACT_NAME }}{% endraw %}
         path: src/bin/Release/netcoreapp2.2/publish
-
   deploy:
-
     needs: build
     runs-on: windows-latest
     steps:
@@ -97,7 +90,6 @@ Nous allons donc remplacer notre job `deploy` pour y ajouter les steps utilisant
 
 ```yml
 deploy:
-
   needs: build
   runs-on: windows-latest
   steps:
