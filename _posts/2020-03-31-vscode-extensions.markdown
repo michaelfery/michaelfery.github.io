@@ -6,6 +6,7 @@ date:   2020-03-31 07:00:00.000 +01:00
 # description: 
 img: posts/vscode-banner.png
 tags: [Azure, VSCode]
+published: false
 ---
 
 Aujourd'hui je vais vous montrer comment créer vous-même une extension dans VS Code quand on n'y connaît rien... et même si on est une quiche en TypeScript ;)
