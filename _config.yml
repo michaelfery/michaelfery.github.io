@@ -3,7 +3,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Michaël Fery
   Senior Consultant & \#Azure \#MVP
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://mfery.com"
+url: "https://michaelfery.github.io"
 twitter_username: _mfery
 github_username:  michaelfery
 
