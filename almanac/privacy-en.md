@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Privacy Policy — Almanac
-description: What the Almanac app does with your data. Short answer: it never leaves your phone.
+title: "Privacy Policy — Almanac"
+description: "What the Almanac app does with your data. Short answer — it never leaves your phone."
 permalink: /almanac/privacy-en/
 ---
 

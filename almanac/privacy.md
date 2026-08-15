@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Politique de confidentialité — Almanac
-description: Comment l'application Almanac traite vos données. Réponse courte : elles ne quittent pas votre téléphone.
+title: "Politique de confidentialité — Almanac"
+description: "Ce que l'application Almanac fait de vos données. Réponse courte : elles ne quittent pas votre téléphone."
 permalink: /almanac/privacy/
 ---
 
