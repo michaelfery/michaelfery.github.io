@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "Politique de confidentialité — Almanac"
-description: "Ce que l'application Almanac fait de vos données. Réponse courte : elles ne quittent pas votre téléphone."
+title: "Politique de confidentialité d'Almanac"
+description: "Ce que l'application Almanac fait de vos données. Réponse courte : il n'y a pas de serveur Almanac, et la seule copie hors de votre téléphone est la sauvegarde chiffrée d'Android."
 permalink: /almanac/privacy/
 ---
 
-# Politique de confidentialité — Almanac
+# Politique de confidentialité d'Almanac
 
-*Dernière mise à jour : 15 août 2026*
+*Dernière mise à jour : 30 août 2026*
 
 Read this page in [English](/almanac/privacy-en/).
 
@@ -18,9 +18,11 @@ fait de vos données. Elle est courte parce que l'application en fait peu.
 
 ## En une phrase
 
-**Votre carnet d'entretien ne quitte jamais votre téléphone.** Il n'existe aucun
-serveur Almanac, aucun compte, aucune inscription, et le code de l'application
-n'effectue aucun appel réseau.
+**Il n'existe aucun serveur Almanac, aucun compte, aucune inscription, et le
+code de l'application n'effectue aucun appel réseau.** Votre carnet reste sur
+votre téléphone, à une exception près : la sauvegarde automatique d'Android en
+place une copie chiffrée sur votre espace Google, pour que vous le retrouviez si
+vous changez d'appareil. Elle est décrite plus bas, et vous pouvez la couper.
 
 ---
 
@@ -37,19 +39,46 @@ Almanac peut lire :
 | Vos réglages : thème, saison, rappels, affichage | préférences locales |
 | Le nombre de dons effectués | préférences locales, séparées des précédentes |
 
-Rien de tout cela n'est transmis, sauvegardé en ligne, ni consultable par
-l'auteur de l'application.
+Rien de tout cela n'est transmis à l'auteur de l'application, ni consultable
+par lui. La seule copie qui existe ailleurs est la sauvegarde d'Android décrite
+ci-dessous.
 
-**Corollaire à connaître avant d'en avoir besoin :** si vous désinstallez
-Almanac, ou si vous utilisez « Tout effacer », ces données disparaissent
-définitivement. Il n'existe aucune copie ailleurs à restaurer. L'export PDF est
-le seul moyen de conserver votre carnet en dehors de l'application.
+**À connaître avant d'en avoir besoin :** « Tout effacer » supprime ces données
+sur l'appareil, immédiatement et sans corbeille. Si la sauvegarde Android est
+active, une copie antérieure peut subsister le temps que la prochaine
+sauvegarde la remplace. L'export PDF reste le seul moyen de conserver votre
+carnet sous une forme que vous maîtrisez, lisible sans Almanac.
 
 ---
 
 ## Ce qui sort de l'appareil, et quand
 
-Trois cas, tous déclenchés par vous.
+Quatre cas. Trois sont déclenchés par vous ; le premier ne l'est pas, et c'est
+pour cette raison qu'il est en tête.
+
+**La sauvegarde automatique d'Android.** Android copie la base d'Almanac et vos
+réglages sur l'espace de sauvegarde associé à votre compte Google, comme il le
+fait pour les autres applications de votre téléphone. C'est ce qui vous rend vos
+équipements et votre carnet quand vous réinstallez l'application ou changez de
+téléphone.
+
+Ce qu'il faut en savoir, précisément :
+
+- **C'est Android qui la réalise, pas Almanac.** L'application n'y participe pas
+  et n'effectue toujours aucun appel réseau ; elle déclare seulement quels
+  fichiers méritent d'être sauvegardés.
+- **Elle est chiffrée avec le code de verrouillage de votre appareil**, depuis
+  Android 9. Google conserve la copie sans pouvoir la lire, et l'auteur
+  d'Almanac n'y a aucun accès.
+- **Elle est activée par défaut, et vous pouvez la couper.** Dans les réglages
+  d'Android, à la rubrique Google puis Sauvegarde, pour tout l'appareil ou pour
+  Almanac seul.
+- **C'est un choix assumé.** Almanac n'a pas de serveur, donc la base de votre
+  téléphone *est* votre carnet, y compris les interventions que vous y avez
+  inscrites pour des travaux antérieurs à l'application. Sans cette sauvegarde,
+  un téléphone perdu emporterait le document que vous montreriez à un acheteur
+  ou à un assureur. Nous avons préféré une copie chiffrée que vous pouvez
+  refuser à une perte que vous ne pourriez pas rattraper.
 
 **Un don.** Le paiement est traité par Google Play, pas par Almanac. Vous
 communiquez vos informations de paiement à Google ; l'application ne les voit
@@ -92,14 +121,13 @@ rapport de plantage** dans cette application.
 - Pas de revente ni de partage de données à des tiers.
 - Pas de compte, pas d'adresse e-mail demandée.
 - Pas de localisation, pas de contacts, pas de photos, pas de micro.
-- Aucun contenu de l'application n'est réservé aux personnes ayant fait un don.
 
 ---
 
 ## Enfants
 
 Almanac ne s'adresse pas spécifiquement aux enfants et ne collecte sciemment
-aucune donnée les concernant — n'en collectant aucune, de personne.
+aucune donnée les concernant : il n'en collecte aucune, de personne.
 
 ---
 

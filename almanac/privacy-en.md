@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "Privacy Policy — Almanac"
-description: "What the Almanac app does with your data. Short answer — it never leaves your phone."
+title: "Almanac Privacy Policy"
+description: "What the Almanac app does with your data. Short answer: there is no Almanac server, and the only copy off your phone is Android's encrypted backup."
 permalink: /almanac/privacy-en/
 ---
 
-# Privacy Policy — Almanac
+# Almanac Privacy Policy
 
-*Last updated: 15 August 2026*
+*Last updated: 30 August 2026*
 
 Lire cette page en [français](/almanac/privacy/).
 
@@ -18,8 +18,11 @@ data. It is short because the app does very little with it.
 
 ## In one sentence
 
-**Your maintenance record never leaves your phone.** There is no Almanac server,
-no account, no sign-up, and the app's own code makes no network calls.
+**There is no Almanac server, no account, no sign-up, and the app's own code
+makes no network calls.** Your record stays on your phone, with one exception:
+Android's automatic backup keeps an encrypted copy in your Google account so
+that you still have it if you change devices. It is described below, and you can
+turn it off.
 
 ---
 
@@ -36,17 +39,40 @@ read:
 | Your settings: theme, season, reminders, display | local preferences |
 | How many donations you have made | local preferences, kept separate from the above |
 
-None of it is transmitted, backed up online, or visible to the app's author.
+None of it is transmitted to the app's author, or visible to them. The only
+copy that exists elsewhere is the Android backup described below.
 
-**Worth knowing before you need it:** if you uninstall Almanac, or use "Erase
-everything", this data is gone for good. There is no copy anywhere to restore
-from. The PDF export is the only way to keep your record outside the app.
+**Worth knowing before you need it:** "Erase everything" removes this data from
+the device at once, with no undo. If the Android backup is on, an earlier copy
+may survive until the next backup replaces it. The PDF export is still the only
+way to keep your record in a form you control, readable without Almanac.
 
 ---
 
 ## What leaves the device, and when
 
-Three cases, all started by you.
+Four cases. Three are started by you; the first is not, which is why it comes
+first.
+
+**Android's automatic backup.** Android copies Almanac's database and your
+settings to the backup storage attached to your Google account, as it does for
+the other apps on your phone. It is what gives you back your equipment and your
+record when you reinstall the app or move to a new phone.
+
+What is worth knowing about it, precisely:
+
+- **Android performs it, not Almanac.** The app takes no part in it and still
+  makes no network calls; it only declares which files are worth backing up.
+- **It is encrypted with your device's lock code**, on Android 9 and later.
+  Google holds the copy without being able to read it, and Almanac's author has
+  no access to it at all.
+- **It is on by default, and you can turn it off.** In Android's settings, under
+  Google then Backup, either for the whole device or for Almanac alone.
+- **It is a deliberate choice.** Almanac has no server, so the database on your
+  phone *is* your record, including the work you entered for jobs done before
+  you had the app. Without this backup, a lost phone would take with it the
+  document you would show a buyer or an insurer. We would rather give you an
+  encrypted copy you can refuse than a loss you could not undo.
 
 **A donation.** Payment is handled by Google Play, not by Almanac. You give your
 payment details to Google; the app never sees them and stores nothing about
@@ -86,14 +112,13 @@ Google. Almanac does not control that behaviour and adds nothing to it: there is
 - No selling or sharing of data with third parties.
 - No account, no email address requested.
 - No location, no contacts, no photos, no microphone.
-- Nothing in the app is reserved for people who have donated.
 
 ---
 
 ## Children
 
-Almanac is not directed at children and knowingly collects no data about them —
-collecting none, from anyone.
+Almanac is not directed at children and knowingly collects no data about them: it
+collects none, from anyone.
 
 ---
 
