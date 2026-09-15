@@ -2,25 +2,22 @@
 layout: main
 ---
 {% if paginator.page == 1 %}
-<!-- Apps : une carte par application publiée. Page 1 seulement.
-     Ajouter une carte quand la page <slug>/index.html existe, et retirer
-     les balises Liquid comment / endcomment le jour de la première. -->
-{% comment %}
+<!-- Apps : une carte par application publiée, page 1 seulement.
+     Ajouter une carte quand la page <slug>/index.html existe. -->
 <section class="app-cards" aria-labelledby="apps-title">
   <h2 class="app-cards__title" id="apps-title">Apps</h2>
-  <ul class="app-cards__list">
+  <ul class="app-cards__list" role="list">
     <li>
-      <a class="app-card" href="{{ site.baseurl }}/almanac/">
+      <a class="app-card" href="{{ site.baseurl }}/almanac/" lang="fr">
         <img src="{{ site.baseurl }}/almanac/assets/icon-192.png" alt="" width="56" height="56">
         <span>
           <span class="app-card__name">Almanac</span>
-          <span class="app-card__tagline">Le carnet d'entretien de votre logement.</span>
+          <span class="app-card__tagline">Ce qu'il faut entretenir chez vous, quand, et comment.</span>
         </span>
       </a>
     </li>
   </ul>
 </section>
-{% endcomment %}
 {% endif %}
 {% for post in paginator.posts %}
 <article class="post">
