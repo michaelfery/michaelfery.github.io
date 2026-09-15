@@ -1,139 +1,198 @@
 ---
 layout: default
 title: "Politique de confidentialité de Bookfolio"
-description: "Ce que l'application Bookfolio fait de vos données : votre bibliothèque reste sur votre appareil ou dans votre propre compte Google ; il n'y a pas de serveur Bookfolio ; la télémétrie est sur opt-in."
+description: "Ce que l'application Bookfolio fait de vos données. Réponse courte : pas de serveur Bookfolio ; votre bibliothèque est sur votre téléphone, plus la sauvegarde Android, Google Drive si vous activez la synchronisation, et la télémétrie seulement si vous l'activez."
 permalink: /bookfolio/privacy-fr/
 ---
 
-# Politique de confidentialité — Bookfolio
+# Politique de confidentialité de Bookfolio
 
-**Dernière mise à jour : 6 avril 2026**
+*Dernière mise à jour : 16 septembre 2026*
 
-Read this page in [English](/bookfolio/privacy/). En cas de divergence, la version anglaise fait foi : c'est celle que le dépôt de l'application maintient.
+Read this page in [English](/bookfolio/privacy/).
 
----
-
-## 1. Introduction
-
-Bookfolio (l'« Application ») est développée et publiée dans le cadre d'un projet individuel. Cette politique de confidentialité explique quelles données sont collectées, comment elles sont utilisées, et quels sont vos droits en tant qu'utilisateur.
-
-En utilisant l'Application, vous acceptez les pratiques décrites dans ce document.
+Bookfolio est une application de suivi de lecture. Cette page décrit ce
+qu'elle fait de vos données. Elle est plus longue que nous ne le voudrions,
+parce que l'application parle à Google de plusieurs façons, et que chacune
+mérite une phrase claire.
 
 ---
 
-## 2. Données collectées
+## En une phrase
 
-### 2.1 Données du compte Google
-
-Lorsque vous vous connectez via **Google Sign-In**, l'Application accède à des informations de base de votre compte Google : nom, adresse e-mail et photo de profil. Ces données servent uniquement à identifier votre session et à synchroniser votre bibliothèque.
-
-Aucun mot de passe Google n'est jamais stocké par l'Application.
-
-### 2.2 Bibliothèque
-
-Les livres que vous ajoutez à votre bibliothèque (titre, auteur, ISBN, notes, statut de lecture, etc.) sont stockés **localement sur votre appareil** et, si vous activez la synchronisation, **dans votre compte Google Drive personnel**.
-
-Ces données ne sont jamais transmises à des serveurs tiers autres que Google Drive.
-
-### 2.3 Caméra
-
-L'Application demande l'accès à la caméra **uniquement pour scanner des codes-barres ISBN** (EAN-13). La caméra n'est activée que lorsque l'utilisateur ouvre explicitement le scanner. Aucune image ni vidéo n'est enregistrée ou transmise.
-
-La reconnaissance des codes-barres est effectuée **localement sur l'appareil** avec **Google ML Kit**, sans envoi de données à des serveurs externes.
-
-### 2.4 Notifications
-
-L'Application peut demander l'autorisation d'envoyer des **notifications locales** (rappels, confirmations). Aucune notification n'est envoyée depuis un serveur distant.
-
-### 2.5 Réseau
-
-L'Application utilise Internet pour :
-- rechercher des livres via l'**API Google Books** (requêtes par titre, auteur ou ISBN) ;
-- synchroniser votre bibliothèque avec **Google Drive** ;
-- charger les images de couverture.
-
-Les requêtes à l'API Google Books ne transmettent que les termes de recherche que vous saisissez.
-
-### 2.6 Télémétrie optionnelle (opt-in uniquement)
-
-Bookfolio inclut une télémétrie Firebase pour la qualité du produit :
-- **Firebase Analytics** (mesures anonymes d'usage des fonctionnalités et de version de l'application) ;
-- **Firebase Crashlytics** (diagnostics de plantage).
-
-La télémétrie est **désactivée par défaut**. Elle n'est activée que si vous l'acceptez explicitement, à l'onboarding ou dans les réglages. Vous pouvez la désactiver à tout moment.
+**Il n'existe aucun serveur Bookfolio et aucun compte Bookfolio.** Votre
+bibliothèque vit sur votre téléphone. Des copies en sortent dans trois cas :
+la sauvegarde d'Android, active par défaut ; la synchronisation Google Drive,
+si vous l'activez ; la télémétrie, si vous l'activez. Chercher un livre envoie
+vos termes de recherche à Google Books, ou à Open Library quand Google Books
+ne trouve rien.
 
 ---
 
-## 3. Données non collectées
+## Ce que l'application enregistre, et où
 
-Sans activation de la télémétrie, l'Application ne collecte **aucune** des données suivantes :
+Tout est stocké **localement sur votre appareil**, dans des fichiers que seule
+Bookfolio peut lire :
 
-- données de localisation ;
-- contacts ;
-- identifiants publicitaires ;
-- données biométriques ;
-- historique de navigation ;
-- données de performance ou de plantage.
+| Donnée | Où |
+|---|---|
+| Les livres que vous ajoutez : titre, auteurs, éditeur, année, ISBN, catégories, résumé, adresse de la couverture | base de données locale (`bookfolio.db`) |
+| Vos lectures : statut (À lire, En cours, Lu, DNF), dates de début et de fin, pages lues, note, notes, wishlist, possédé | même base |
+| Vos collections | même base |
+| Votre journal d'activité | même base |
+| Vos recherches récentes | même base |
+| Vos réglages : thème, couleur d'accent, rappels, objectif annuel, choix de télémétrie | préférences locales (`bookfolio_prefs.xml`) |
+| Le jeton d'autorisation Google, si vous avez connecté Google | un espace chiffré, séparé des fichiers ci-dessus |
+| Les couvertures, une fois téléchargées | le cache d'images de l'application |
 
----
-
-## 4. Partage des données
-
-Aucune donnée personnelle n'est vendue, louée ou partagée avec des tiers commerciaux.
-
-Les seuls services tiers utilisés sont :
-
-| Service | Usage | Politique de confidentialité |
-|---|---|---|
-| Google Sign-In | Authentification | [policies.google.com/privacy](https://policies.google.com/privacy) |
-| Google Drive | Synchronisation de la bibliothèque | [policies.google.com/privacy](https://policies.google.com/privacy) |
-| API Google Books | Recherche de livres | [policies.google.com/privacy](https://policies.google.com/privacy) |
-| Google ML Kit | Lecture de codes-barres (sur l'appareil) | [developers.google.com/ml-kit/terms](https://developers.google.com/ml-kit/terms) |
-| Firebase Analytics | Télémétrie d'usage anonyme, optionnelle (opt-in) | [firebase.google.com/support/privacy](https://firebase.google.com/support/privacy) |
-| Firebase Crashlytics | Diagnostics de plantage, optionnels (opt-in) | [firebase.google.com/support/privacy](https://firebase.google.com/support/privacy) |
+Rien de tout cela n'est transmis à l'auteur de l'application, ni consultable
+par lui.
 
 ---
 
-## 5. Stockage et sécurité
+## Ce qui sort de l'appareil, et quand
 
-- Les données locales sont stockées dans la base de données privée de l'Application (Room/SQLite), inaccessible aux autres applications.
-- Les données synchronisées sont stockées dans votre propre Google Drive et relèvent des politiques de sécurité de Google.
-- L'Application n'a aucun serveur propriétaire.
+Six cas. Le premier n'est pas déclenché par vous, c'est pour cette raison
+qu'il est en tête.
+
+**La sauvegarde automatique d'Android.** Android copie `bookfolio.db` et
+`bookfolio_prefs.xml` sur l'espace de sauvegarde associé à votre compte
+Google, comme il le fait pour les autres applications de votre téléphone, et
+les emporte lors d'un transfert vers un nouvel appareil. C'est ce qui vous rend
+votre bibliothèque quand vous réinstallez l'application ou changez de
+téléphone.
+
+- **C'est Android qui la réalise, pas Bookfolio.** L'application déclare
+  seulement quels fichiers méritent d'être sauvegardés. Le jeton
+  d'autorisation Google n'en fait pas partie.
+- **Elle est chiffrée avec le code de verrouillage de votre appareil**,
+  depuis Android 9. Google conserve la copie sans pouvoir la lire, et l'auteur
+  de Bookfolio n'y a aucun accès.
+- **Elle est activée par défaut, et vous pouvez la couper**, dans les réglages
+  d'Android, à la rubrique Google puis Sauvegarde, pour tout l'appareil ou
+  pour Bookfolio seul. Réglages › Sync et données › « Sauvegarder maintenant »
+  demande seulement à Android de lancer la sauvegarde qu'il ferait de toute
+  façon.
+
+**La recherche d'un livre.** Quand vous tapez un titre, un auteur ou un ISBN,
+ou que vous scannez un code-barres, l'application envoie les termes de
+recherche à l'**API Google Books**, et à **Open Library** quand Google Books ne
+renvoie rien. Les requêtes vers Google Books portent le nom de paquet et le
+certificat de signature de l'application, ce qui permet à Google de restreindre
+la clé d'API à cette application ; elles ne portent rien sur vous. Les
+couvertures sont ensuite téléchargées depuis Google Books ou Open Library. La
+lecture du code-barres se fait sur l'appareil : aucune image ni vidéo n'en
+sort.
+
+**La synchronisation Google Drive.** Si vous connectez Google, l'application
+demande exactement une autorisation : `drive.appdata`, le dossier privé que
+Google Drive réserve à chaque application. Cette autorisation ne donne à
+Bookfolio aucun accès au reste de votre Drive, et aucune donnée d'identité :
+ni votre nom, ni votre adresse e-mail, ni votre photo de profil. Deux choses
+sont écrites dans ce dossier :
+
+- une archive complète de votre bibliothèque et de vos réglages
+  (`bookfolio.db` et `bookfolio_prefs.xml`), pour qu'un nouvel appareil puisse
+  la restaurer ;
+- un fichier de synchronisation par livre : ISBN, statut, dates, progression,
+  note, wishlist, possédé, notes, plus le titre, les auteurs et l'adresse de la
+  couverture pour qu'un autre appareil reconnaisse le livre. Il est fusionné
+  dans les deux sens entre vos appareils.
+
+Le jeton qui autorise tout cela est stocké chiffré sur l'appareil.
+Réglages › « Déconnecter le compte Google » supprime ce jeton de cet
+appareil ; cela ne supprime pas ce qui est déjà dans votre Drive. Pour cela,
+ouvrez les paramètres de Google Drive, Gérer les applications, et supprimez
+les données d'application masquées de Bookfolio.
+
+Bookfolio n'écrit plus dans vos étagères Google Books. Cette synchronisation a
+été retirée en avril 2026.
+
+**La télémétrie, si vous l'activez.** Bookfolio embarque deux bibliothèques
+Google, **Firebase Analytics** (quels écrans sont ouverts, quelles fonctions
+sont utilisées, quelle version tourne) et **Firebase Crashlytics** (diagnostics
+de plantage). Les deux sont **désactivées par défaut** : l'application est
+livrée avec la collecte coupée, et rien ne part tant que vous ne les activez
+pas, à l'onboarding ou dans Réglages › Sync et données. Vous pouvez les couper
+à tout moment. Les événements envoyés ne contiennent aucune donnée personnelle
+et rien sur vos livres. Ce que Firebase en fait, et combien de temps il les
+conserve, relève de la politique de confidentialité Firebase de Google.
+L'identifiant publicitaire est retiré de l'application dans tous les cas, quel
+que soit votre choix.
+
+**Un pourboire ou le badge supporter.** Le paiement est traité par Google
+Play, pas par Bookfolio. Vous communiquez vos informations de paiement à
+Google ; l'application ne les voit jamais. Bookfolio reçoit uniquement la
+confirmation que l'achat a abouti, et relit votre statut de supporter depuis
+Google Play. Ce que Google collecte à cette occasion relève de la politique de
+confidentialité de Google.
+
+**Un avis sur le Play Store.** Au bout d'un moment, l'application peut
+proposer une fois de la noter. L'échange se fait entre votre appareil et
+Google Play.
 
 ---
 
-## 6. Conservation des données
+## Les autorisations, et pourquoi elles existent
 
-Les données sont conservées tant que l'Application est installée sur votre appareil. Désinstaller l'Application supprime toutes les données locales. Les données stockées dans Google Drive restent sous votre contrôle et peuvent être supprimées à tout moment depuis votre compte Google.
+Celles que vous verriez en inspectant l'application :
 
----
+| Autorisation | Raison |
+|---|---|
+| Caméra | Scanner des codes-barres, seulement pendant que le scanner est ouvert. Facultative : saisir l'ISBN trouve le même livre, et un appareil sans caméra peut installer l'application. |
+| Notifications | Les rappels de lecture : le livre en cours, la wishlist, un bilan hebdomadaire. Locaux, optionnels, et coupés tant que vous ne les activez pas. |
+| Internet, état du réseau | La recherche de livres, les couvertures, la synchronisation Google Drive. |
+| Vibration | Une courte vibration quand un code-barres est lu. |
+| Achats Google Play | Les pourboires et le badge supporter. |
 
-## 7. Vos droits
-
-Conformément au RGPD (lorsqu'il s'applique), vous disposez des droits suivants :
-
-- **Accès** : consulter les données détenues à votre sujet ;
-- **Rectification** : corriger vos données directement dans l'Application ;
-- **Effacement** : supprimer votre bibliothèque depuis l'Application ou depuis Google Drive ;
-- **Portabilité** : vos données sont directement accessibles via Google Drive.
-
----
-
-## 8. Enfants
-
-L'Application n'est pas destinée aux enfants de moins de 13 ans et ne collecte sciemment aucune donnée les concernant.
+L'autorisation d'identifiant publicitaire que Firebase ajouterait normalement
+est explicitement retirée de l'application.
 
 ---
 
-## 9. Modifications
+## Ce que Bookfolio ne fait pas
 
-Cette politique peut être mise à jour. La date de révision en haut du document sera modifiée en conséquence. Les changements importants seront signalés par une mise à jour de l'Application sur le Google Play Store.
+- Pas de publicité, pas de régie, pas d'identifiant publicitaire.
+- Pas de revente ni de partage de données à des tiers.
+- Pas de compte Bookfolio, pas d'adresse e-mail demandée.
+- Pas de localisation, pas de contacts, pas d'accès à vos photos ; la caméra
+  n'affiche qu'un aperçu en direct et n'enregistre rien.
+- Pas de télémétrie sans votre activation.
 
 ---
 
-## 10. Contact
+## Enfants
 
-Pour toute question concernant cette politique de confidentialité :
+Bookfolio ne s'adresse pas aux enfants de moins de 13 ans et ne collecte
+sciemment aucune donnée les concernant.
 
-**Michaël Fery**  
-**[mferyapps@gmail.com](mailto:mferyapps@gmail.com)**
+---
+
+## Vos droits
+
+Vos données sont sur votre appareil et, si vous l'avez choisi, dans votre
+propre compte Google. Vous en avez le contrôle direct :
+
+- **Accès et rectification** : tout est visible et modifiable dans
+  l'application.
+- **Effacement sur l'appareil** : désinstaller l'application supprime la base
+  de données, les préférences et le cache. Si la sauvegarde Android est
+  active, une copie antérieure peut subsister le temps que la prochaine
+  sauvegarde la remplace.
+- **Effacement dans Google Drive** : depuis les paramètres de Drive, Gérer les
+  applications, supprimer les données d'application masquées de Bookfolio.
+- **Télémétrie** : la couper dans Réglages ; les demandes concernant des
+  données déjà envoyées à Firebase passent par Google.
+
+Il n'y a rien à nous demander, puisque nous n'avons rien.
+
+---
+
+## Modifications
+
+Cette politique change quand l'application change. La date en haut de page
+fait foi ; l'historique complet est dans le dépôt du projet.
+
+## Contact
+
+Écrivez à [mferyapps@gmail.com](mailto:mferyapps@gmail.com).

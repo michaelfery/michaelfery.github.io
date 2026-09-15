@@ -34,15 +34,22 @@ question est ouverte, la page n'en parle pas.
 
 ## À trancher
 
-4. **Contact.** La politique du repo avait `[Your name or company name]` /
-   `[Your contact email address]`. J'ai mis « Michaël Fery » et
+4. **Politique.** Réécrite le 16 septembre 2026 dans le repo de l'app
+   (`docs/privacy-policy.md`, `docs/privacy-policy.fr.md`, branche
+   `docs/privacy-policy`, à merger) et copiée ici. Contact :
    `mferyapps@gmail.com`, l'adresse que la page About du site donne pour les
-   apps. À confirmer, et à reporter dans `docs/privacy-policy.md` côté app.
+   apps. Deux points qu'elle ne tranche pas faute de source dans le repo : le
+   public visé déclaré dans la Console (elle garde « pas pour les moins de
+   13 ans ») et la durée de conservation Firebase (elle renvoie à Google).
 
-5. **Traduction française de la politique.** `privacy-fr.md` est ma traduction
-   du texte anglais du repo, marquée « la version anglaise fait foi ». À relire.
-   Si vous préférez une seule langue, supprimer le fichier et pointer
-   `privacy/` depuis la page FR (`{{PRIVACY_PATH}}`).
+5. **La fiche Play et le README promettent une synchronisation avec les
+   étagères Google Books qui n'existe plus.** Retirée le 29 août
+   (`66a025a`), décommissionnée depuis le 5 avril ; le seul scope OAuth est
+   `drive.appdata`. À corriger dans la Console (FR et EN : « Synchronisation
+   Google » / « Google sync »), dans `store/en/full_description.txt` et dans
+   le README (§ intro, § Limites connues, note multi-device). La page vitrine
+   a été corrigée le 16 septembre. `AuthRemote.GOOGLE_BOOKS_SCOPE` est une
+   constante morte.
 
 6. **Domaine.** `bookfolio.app` est **pris** (NS `whoisdomain.kr`, A actif,
    HTTPS répond 301). Quel nom viser ? Le bloc « URLs absolues » des deux pages
@@ -50,24 +57,12 @@ question est ouverte, la page n'en parle pas.
 
 ## Constaté dans les sources, à corriger côté app si voulu
 
-7. **Politique vs code sur Google Sign-In.** La politique (§ 2.1) dit que
-   l'Application accède au nom, à l'e-mail et à la photo de profil. Le code ne
-   demande que deux scopes (`AuthRemote.kt` : `auth/books`, `auth/drive.appdata`)
-   et le README note que l'identité n'est pas utilisée. La page suit le code
-   (« l'autorisation demandée se limite à Google Books et à ce dossier ») ; la
-   politique publiée reprend le texte du repo tel quel. À réconcilier dans
-   `docs/privacy-policy.md`.
-
-8. **Politique vs manifeste sur l'identifiant publicitaire.** La politique § 3
-   dit que sans télémétrie aucun identifiant publicitaire n'est collecté ; le
-   manifeste retire `AD_ID` dans tous les cas (`tools:node="remove"`). La page
-   dit « retiré de l'application », ce qui est plus fort et exact.
-
-9. **README périmé.** « La V1 n'implémente aucun billing réel » alors que
+7. **README périmé.** « La V1 n'implémente aucun billing réel » alors que
    `BillingManager.kt` interroge Play Billing (pourboires, badge supporter) ;
    la section « V2 / TODO » (UPC, liste d'achat premium) n'est pas reprise.
+   Et la sync Google Books, voir le point 5.
 
-10. **Icône.** `docs/play-store-icon-512.png` est un glyphe transparent, pas
+8. **Icône.** `docs/play-store-icon-512.png` est un glyphe transparent, pas
     l'icône avec fond que Play exige (« 32-bit PNG, no transparency »). La
     page recompose glyphe + fond blanc comme le launcher
     (`ic_launcher_background #FFFFFF`) — et c'est bien l'icône affichée sur la
