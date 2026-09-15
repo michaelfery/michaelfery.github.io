@@ -1,6 +1,27 @@
 ---
 layout: main
 ---
+{% if paginator.page == 1 %}
+<!-- Apps : une carte par application publiée. Page 1 seulement.
+     Ajouter une carte quand la page <slug>/index.html existe, et retirer
+     les balises Liquid comment / endcomment le jour de la première. -->
+{% comment %}
+<section class="app-cards" aria-labelledby="apps-title">
+  <h2 class="app-cards__title" id="apps-title">Apps</h2>
+  <ul class="app-cards__list">
+    <li>
+      <a class="app-card" href="{{ site.baseurl }}/almanac/">
+        <img src="{{ site.baseurl }}/almanac/assets/icon-192.png" alt="" width="56" height="56">
+        <span>
+          <span class="app-card__name">Almanac</span>
+          <span class="app-card__tagline">Le carnet d'entretien de votre logement.</span>
+        </span>
+      </a>
+    </li>
+  </ul>
+</section>
+{% endcomment %}
+{% endif %}
 {% for post in paginator.posts %}
 <article class="post">
   {% if post.img %}

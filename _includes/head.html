@@ -67,10 +67,10 @@
 
 	<meta name="description" content="{{ page.description }}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta property="og:image" content="">
   <link rel="shortcut icon" href="{{ "/assets/img/favicon/favicon.ico" | prepend: site.baseurl }}" type="image/x-icon">
-  <link rel="apple-touch-icon" sizes="180x180" href={{ "/assets/img/favicon/apple-touch-icon.png" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/img/favicon/apple-touch-icon.png" | prepend: site.baseurl }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/img/favicon/favicon-32x32.png" | prepend: site.baseurl }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/img/favicon/favicon-16x16.png" | prepend: site.baseurl }}">
 	<!-- Chrome, Firefox OS and Opera -->
@@ -86,4 +86,9 @@
 	<link rel="stylesheet" href="{{ "/assets/fonts/font-awesome/css/font-awesome.min.css" | prepend: site.baseurl }}">
 	<!-- Styles -->
 	<link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
+	{% if paginator %}
+	<!-- Liste des apps (.app-cards) : seule la home en a besoin -->
+	<link rel="stylesheet" href="{{ "/assets/css/tokens.css" | prepend: site.baseurl }}">
+	<link rel="stylesheet" href="{{ "/assets/css/app.css" | prepend: site.baseurl }}">
+	{% endif %}
 </head>

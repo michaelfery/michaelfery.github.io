@@ -1,0 +1,55 @@
+/* ==========================================================================
+   tokens.css — variables partagées du site
+   --------------------------------------------------------------------------
+   Le bloc "Miroir" reprend, valeur pour valeur, assets/css/scss/_variables.scss
+   (et les deux couleurs en dur de main.scss). Si une valeur change ici, elle
+   change là-bas, et inversement : c'est la seule règle.
+
+   Le bloc "Extensions" n'existe pas dans la SCSS : il complète le site
+   (contraste AA, espacement, polices) sans rien y redéfinir.
+   ========================================================================== */
+
+:root {
+  /* --- Miroir de _variables.scss ---------------------------------------- */
+  --color-text:        #515151;   /* $body-color — 7,7:1 sur blanc          */
+  --color-heading:     #333030;   /* $dark                                   */
+  --color-accent:      #263959;   /* $dark-blue — 11,6:1 avec du blanc       */
+  --color-surface:     #ffffff;   /* $white                                  */
+  --color-surface-alt: #fafafa;   /* $lightgray                              */
+  --color-border:      #ecf0f1;   /* $gray                                   */
+  --color-page:        #fbfbfb;   /* body, en dur dans main.scss             */
+
+  /* --- Extensions -------------------------------------------------------- */
+  /* $dark-gray (#a0a0a0) ne passe pas AA en texte (2,6:1). On ne l'expose
+     pas ; on fournit un gris atténué conforme à la place.                  */
+  --color-text-muted:  #6b6b6b;   /* 5,3:1 sur blanc, 5,1:1 sur --color-page */
+  --color-on-accent:   #ffffff;
+  --color-focus:       #263959;
+
+  /* Accent propre à chaque page d'app. Surchargé dans le <style> de la page.
+     Règle : --app-accent-ink doit contraster à 4,5:1 minimum avec
+     --app-accent, sinon choisir un accent plus foncé ou passer l'encre en
+     --color-heading. Par défaut, l'accent est celui du site.               */
+  --app-accent:        var(--color-accent);
+  --app-accent-ink:    var(--color-on-accent);
+
+  /* Polices : celles déjà chargées par le site, rien d'autre. */
+  --font-sans:  'Lato', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'PT Serif', Georgia, 'Times New Roman', serif;
+
+  /* Échelle d'espacement (base 16 px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+
+  /* Formes, repris des cartes .post de la home */
+  --radius:        10px;
+  --shadow:        0 1px 1px 0 rgba(31, 35, 46, 0.15);
+  --shadow-raised: 0 15px 45px -10px rgba(10, 16, 34, 0.2);
+
+  /* Largeur de lecture confortable pour un paragraphe */
+  --measure: 65ch;
+}

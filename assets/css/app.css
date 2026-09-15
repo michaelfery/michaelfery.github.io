@@ -1,0 +1,561 @@
+/* ==========================================================================
+   app.css — pages vitrines des applications Android
+   --------------------------------------------------------------------------
+   Dépend de tokens.css (à charger avant). Aucune police, aucune icône de
+   police : les icônes sont des SVG inline dans le HTML.
+
+   Deux portées :
+   1. `body.app-page` : tout ce qui sert à une page d'app autonome (reset
+      minimal, typographie, en-tête, sections, pied). Ces règles sont
+      préfixées pour ne pas déborder sur le reste du site quand ce fichier
+      est chargé par la home.
+   2. `.app-cards` : le composant « liste d'apps », volontairement hors
+      portée pour servir sur la home (index.html) à côté de main.css.
+
+   Mobile d'abord : les media queries sont en min-width (600 px, 900 px).
+   Lisible à 360 px : gouttière de 16 px, rien de plus large que l'écran
+   hormis la bande de captures, qui défile dans son propre conteneur.
+   ========================================================================== */
+
+
+/* 1. Base ------------------------------------------------------------------ */
+
+.app-page,
+.app-page *,
+.app-page *::before,
+.app-page *::after {
+  box-sizing: border-box;
+}
+
+body.app-page {
+  margin: 0;
+  background: var(--color-page);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Signature de l'app : un filet de couleur en haut de page */
+  border-top: 4px solid var(--app-accent);
+}
+
+@media (min-width: 900px) {
+  body.app-page {
+    font-size: 1.125rem;
+  }
+}
+
+.app-page img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.app-page h1,
+.app-page h2,
+.app-page h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--color-heading);
+  margin: 0 0 var(--space-3);
+}
+
+.app-page h2 {
+  font-size: 1.5rem;
+}
+
+.app-page p {
+  margin: 0 0 var(--space-3);
+}
+
+/* :where() garde la spécificité à (0,1,0) : les composants (.app-button,
+   .app-header__home, .app-footer a…) peuvent redéfinir la couleur sans
+   surenchère de sélecteurs. */
+.app-page :where(a) {
+  color: var(--color-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.app-page :where(a:hover) {
+  text-decoration-thickness: 2px;
+}
+
+/* Anneau de focus visible partout, clavier uniquement */
+.app-page :focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Lien d'évitement : invisible jusqu'au focus clavier */
+.app-page .skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-3);
+  z-index: 10;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  color: var(--color-accent);
+  border-radius: 0 0 var(--radius) var(--radius);
+  box-shadow: var(--shadow-raised);
+}
+
+.app-page .skip-link:focus {
+  top: 0;
+}
+
+/* Conteneur : gouttière de 16 px à toute largeur, 60 rem au plus */
+.app-container {
+  width: min(100% - 2 * var(--space-3), 60rem);
+  margin-inline: auto;
+}
+
+@media (min-width: 600px) {
+  .app-container {
+    width: min(100% - 2 * var(--space-5), 60rem);
+  }
+}
+
+/* Utilitaire : texte pour lecteurs d'écran seulement */
+.app-page .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-page *,
+  .app-cards * {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* 2. En-tête --------------------------------------------------------------- */
+
+.app-header {
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.app-header .app-container {
+  display: flex;
+  flex-wrap: wrap;            /* à 360 px, la nav passe sous le nom si besoin */
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 var(--space-3);
+  min-height: 3.5rem;
+}
+
+/* Reprise du nom d'auteur de la sidebar : PT Serif, capitales, gras */
+.app-header__home {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  font-family: var(--font-serif);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--color-heading);
+}
+
+.app-header__home img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-heading);
+}
+
+.app-header__nav {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.app-header__nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--space-2);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.app-header__nav a:hover {
+  text-decoration: underline;
+}
+
+
+/* 3. Hero ------------------------------------------------------------------ */
+
+.app-hero {
+  padding-block: var(--space-5) var(--space-4);
+  text-align: center;
+}
+
+.app-hero__icon {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto var(--space-3);
+  border-radius: 22%;
+  box-shadow: var(--shadow-raised);
+}
+
+.app-hero h1 {
+  font-size: 2rem;
+  margin-bottom: var(--space-2);
+}
+
+.app-hero__tagline {
+  max-width: var(--measure);
+  margin: 0 auto var(--space-4);
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.app-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.app-hero__meta {
+  margin: var(--space-3) 0 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 600px) {
+  .app-hero {
+    padding-block: var(--space-6) var(--space-5);
+  }
+
+  .app-hero__icon {
+    width: 128px;
+    height: 128px;
+  }
+
+  .app-hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Boutons : 44 px minimum, pilule, icône SVG en tête */
+.app-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0.625rem 1.5rem;
+  border: 2px solid var(--app-accent);
+  border-radius: 999px;
+  background: var(--app-accent);
+  color: var(--app-accent-ink);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-raised);
+}
+
+.app-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+  fill: currentColor;
+}
+
+.app-button--secondary {
+  background: transparent;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+
+/* 4. Captures d'écran ------------------------------------------------------ */
+
+.app-shots {
+  padding-block: var(--space-4);
+}
+
+/* Bande défilante : une capture et demie visible à 360 px, snap au doigt.
+   Le conteneur est focusable (tabindex="0" dans le HTML) pour défiler au
+   clavier avec les flèches. */
+.app-shots__track {
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--space-3);
+  padding: var(--space-1) var(--space-1) var(--space-3);
+  -webkit-overflow-scrolling: touch;
+}
+
+.app-shots__track > figure {
+  flex: 0 0 min(66vw, 260px);
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.app-shots__track img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--color-surface-alt);
+}
+
+.app-shots__track figcaption {
+  margin-top: var(--space-2);
+  font-size: 0.875rem;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+
+/* 5. Fonctionnalités ------------------------------------------------------- */
+
+.app-features {
+  padding-block: var(--space-4);
+}
+
+.app-features ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 600px) {
+  .app-features ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.app-features li {
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border-top: 3px solid var(--app-accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.app-features h3 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-1);
+}
+
+.app-features p {
+  margin: 0;
+}
+
+
+/* 6. Confidentialité ------------------------------------------------------- */
+
+.app-privacy {
+  padding-block: var(--space-4);
+}
+
+.app-privacy__box {
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border-left: 4px solid var(--app-accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.app-privacy__box p {
+  max-width: var(--measure);
+}
+
+.app-privacy__box p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* 7. Questions ------------------------------------------------------------- */
+
+.app-faq {
+  padding-block: var(--space-4);
+}
+
+.app-faq details {
+  margin-bottom: var(--space-2);
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.app-faq summary {
+  padding: var(--space-3);
+  min-height: 44px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: var(--radius);
+}
+
+.app-faq details[open] summary {
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.app-faq details > :not(summary) {
+  margin: 0;
+  padding: 0 var(--space-3) var(--space-3);
+  max-width: var(--measure);
+}
+
+.app-faq details > p + p {
+  padding-top: var(--space-2);
+}
+
+
+/* 8. Pied de page ---------------------------------------------------------- */
+
+.app-footer {
+  margin-top: var(--space-6);
+  padding-block: var(--space-4);
+  background: var(--color-surface);
+  box-shadow: 0 -1px 1px 0 rgba(31, 35, 46, 0.15);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.app-footer ul {
+  list-style: none;
+  margin: 0 0 var(--space-2);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 var(--space-4);
+}
+
+.app-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}
+
+.app-footer svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex: none;
+  fill: currentColor;
+}
+
+.app-footer__copyright {
+  margin: 0;
+  text-align: center;
+}
+
+
+/* 9. Liste d'apps (home) --------------------------------------------------
+   Hors portée body.app-page : ce bloc vit dans .content-box de index.html,
+   au-dessus des posts, et s'appuie sur main.css pour le reste.
+   ------------------------------------------------------------------------- */
+
+.app-cards {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* Même traitement que .contact-title dans la sidebar : petit, capitales */
+.app-cards__title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.app-cards__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .app-cards__list {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+/* La carte entière est le lien, comme la vignette d'un .post.
+   height: 100% : deux cartes voisines gardent la même hauteur. */
+.app-card {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 1rem;
+  min-height: 44px;
+  padding: 1rem;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-raised);
+}
+
+.app-card:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.app-card img {
+  width: 56px;
+  height: 56px;
+  flex: none;
+  border-radius: 22%;
+}
+
+.app-card__name {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  color: var(--color-accent);
+}
+
+.app-card__tagline {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
