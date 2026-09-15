@@ -35,4 +35,4 @@ future: false
 permalink: '/:year/:month/:title'
 
 # QUESTIONS.md : notes de travail des pages d'app, jamais publiées
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "almanac/QUESTIONS.md"]
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "almanac/QUESTIONS.md", "bookfolio/QUESTIONS.md"]
