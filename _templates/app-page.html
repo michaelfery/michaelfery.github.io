@@ -18,7 +18,7 @@
   Chemins : tout est relatif au dossier de l'app. Les seuls liens qui sortent
   du dossier sont les trois « ../assets/… » de l'en-tête (CSS, avatar) et le
   lien « ../ » vers la home. Pour déplacer l'app sur son propre domaine :
-  copier tokens.css, app.css et michael-fery.png dans <slug>/assets/, retirer
+  copier tokens.css, app.css et michael-fery-64.png dans <slug>/assets/, retirer
   les « ../ », et mettre à jour {{ABSOLUTE_URL}} dans le bloc « URLs absolues ».
   Rien d'autre.
 
@@ -59,8 +59,8 @@
   <meta name="theme-color" content="{{APP_ACCENT}}">
 
   <!-- Polices : exactement celles du reste du site, rien de plus -->
-  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/app.css">
@@ -74,6 +74,26 @@
       --app-accent-ink: #ffffff;
     }
   </style>
+
+  <!-- ▼ OPTIONNEL : données structurées (fiche « application » pour les
+       moteurs). URL et prix : le téléchargement est gratuit → price 0. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "{{APP_NAME}}",
+    "operatingSystem": "Android",
+    "applicationCategory": "LifestyleApplication",
+    "description": "{{APP_TAGLINE}}",
+    "inLanguage": "fr",
+    "url": "{{ABSOLUTE_URL}}/",
+    "installUrl": "https://play.google.com/store/apps/details?id={{PACKAGE_ID}}",
+    "image": "{{ABSOLUTE_URL}}/assets/icon-512.png",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "author": { "@type": "Person", "name": "Michaël Fery", "url": "https://michaelfery.github.io/" }
+  }
+  </script>
+  <!-- ▲ OPTIONNEL -->
 </head>
 
 <body class="app-page">
@@ -85,7 +105,7 @@
   <header class="app-header">
     <div class="app-container">
       <a class="app-header__home" href="../">
-        <img src="../assets/img/michael-fery.png" alt="" width="32" height="32">
+        <img src="../assets/img/michael-fery-64.png" alt="" width="32" height="32">
         Michaël Fery
       </a>
       <nav class="app-header__nav" aria-label="Page">
@@ -107,7 +127,7 @@
          taille, « sans publicité »… Une seule ligne. -->
     <section class="app-hero">
       <div class="app-container">
-        <img class="app-hero__icon" src="assets/icon-512.png" alt="" width="512" height="512">
+        <img class="app-hero__icon" src="assets/icon-192.png" alt="" width="192" height="192">
         <h1>{{APP_NAME}}</h1>
         <p class="app-hero__tagline">{{APP_TAGLINE}}</p>
         <div class="app-hero__actions">
@@ -120,31 +140,52 @@
           <!-- ▲ OPTIONNEL -->
         </div>
         <p class="app-hero__meta">{{META_LINE}}</p>
+        <!-- ▼ OPTIONNEL : capture principale, l'écran d'accueil de l'app.
+             Chargée sans lazy : elle est visible à l'ouverture. -->
+        <img class="app-hero__shot" src="assets/shots/fr/01-{{HERO_SHOT_KEY}}.webp" alt="{{HERO_SHOT_ALT}}" width="540" height="1171">
+        <!-- ▲ OPTIONNEL -->
       </div>
     </section>
     <!-- ▲ CONTENU : présentation -->
 
+
+    <!-- ▼ OPTIONNEL : comment ça marche ────────────────────────────────
+         Trois étapes au plus, une phrase chacune. role="list" est requis :
+         le CSS retire les puces, ce qui ferait perdre la liste à VoiceOver. -->
+    <section class="app-steps" aria-labelledby="steps-title">
+      <div class="app-container">
+        <h2 id="steps-title">Comment ça marche</h2>
+        <ol role="list">
+          <li><p>{{STEP_1}}</p></li>
+          <li><p>{{STEP_2}}</p></li>
+          <li><p>{{STEP_3}}</p></li>
+        </ol>
+      </div>
+    </section>
+    <!-- ▲ OPTIONNEL : comment ça marche -->
+
     <!-- ▼ CONTENU : captures d'écran ────────────────────────────────────
-         3 à 5 images dans assets/shots/, numérotées (01-, 02-…), format
-         portrait 1080×2400 max, ≤ 250 Ko chacune. Les attributs width/height
-         évitent le saut de mise en page ; les mettre aux dimensions réelles.
+         3 à 5 images dans assets/shots/<langue>/, numérotées (01-, 02-…),
+         WebP 540 px de large, ≤ 40 Ko chacune (cwebp -q 78). Les attributs
+         width/height évitent le saut de mise en page ; les mettre aux
+         dimensions réelles.
          Le alt décrit ce que montre l'écran ; le figcaption le nomme.
-         La première capture est visible au chargement sur mobile : pas de
-         loading="lazy" sur elle, seulement sur les suivantes. -->
+         Toutes en loading="lazy" : la capture visible au chargement est
+         celle du hero. -->
     <section class="app-shots" aria-labelledby="shots-title">
       <div class="app-container">
         <h2 id="shots-title">Captures d'écran</h2>
         <div class="app-shots__track" tabindex="0" role="region" aria-label="Captures d'écran, défilement horizontal">
           <figure>
-            <img src="assets/shots/01-{{SLUG}}.png" alt="{{SHOT_1_ALT}}" width="1080" height="2400">
+            <img src="assets/shots/fr/02-{{SHOT_1_KEY}}.webp" alt="{{SHOT_1_ALT}}" width="540" height="1171" loading="lazy">
             <figcaption>{{SHOT_1_CAPTION}}</figcaption>
           </figure>
           <figure>
-            <img src="assets/shots/02-{{SLUG}}.png" alt="{{SHOT_2_ALT}}" width="1080" height="2400" loading="lazy">
+            <img src="assets/shots/fr/03-{{SHOT_2_KEY}}.webp" alt="{{SHOT_2_ALT}}" width="540" height="1171" loading="lazy">
             <figcaption>{{SHOT_2_CAPTION}}</figcaption>
           </figure>
           <figure>
-            <img src="assets/shots/03-{{SLUG}}.png" alt="{{SHOT_3_ALT}}" width="1080" height="2400" loading="lazy">
+            <img src="assets/shots/fr/04-{{SHOT_3_KEY}}.webp" alt="{{SHOT_3_ALT}}" width="540" height="1171" loading="lazy">
             <figcaption>{{SHOT_3_CAPTION}}</figcaption>
           </figure>
         </div>
@@ -159,7 +200,7 @@
     <section class="app-features" aria-labelledby="features-title">
       <div class="app-container">
         <h2 id="features-title">Ce que l'application fait</h2>
-        <ul>
+        <ul role="list">
           <li>
             <h3>{{FEATURE_1_TITLE}}</h3>
             <p>{{FEATURE_1_TEXT}}</p>

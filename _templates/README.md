@@ -20,20 +20,26 @@ elles-mêmes sont du HTML statique sans front matter, que Jekyll copie tel quel.
 ```
 <slug>/                     minuscules ASCII, sans tiret si possible : almanac, roundside, bookfolio
   index.html                page vitrine FR        → /<slug>/
+  QUESTIONS.md              trous non sourcés ; à ajouter à `exclude:` dans _config.yml
   en/
     index.html              page vitrine EN        → /<slug>/en/
   privacy.md                politique FR (Jekyll)  → /<slug>/privacy/
   privacy-en.md             politique EN (Jekyll)  → /<slug>/privacy-en/
   assets/
-    icon-512.png            icône launcher, carrée, coins droits (le CSS arrondit)
-    icon-192.png            même image ; sert à la carte de la home
+    icon-512.png            icône launcher, carrée, coins droits (le CSS arrondit) ; JSON-LD, pas chargée par la page
+    icon-192.png            même image ; hero (affichée 96/128 px) et carte de la home
     icon-180.png            apple-touch-icon
     icon-32.png             favicon
-    og.png                  1200×630, aperçu réseaux sociaux
+    og.png                  1200×630, aperçu réseaux sociaux (FR)
+    og-en.png               idem, EN, si le visuel porte du texte
     shots/
-      01-<mot-cle>.png      captures numérotées à deux chiffres, portrait,
-      02-<mot-cle>.png      1080×2400 max, ≤ 250 Ko chacune
+      fr/01-<mot-cle>.webp  captures numérotées à deux chiffres, un dossier par
+      en/01-<mot-cle>.webp  langue ; 01 = hero. WebP 540 px de large, ≤ 40 Ko
 ```
+
+Produire les images sans rien installer (macOS) : `sips -Z 192 icon-512.png --out icon-192.png`
+pour les icônes, `sips -Z 1171 ecran.png --out tmp.png && cwebp -q 78 -m 6 -sharp_yuv tmp.png -o 01-accueil.webp`
+pour les captures (cwebp : `brew install webp`). Budget : page complète < 300 Ko, images comprises.
 
 Règles :
 
@@ -51,7 +57,7 @@ Règles :
    en tête du fichier — `grep -n '{{' <slug>/index.html <slug>/en/index.html` doit rendre vide.
 4. Remplir les blocs `▼ CONTENU … ▲`, supprimer les blocs `▼ OPTIONNEL` inutiles.
 5. Choisir l'accent (`--app-accent`) et vérifier 4,5:1 avec `--app-accent-ink`.
-6. Ajouter la carte sur la home (`index.html`, section `.app-cards`).
+6. Ajouter la carte sur la home (`index.html`, section `.app-cards`) et, s'il existe, `<slug>/QUESTIONS.md` à `exclude:` dans `_config.yml`.
 7. Ouvrir la page à 360 px de large ; parcourir au clavier (Tab, Entrée, flèches sur les captures).
 
 ## Placeholders
@@ -65,13 +71,22 @@ Règles :
 | `{{ABSOLUTE_URL}}` | URL absolue du dossier de l'app, sans slash final ni `/en/` (`https://michaelfery.github.io/almanac`). Alimente le bloc « URLs absolues » : `canonical`, `hreflang`, `og:url`, `og:image`. Seule exception au tout-relatif : les scrapers OG et Google ignorent les URL relatives. |
 | `{{PRIVACY_PATH}}` | FR : `privacy/`. EN : `../privacy-en/` si la politique existe dans les deux langues (almanac), `../privacy/` si elle n'existe qu'en anglais (roundside). |
 | `{{META_LINE}}` | Une ligne : prix, Android minimal, « sans publicité »… |
-| `{{SLUG}}` | Le slug, utilisé dans les noms de captures |
-| `{{SHOT_n_ALT}}` / `{{SHOT_n_CAPTION}}` | alt = ce que montre l'écran ; caption = son nom |
+| `{{HERO_SHOT_KEY}}` / `{{HERO_SHOT_ALT}}` | Capture principale du hero (`01-<mot-cle>.webp`), optionnelle |
+| `{{SHOT_n_KEY}}` / `{{SHOT_n_ALT}}` / `{{SHOT_n_CAPTION}}` | mot-clé du fichier ; alt = ce que montre l'écran ; caption = ce qu'on y comprend |
+| `{{STEP_n}}` | « Comment ça marche », trois phrases au plus, optionnel |
 | `{{FEATURE_n_TITLE}}` / `{{FEATURE_n_TEXT}}` | 3-5 mots / une phrase |
 | `{{PRIVACY_SUMMARY}}` | La section « En une phrase » de la politique |
 | `{{FAQ_n_QUESTION}}` / `{{FAQ_n_ANSWER}}` | Optionnel |
 | `{{SECONDARY_URL}}` / `{{SECONDARY_LABEL}}` | Second bouton, optionnel |
 | `{{YEAR}}` | Année du pied de page |
+
+## Véracité
+
+Chaque phrase de la page se rattache à une source du repo de l'app (fiche Play,
+strings.xml, notes de version, politique, manifeste) ou au brief. Pas de
+superlatif, pas de chiffre d'installations, pas de « bientôt », pas de promesse
+sur les données qui ne soit pas dans la politique et le manifeste. Ce qui n'est
+pas sourçable va dans `<slug>/QUESTIONS.md`, sous forme de questions.
 
 ## Ton
 
@@ -83,7 +98,7 @@ interventions sur le téléphone »), jamais « nous » ni « je » : les politi
 ## Déplacer une app sur son propre domaine
 
 Copier `<slug>/` tel quel, ajouter `tokens.css`, `app.css` et
-`michael-fery.png` dans `<slug>/assets/`, puis :
+`michael-fery-64.png` dans `<slug>/assets/`, puis :
 
 - `index.html` : remplacer `../assets/` par `assets/` et `href="../"` par `href="./"` ;
 - `en/index.html` : remplacer `../../assets/` par `../assets/` et `../../` par `../` ;

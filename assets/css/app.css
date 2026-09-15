@@ -240,9 +240,22 @@ body.app-page {
   color: var(--color-text-muted);
 }
 
+/* Capture principale, sous les boutons : l'écran de l'app, pas un mockup */
+.app-hero__shot {
+  width: min(100%, 260px);
+  margin: var(--space-4) auto 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-raised);
+  background: var(--color-surface-alt);
+}
+
 @media (min-width: 600px) {
   .app-hero {
     padding-block: var(--space-6) var(--space-5);
+  }
+
+  .app-hero__shot {
+    width: 300px;
   }
 
   .app-hero__icon {
@@ -371,6 +384,58 @@ body.app-page {
 }
 
 
+/* 5b. Comment ça marche ---------------------------------------------------
+   Trois étapes au plus, numérotées par CSS. L'<ol> porte role="list" dans le
+   HTML : list-style: none fait perdre la sémantique de liste à VoiceOver.
+   ------------------------------------------------------------------------- */
+
+.app-steps {
+  padding-block: var(--space-4);
+}
+
+.app-steps ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: step;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 600px) {
+  .app-steps ol {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.app-steps li {
+  counter-increment: step;
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.app-steps li::before {
+  content: counter(step);
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--app-accent);
+  color: var(--app-accent-ink);
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+.app-steps p {
+  margin: 0;
+  padding-top: 0.3rem;
+}
+
+
 /* 6. Confidentialité ------------------------------------------------------- */
 
 .app-privacy {
@@ -391,6 +456,22 @@ body.app-page {
 
 .app-privacy__box p:last-child {
   margin-bottom: 0;
+}
+
+/* Sous-titres et listes dans la boîte : autorisations, ce qui est payant… */
+.app-privacy__box h3 {
+  font-size: 1.125rem;
+  margin: var(--space-4) 0 var(--space-2);
+}
+
+.app-privacy__box ul {
+  max-width: var(--measure);
+  margin: 0 0 var(--space-3);
+  padding-left: 1.25rem;
+}
+
+.app-privacy__box li {
+  margin-bottom: var(--space-1);
 }
 
 
