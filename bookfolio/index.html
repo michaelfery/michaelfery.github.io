@@ -29,7 +29,7 @@
 
   <link rel="icon" href="assets/icon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/icon-180.png">
-  <meta name="theme-color" content="#7A3322">
+  <meta name="theme-color" content="#2A565D">
 
   <!-- Polices : exactement celles du reste du site, rien de plus -->
   <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&amp;display=swap" rel="stylesheet">
@@ -38,12 +38,12 @@
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/app.css">
 
-  <!-- Accent : le « Sunset » foncé de la palette de l'app (AccentPalette.kt,
-       darkPrimaryContainer #7A3322), 9:1 avec du blanc. L'accent vif de
+  <!-- Accent : le « Ocean » foncé de la palette de l'app (AccentPalette.kt,
+       darkPrimaryContainer #2A565D), 8:1 avec du blanc, celui des captures Play. L'accent vif de
        l'app (#E76F51) fait 3,1:1 : illisible en texte. -->
   <style>
     body.app-page {
-      --app-accent: #7A3322;
+      --app-accent: #2A565D;
       --app-accent-ink: #ffffff;
     }
   </style>
@@ -104,6 +104,7 @@
           </a>
         </div>
         <p class="app-hero__meta">Android 8.0 et plus · Sans publicité</p>
+        <img class="app-hero__shot" src="assets/shots/01-library-grid.webp" alt="La bibliothèque en grille : quinze livres lus, présentés par leur couverture, et les onglets Bibliothèque, Wishlist, Recherche et Stats en bas de l'écran." width="540" height="1170">
       </div>
     </section>
 
@@ -143,6 +144,27 @@
           <li><p>Vous lui donnez un statut : À lire, En cours, Lu, DNF. Vous notez vos pages, votre note, vos notes.</p></li>
           <li><p>Stats montre votre objectif de l'année et votre parcours. La synchronisation Google est là si vous en voulez.</p></li>
         </ol>
+      </div>
+    </section>
+
+    <section class="app-shots" aria-labelledby="shots-title">
+      <div class="app-container">
+        <h2 id="shots-title">Captures d'écran</h2>
+        <p>Celles de la fiche Google Play. L'interface y mêle français et anglais.</p>
+        <div class="app-shots__track" tabindex="0" role="region" aria-label="Captures d'écran, défilement horizontal">
+          <figure>
+            <img src="assets/shots/02-library-list.webp" alt="La bibliothèque en liste : le champ de recherche par titre, auteur, ISBN, éditeur ou année ; les filtres Tous, En cours, À lire, Lus ; quatre livres avec leur auteur, leur éditeur et leur année." width="540" height="1170" loading="lazy">
+            <figcaption>La bibliothèque en liste, avec la recherche et les filtres par statut.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/shots/03-detail.webp" alt="La fiche de « The Phoenix Project » : couverture, auteurs, éditeur, année et nombre de pages ; cinq étoiles de note ; les statuts À lire, En cours, Lu, DNF ; les boutons Possédé et Wishlist ; les dates de début et de fin ; le résumé." width="540" height="1170" loading="lazy">
+            <figcaption>La fiche d'un livre : statut, possession, wishlist, note, dates et résumé.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/shots/04-stats.webp" alt="Stats : un anneau « 15 sur 12 livres », « Objectif lecture 2026 » atteint à 100 %, 15 livres lus et 4 555 pages ce mois-ci, puis l'activité récente." width="540" height="1170" loading="lazy">
+            <figcaption>Stats : l'objectif de l'année, les livres et les pages lus, l'activité récente.</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 

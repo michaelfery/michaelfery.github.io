@@ -29,7 +29,7 @@
 
   <link rel="icon" href="../assets/icon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../assets/icon-180.png">
-  <meta name="theme-color" content="#7A3322">
+  <meta name="theme-color" content="#2A565D">
 
   <!-- Fonts: exactly the ones the rest of the site loads, nothing more -->
   <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&amp;display=swap" rel="stylesheet">
@@ -38,10 +38,10 @@
   <link rel="stylesheet" href="../../assets/css/tokens.css">
   <link rel="stylesheet" href="../../assets/css/app.css">
 
-  <!-- Accent: the dark "Sunset" of the app's palette (AccentPalette.kt), 9:1 on white. -->
+  <!-- Accent: the dark "Ocean" of the app's palette (AccentPalette.kt), 8:1 on white, matching the Play screenshots. -->
   <style>
     body.app-page {
-      --app-accent: #7A3322;
+      --app-accent: #2A565D;
       --app-accent-ink: #ffffff;
     }
   </style>
@@ -102,6 +102,7 @@
           </a>
         </div>
         <p class="app-hero__meta">Android 8.0 and up · No ads</p>
+        <img class="app-hero__shot" src="../assets/shots/01-library-grid.webp" alt="The library as a grid: fifteen books read, shown by their covers, with the Library, Wishlist, Search and Stats tabs at the bottom." width="540" height="1170">
       </div>
     </section>
 
@@ -141,6 +142,27 @@
           <li><p>You give it a status: To Read, Reading, Read, DNF. You log your pages, your rating, your notes.</p></li>
           <li><p>Stats shows your goal for the year and your journey. Google sync is there if you want it.</p></li>
         </ol>
+      </div>
+    </section>
+
+    <section class="app-shots" aria-labelledby="shots-title">
+      <div class="app-container">
+        <h2 id="shots-title">Screenshots</h2>
+        <p>The ones from the Google Play listing. The interface mixes French and English.</p>
+        <div class="app-shots__track" tabindex="0" role="region" aria-label="Screenshots, scrolls horizontally">
+          <figure>
+            <img src="../assets/shots/02-library-list.webp" alt="The library as a list: the search field for title, author, ISBN, publisher or year; the filters All, Reading, To read, Read; four books with author, publisher and year." width="540" height="1170" loading="lazy">
+            <figcaption>The library as a list, with search and status filters.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/shots/03-detail.webp" alt="The page for 'The Phoenix Project': cover, authors, publisher, year and page count; a five-star rating; the statuses To read, Reading, Read, DNF; the Owned and Wishlist buttons; start and finish dates; the summary." width="540" height="1170" loading="lazy">
+            <figcaption>A book's page: status, ownership, wishlist, rating, dates and summary.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/shots/04-stats.webp" alt="Stats: a ring reading '15 of 12 books', the 2026 reading goal at 100%, 15 books and 4,555 pages read this month, then recent activity." width="540" height="1170" loading="lazy">
+            <figcaption>Stats: the year's goal, books and pages read, recent activity.</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 

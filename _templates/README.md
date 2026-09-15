@@ -35,7 +35,13 @@ elles-mêmes sont du HTML statique sans front matter, que Jekyll copie tel quel.
     shots/
       fr/01-<mot-cle>.webp  captures numérotées à deux chiffres, un dossier par
       en/01-<mot-cle>.webp  langue ; 01 = hero. WebP 540 px de large, ≤ 40 Ko
+                            (un seul jeu pour les deux langues : directement dans shots/)
 ```
+
+Quand le repo de l'app n'a pas de captures, la fiche Google Play publique les a :
+`curl` la page `play.google.com/store/apps/details?id=<applicationId>`, extraire les
+`src` des `<img alt="Capture d'écran">` et télécharger chaque URL avec le suffixe `=s0`
+(taille d'origine).
 
 Produire les images sans rien installer (macOS) : `sips -Z 192 icon-512.png --out icon-192.png`
 pour les icônes, `sips -Z 1171 ecran.png --out tmp.png && cwebp -q 78 -m 6 -sharp_yuv tmp.png -o 01-accueil.webp`
