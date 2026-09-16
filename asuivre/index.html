@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>À suivre — Michaël Fery</title>
+  <meta name="description" content="Un roman à choix, un épisode par jour. Tu décides, l'histoire attend demain. Une application Android, sans compte, sans publicité, sans connexion.">
+
+  <!-- URLs absolues : la seule entorse au tout-relatif (scrapers OG, hreflang).
+       Le jour d'un domaine dédié (asuivre.app est envisagé), c'est le seul bloc à changer. -->
+  <link rel="canonical" href="https://michaelfery.github.io/asuivre/">
+  <link rel="alternate" hreflang="fr" href="https://michaelfery.github.io/asuivre/">
+  <link rel="alternate" hreflang="x-default" href="https://michaelfery.github.io/asuivre/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Michaël Fery">
+  <meta property="og:title" content="À suivre">
+  <meta property="og:description" content="Un roman à choix, un épisode par jour. Tu décides, l'histoire attend demain.">
+  <meta property="og:url" content="https://michaelfery.github.io/asuivre/">
+  <meta property="og:image" content="https://michaelfery.github.io/asuivre/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="À suivre">
+  <meta name="twitter:description" content="Un roman à choix, un épisode par jour. Tu décides, l'histoire attend demain.">
+  <meta name="twitter:image" content="https://michaelfery.github.io/asuivre/assets/og.png">
+
+  <link rel="icon" href="assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <meta name="theme-color" content="#3A2E63">
+
+  <!-- Polices : exactement celles du reste du site, rien de plus -->
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/app.css">
+
+  <!-- Accent : le milieu du ciel « Crépuscule » (Couleurs.kt, Milieu #3A2E63),
+       11:1 avec du blanc. L'or de l'app (#F5C86A) fait 1,6:1 en texte. -->
+  <style>
+    body.app-page {
+      --app-accent: #3A2E63;
+      --app-accent-ink: #ffffff;
+    }
+  </style>
+
+  <!-- Pas d'installUrl : l'app est sur la piste interne de Google Play, pas en
+       production. L'ajouter, et le bouton du hero, le jour de la publication :
+       https://play.google.com/store/apps/details?id=app.asuivre -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "À suivre",
+    "operatingSystem": "Android",
+    "applicationCategory": "EntertainmentApplication",
+    "description": "Un roman à choix, un épisode par jour. Tu décides, l'histoire attend demain.",
+    "inLanguage": "fr",
+    "url": "https://michaelfery.github.io/asuivre/",
+    "image": "https://michaelfery.github.io/asuivre/assets/icon-512.png",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Michaël Fery",
+      "url": "https://michaelfery.github.io/"
+    }
+  }
+  </script>
+</head>
+
+<body class="app-page">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="app-header">
+    <div class="app-container">
+      <a class="app-header__home" href="../">
+        <img src="../assets/img/michael-fery-64.png" alt="" width="32" height="32">
+        Michaël Fery
+      </a>
+      <nav class="app-header__nav" aria-label="Page">
+        <a href="confidentialite/">Confidentialité</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="app-hero">
+      <div class="app-container">
+        <img class="app-hero__icon" src="assets/icon-192.png" alt="" width="192" height="192">
+        <h1>À suivre</h1>
+        <p class="app-hero__tagline">Un roman à choix, un épisode par jour. Tu décides, l'histoire attend demain.</p>
+        <!-- Bouton Google Play : à décommenter le jour de la publication en production.
+        <div class="app-hero__actions">
+          <a class="app-button" href="https://play.google.com/store/apps/details?id=app.asuivre">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 3l14 9-14 9z"/></svg>
+            Disponible sur Google Play
+          </a>
+        </div>
+        -->
+        <p class="app-hero__meta">Android 8.0 et plus · Sans compte, sans publicité, sans connexion</p>
+        <img class="app-hero__shot" src="assets/shots/01-etagere.webp" alt="L'étagère d'À suivre, sur un ciel du soir avec la lune : la couverture de « La relève », quatorze épisodes, et la mention « Un épisode t'attend »." width="540" height="1080">
+      </div>
+    </section>
+
+    <section class="app-features" aria-labelledby="features-title">
+      <div class="app-container">
+        <h2 id="features-title">Ce que l'app fait, et rien d'autre</h2>
+        <ul role="list">
+          <li>
+            <h3>Un épisode par jour</h3>
+            <p>Deux à quatre minutes. Il se termine sur une décision : tu la prends, et l'histoire se referme jusqu'au lendemain.</p>
+          </li>
+          <li>
+            <h3>Rater un jour ne fait rien perdre</h3>
+            <p>L'histoire attend, dans l'état où tes choix l'ont mise.</p>
+          </li>
+          <li>
+            <h3>Aucun retour en arrière</h3>
+            <p>Un choix par épisode, au pied du texte. Le poids des décisions est le produit.</p>
+          </li>
+          <li>
+            <h3>Ton chemin, les gens, le carnet</h3>
+            <p>Le dessin de tes décisions, jamais celles que tu n'as pas prises. Ce que tu as lu, seulement ce que tu as lu.</p>
+          </li>
+          <li>
+            <h3>« La relève », la première histoire</h3>
+            <p>Un poste de garde en haute montagne, coupé par la neige. Six personnes. La relève monte dans quatorze jours. Tu es arrivé hier : le seul que personne ne connaît, donc le seul devant qui on parle encore. Quatorze épisodes, cinq fins.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="app-steps" aria-labelledby="steps-title">
+      <div class="app-container">
+        <h2 id="steps-title">Comment ça marche</h2>
+        <ol role="list">
+          <li><p>Tu ouvres l'épisode du jour : deux à quatre minutes de lecture.</p></li>
+          <li><p>Au pied du texte, une décision. Tu la prends, l'épisode se referme.</p></li>
+          <li><p>Demain, l'épisode suivant t'attend, dans l'état où ton choix a mis l'histoire.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="app-shots" aria-labelledby="shots-title">
+      <div class="app-container">
+        <h2 id="shots-title">Captures d'écran</h2>
+        <div class="app-shots__track" tabindex="0" role="region" aria-label="Captures d'écran, défilement horizontal">
+          <figure>
+            <img src="assets/shots/02-choix.webp" alt="Un épisode de « La relève » en cours de lecture, le texte sur une carte de verre. Au pied du texte, le chemin d'or se sépare en deux : « Dire bonjour à tout le monde, une fois, clairement » et « Ne rien dire et regarder qui regarde qui »." width="540" height="1080" loading="lazy">
+            <figcaption>Le choix, au pied du texte : le chemin se sépare, tu prends une branche.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/shots/03-demain.webp" alt="La fin d'un épisode : les dernières lignes du texte, puis « Épisode 2 · demain — L'épisode 2 sera là demain. L'histoire t'attend. » et le bouton Refermer." width="540" height="1080" loading="lazy">
+            <figcaption>L'épisode se referme. Le suivant sera là demain.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/shots/04-carnet.webp" alt="Le carnet : « Épisode 2 · demain — Hier, ta décision : te présenter franchement. », puis « Les gens du poste » avec cinq noms et une ligne chacun, et « Ce que tu portes »." width="540" height="1080" loading="lazy">
+            <figcaption>Le carnet : ta dernière décision, les gens du poste, ce que tu portes. Seulement ce que tu as lu.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/shots/05-gens.webp" alt="« Les gens » : cinq portraits en médaillon, Vasseur, Rey, Bloch, Kerdraon, Soler, chacun avec une phrase." width="540" height="1080" loading="lazy">
+            <figcaption>Les gens : ceux que tu as rencontrés, décrits avec ce que le texte en a dit.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-privacy" aria-labelledby="privacy-title">
+      <div class="app-container">
+        <h2 id="privacy-title">Tes données</h2>
+        <div class="app-privacy__box">
+          <p>L'application a été écrite pour ne rien savoir de toi. Elle ne demande aucun compte, aucune adresse, aucun nom. Elle ne contient ni publicité, ni outil de mesure d'audience, ni service tiers, et <strong>elle ne fait aucune requête réseau</strong> : les histoires sont embarquées dans l'application elle-même.</p>
+          <p>Sur ton téléphone, elle garde tes choix de lecture, avec le jour où tu as lu chaque épisode, et deux réglages : la taille du texte et l'heure à laquelle un nouvel épisode devient disponible. Désinstaller l'application efface tout ça.</p>
+
+          <h3>Les autorisations demandées</h3>
+          <p>Aucune. Le manifeste de l'application n'en déclare pas une.</p>
+
+          <h3>La sauvegarde Android</h3>
+          <p>Comme la plupart des applications, « À suivre » laisse Android inclure ses données dans la sauvegarde de l'appareil, chiffrée avec les identifiants de l'appareil. C'est Android qui la fait, pas l'application ; elle se désactive dans les réglages du téléphone, sous Sauvegarde.</p>
+
+          <p><a href="confidentialite/">Lire la politique de confidentialité</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-faq" aria-labelledby="faq-title">
+      <div class="app-container">
+        <h2 id="faq-title">Questions</h2>
+        <details>
+          <summary>Et si je rate un jour ?</summary>
+          <p>Rien n'est perdu. L'histoire attend, dans l'état où tes choix l'ont mise, et l'épisode t'attend jusqu'à ce que tu l'ouvres.</p>
+        </details>
+        <details>
+          <summary>À quelle heure arrive l'épisode suivant ?</summary>
+          <p>À quatre heures du matin, heure de ton téléphone, pas à minuit. L'heure se change dans les réglages, « Le jour change à » ; le changement vaut à partir du prochain épisode.</p>
+        </details>
+        <details>
+          <summary>Peut-on revenir en arrière ?</summary>
+          <p>Non. Un choix par épisode, et il tient. Ton chemin dessine tes décisions, jamais celles que tu n'as pas prises.</p>
+        </details>
+        <details>
+          <summary>Et quand l'histoire est finie ?</summary>
+          <p>Elle se relit depuis le début, et ton premier chemin reste dessiné sous le nouveau. Tu peux aussi emporter l'histoire : le texte tel que tes choix l'ont écrit.</p>
+        </details>
+        <details>
+          <summary>Est-ce un jeu ?</summary>
+          <p>Non. Pas de score, pas de dé, pas de partie. Un récit qu'on lit, et qui change selon ce qu'on y décide.</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <div class="app-container">
+      <ul>
+        <li><a href="../">← Retour au site</a></li>
+        <li><a href="confidentialite/">Confidentialité</a></li>
+        <li>
+          <a href="https://github.com/michaelfery">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/mfery">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="mailto:fery.michael@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 4h20v16H2zm2 2v.5l8 5.5 8-5.5V6zm0 2.9V18h16V8.9l-8 5.5z"/></svg>
+            fery.michael@gmail.com
+          </a>
+        </li>
+      </ul>
+      <p class="app-footer__copyright">2026 © Michaël Fery</p>
+    </div>
+  </footer>
+</body>
+</html>
