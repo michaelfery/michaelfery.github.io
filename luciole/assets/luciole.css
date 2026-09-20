@@ -1,0 +1,127 @@
+/* ==========================================================================
+   luciole.css — le thème de l'app posé sur le socle des pages d'app
+   --------------------------------------------------------------------------
+   Chargé après tokens.css et app.css. Il ne redéfinit que ce qui fait le
+   thème de Luciole : la nuit (#0C0A14), le texte os chaud, la lavande en
+   accent, Literata et Public Sans à la place de PT Serif et Lato, et un hero
+   qui est l'image de la marque. Tout le reste, mise en page, accessibilité,
+   focus, vient du socle. Contrastes vérifiés sur #0C0A14 : texte 10,1:1,
+   titres 13,1:1, gris atténué 6,6:1, liens 8,2:1, bouton 9,3:1.
+   ========================================================================== */
+
+body.app-page.luciole {
+  --color-page:        #0C0A14;
+  --color-surface:     #16131F;
+  --color-surface-alt: #1B1726;
+  --color-border:      #2A2438;
+  --color-text:        #BFB9B1;
+  --color-heading:     #D6D1DC;
+  --color-text-muted:  #9A94A8;
+  --color-accent:      #ADA4CE;
+  --color-on-accent:   #0C0A14;
+  --color-focus:       #9D8DF1;
+  --app-accent:        #9D8DF1;
+  --app-accent-ink:    #0C0A14;
+  --font-sans:  'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Literata', Georgia, 'Times New Roman', serif;
+  --shadow:        0 0 0 1px var(--color-border);
+  --shadow-raised: 0 0 0 1px var(--color-border), 0 24px 60px -20px rgba(0, 0, 0, 0.8);
+  border-top: 0;
+  color-scheme: dark;
+}
+
+/* Les liens de texte, lavande claire ; les composants gardent les leurs. */
+.luciole :where(a) { color: var(--color-accent); }
+
+.luciole .app-header {
+  background: transparent;
+  box-shadow: none;
+  border-bottom: 1px solid var(--color-border);
+}
+.luciole .app-header__home img { background: transparent; }
+
+/* Le hero : l'image de la marque, pleine largeur, fondue dans la nuit en bas ;
+   le titre en HTML par-dessus, pas dans l'image. */
+.luciole .app-hero {
+  position: relative;
+  isolation: isolate;
+  padding-block: var(--space-6) var(--space-5);
+  overflow: hidden;
+}
+.luciole .app-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("hero.webp") center / cover no-repeat;
+}
+.luciole .app-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to bottom, rgba(12, 10, 20, 0.35), rgba(12, 10, 20, 0.15) 40%, var(--color-page) 100%),
+    linear-gradient(to right, rgba(12, 10, 20, 0.6), rgba(12, 10, 20, 0) 55%);
+}
+.luciole .app-hero__icon { box-shadow: var(--shadow-raised); }
+.luciole .app-hero h1 {
+  font-size: 3rem;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+.luciole .app-hero__tagline {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 1.375rem;
+  color: var(--color-heading);
+}
+.luciole .app-hero__shot { background: var(--color-surface); }
+@media (min-width: 600px) {
+  .luciole .app-hero { padding-block: 7rem 6rem; }
+  .luciole .app-hero h1 { font-size: 4rem; }
+}
+
+/* Les cartes : un filet, pas d'ombre portée, la nuit n'en a pas. */
+.luciole .app-features li,
+.luciole .app-faq details,
+.luciole .app-privacy__box,
+.luciole .app-shots__track img {
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+.luciole .app-features li { border-top-color: var(--app-accent); }
+.luciole .app-features h3 { font-family: var(--font-serif); font-weight: 400; font-size: 1.125rem; color: var(--color-heading); }
+.luciole .app-faq summary { font-weight: 500; color: var(--color-heading); }
+.luciole .app-steps li::before { font-family: var(--font-sans); font-weight: 500; }
+
+/* La luciole en repère de section : le seul point chaud de la page. */
+.luciole h2 { position: relative; padding-left: 1.25rem; }
+.luciole h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #E8B77A;
+  box-shadow: 0 0 10px 2px rgba(232, 183, 122, 0.45);
+}
+.luciole .app-hero h2::before { content: none; }
+
+.luciole .app-footer {
+  background: transparent;
+  box-shadow: none;
+  border-top: 1px solid var(--color-border);
+}
+.luciole .app-footer a { color: var(--color-text); }
+
+/* Page de politique : du texte, une mesure de lecture, rien d'autre. */
+.luciole .app-prose { padding-block: var(--space-5); }
+.luciole .app-prose > * { max-width: var(--measure); }
+.luciole .app-prose h1 { font-size: 2.25rem; margin-bottom: var(--space-2); }
+.luciole .app-prose h2 { margin-top: var(--space-5); font-size: 1.375rem; }
+.luciole .app-prose ul { padding-left: 1.25rem; }
+.luciole .app-prose li { margin-bottom: var(--space-2); }
+.luciole .app-prose .app-prose__date { color: var(--color-text-muted); font-size: 0.9375rem; }

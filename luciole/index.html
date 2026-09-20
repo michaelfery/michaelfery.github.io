@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Luciole — Michaël Fery</title>
+  <meta name="description" content="Une histoire du soir que vous lisez à voix haute, et que votre enfant décide. Une application Android, sans compte, sans publicité, sans connexion.">
+
+  <!-- URLs absolues : la seule entorse au tout-relatif (scrapers OG, hreflang). -->
+  <link rel="canonical" href="https://michaelfery.github.io/luciole/">
+  <link rel="alternate" hreflang="fr" href="https://michaelfery.github.io/luciole/">
+  <link rel="alternate" hreflang="x-default" href="https://michaelfery.github.io/luciole/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Michaël Fery">
+  <meta property="og:title" content="Luciole">
+  <meta property="og:description" content="Une histoire du soir que vous lisez à voix haute, et que votre enfant décide. Une application Android, sans compte, sans publicité, sans connexion.">
+  <meta property="og:url" content="https://michaelfery.github.io/luciole/">
+  <meta property="og:image" content="https://michaelfery.github.io/luciole/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Luciole">
+  <meta name="twitter:description" content="Une histoire du soir que vous lisez à voix haute, et que votre enfant décide. Une application Android, sans compte, sans publicité, sans connexion.">
+  <meta name="twitter:image" content="https://michaelfery.github.io/luciole/assets/og.jpg">
+
+  <link rel="icon" href="assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <meta name="theme-color" content="#0C0A14">
+
+  <!-- Polices de l'app, depuis le même service que celles du site : Literata pour ce
+       qui se lit, Public Sans pour ce qui se touche (design system de Luciole). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400&family=Public+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/app.css">
+  <link rel="stylesheet" href="assets/luciole.css">
+
+  <!-- Pas d'installUrl ni de bouton Google Play : l'app est sur la piste de test
+       interne, pas en production. Le jour venu :
+       https://play.google.com/store/apps/details?id=fr.luciole.app -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Luciole",
+    "operatingSystem": "Android",
+    "applicationCategory": "EntertainmentApplication",
+    "description": "Une histoire du soir que vous lisez à voix haute, et que votre enfant décide.",
+    "inLanguage": "fr",
+    "url": "https://michaelfery.github.io/luciole/",
+    "image": "https://michaelfery.github.io/luciole/assets/icon-512.png",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "author": { "@type": "Person", "name": "Michaël Fery", "url": "https://michaelfery.github.io/" }
+  }
+  </script>
+</head>
+
+<body class="app-page luciole">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="app-header">
+    <div class="app-container">
+      <a class="app-header__home" href="../">
+        <img src="../assets/img/michael-fery-64.png" alt="" width="32" height="32">
+        Michaël Fery
+      </a>
+      <nav class="app-header__nav" aria-label="Page">
+        <a href="confidentialite/">Confidentialité</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="app-hero">
+      <div class="app-container">
+        <img class="app-hero__icon" src="assets/icon-192.png" alt="" width="192" height="192">
+        <h1>Luciole</h1>
+        <p class="app-hero__tagline">Ce soir, ton enfant décide comment l’histoire finit.</p>
+        <p class="app-hero__meta">Android 8.0 et plus · Sans compte, sans publicité, sans connexion</p>
+      </div>
+    </section>
+
+    <section class="app-features" aria-labelledby="features-title">
+      <div class="app-container">
+        <h2 id="features-title">Une histoire lue à voix haute, décidée par l’enfant</h2>
+        <ul role="list">
+          <li>
+            <h3>Vous lisez, il décide</h3>
+            <p>Vous tenez le téléphone et vous lisez. Quatre fois, le récit s’arrête sur une question que vous posez à votre enfant. Il répond, vous touchez son choix, l’histoire bifurque.</p>
+          </li>
+          <li>
+            <h3>Trois fins</h3>
+            <p>Les choix changent vraiment la suite. Ce n’est jamais tout à fait la même histoire d’un soir à l’autre.</p>
+          </li>
+          <li>
+            <h3>Son prénom, son héros, son compagnon, son décor</h3>
+            <p>Brave, curieux, malicieux ou doux ; le renard, le hibou, le blaireau ou le hérisson ; la clairière, la rivière ou la grotte. Quarante-huit histoires, écrites, pas assemblées par une machine.</p>
+          </li>
+          <li>
+            <h3>Pensée pour le noir</h3>
+            <p>Écran sombre, texte crème, grande police réglable en un geste. Chaque page est un souffle : vous la lisez, vous tournez. Les indications qui vous sont destinées sont en italique et ne se lisent pas à voix haute.</p>
+          </li>
+          <li>
+            <h3>« La nuit qui appelle »</h3>
+            <p>La forêt n’arrive pas à s’endormir : au fond, quelqu’un pleure. Un enfant qui n’a pas sommeil part l’aider. Pour les cinq à huit ans, environ dix minutes de lecture. D’autres histoires arriveront avec les mises à jour.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="app-steps" aria-labelledby="steps-title">
+      <div class="app-container">
+        <h2 id="steps-title">Comment ça marche</h2>
+        <ol role="list">
+          <li><p>Le prénom de votre enfant, puis trois images à choisir : comment il est ce soir, qui l’accompagne, où ça se passe.</p></li>
+          <li><p>Vous lisez à voix haute, une page par souffle. Un geste pour tourner.</p></li>
+          <li><p>À chaque question, votre enfant décide. Vous touchez son choix, et vous continuez.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="app-shots" aria-labelledby="shots-title">
+      <div class="app-container">
+        <h2 id="shots-title">Captures d’écran</h2>
+        <div class="app-shots__track" tabindex="0" role="region" aria-label="Captures d’écran, défilement horizontal">
+          <figure>
+            <img src="assets/shots/01-accueil.webp" alt="L’accueil de Luciole : une luciole dans un bois la nuit, le nom, l’accroche « Ce soir, ton enfant décide comment l’histoire finit. » et le bouton « Lire une histoire à Naia »." width="540" height="1080" loading="lazy">
+            <figcaption>L’accueil : la lecture commence en un geste, le prénom est retenu.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/shots/02-heros.webp" alt="« Comment est Naia, ce soir ? » et quatre images : une main qui tient une lanterne, un doigt qui montre, deux mains en coupe, un papillon posé sur une paume, sous-titrées Brave, Curieux, Malicieux, Doux." width="540" height="1080" loading="lazy">
+            <figcaption>Le héros du soir, en images : toucher choisit.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/shots/03-compagnon.webp" alt="« Qui l’accompagne ? » et quatre animaux de nuit : un renard, un hibou, un blaireau, un hérisson." width="540" height="1080" loading="lazy">
+            <figcaption>Le compagnon, un des quatre animaux de la forêt.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/shots/04-garde.webp" alt="« L’histoire de Naia, ce soir » : les trois choix en images, curieux, le renard, la rivière, et le bouton « Commencer l’histoire »." width="540" height="1080" loading="lazy">
+            <figcaption>Avant de lire, les trois choix d’un coup d’œil. Une image se touche pour la changer.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/shots/05-lecture.webp" alt="Une page de lecture : « voix douce, on commence » en italique, puis « Ce soir, Naia n’a pas sommeil. » en grande police crème sur fond sombre, et la luciole en bas à droite." width="540" height="1080" loading="lazy">
+            <figcaption>La lecture : un souffle par page, l’indication au parent en italique, la luciole marque la suite.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/shots/06-question.webp" alt="Une question : « Naia, on file tout de suite, ou on prend la lanterne en passant ? » et deux options, « Tout de suite » et « Avec la lanterne »." width="540" height="1080" loading="lazy">
+            <figcaption>La question : l’enfant répond, le parent touche son choix.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-privacy" aria-labelledby="privacy-title">
+      <div class="app-container">
+        <h2 id="privacy-title">Rien ne sort du téléphone</h2>
+        <div class="app-privacy__box">
+          <p>Luciole ne collecte, ne transmet et ne partage aucune donnée. Pas de compte, pas de connexion, pas de publicité, pas d’abonnement. <strong>L’application ne déclare aucune permission Android, pas même l’accès à Internet</strong> : elle ne peut techniquement rien envoyer, et elle fonctionne en mode avion.</p>
+          <p>Sur le téléphone, elle garde le prénom de votre enfant et l’accord choisi, les choix faits avant chaque lecture, la taille de texte, et l’historique des histoires lues. Désinstaller l’application efface tout ça.</p>
+          <p><a href="confidentialite/">Lire la politique de confidentialité</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-faq" aria-labelledby="faq-title">
+      <div class="app-container">
+        <h2 id="faq-title">Questions</h2>
+        <details>
+          <summary>Mon enfant peut-il l’utiliser seul ?</summary>
+          <p>Ce n’est pas fait pour. Luciole est un rituel à deux : le parent tient le téléphone et lit, l’enfant écoute et décide. Il n’y a rien à lire pour lui, et rien qui bouge à l’écran.</p>
+        </details>
+        <details>
+          <summary>Pour quel âge ?</summary>
+          <p>De cinq à huit ans. Le vocabulaire est calibré pour un enfant de six ans qui écoute, sans supposer qu’il sache lire.</p>
+        </details>
+        <details>
+          <summary>Combien d’histoires ?</summary>
+          <p>Une, « La nuit qui appelle », en quarante-huit versions selon le héros, le compagnon et le décor choisis, avec trois fins. D’autres histoires arriveront avec les mises à jour de l’application ; rien ne se télécharge, tout est dans le téléphone.</p>
+        </details>
+        <details>
+          <summary>Faut-il une connexion ?</summary>
+          <p>Non, jamais. L’application ne demande pas la permission d’accéder à Internet.</p>
+        </details>
+        <details>
+          <summary>Peut-on reprendre une histoire interrompue ?</summary>
+          <p>Oui. Si l’enfant s’endort au milieu, l’accueil propose de reprendre là où la lecture s’est arrêtée.</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <div class="app-container">
+      <ul>
+        <li><a href="../">← Retour au site</a></li>
+        <li><a href="confidentialite/">Confidentialité</a></li>
+        <li>
+          <a href="https://github.com/michaelfery">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="mailto:mferyapps@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 4h20v16H2zm2 2v.5l8 5.5 8-5.5V6zm0 2.9V18h16V8.9l-8 5.5z"/></svg>
+            mferyapps@gmail.com
+          </a>
+        </li>
+      </ul>
+      <p class="app-footer__copyright">2026 © Michaël Fery</p>
+    </div>
+  </footer>
+</body>
+</html>
