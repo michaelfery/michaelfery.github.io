@@ -5,7 +5,7 @@ date:   2026-11-01 09:00:00.000 +01:00
 tags: [DNS, Cloudflare, GitHub Pages, Réseau]
 ---
 
-Samedi 24 octobre au soir, j'ai fait passer ce blog de `michaelfery.github.io` à **mfery.dev**, un domaine que j'ai chez Cloudflare. La manipulation est classique : quelques enregistrements DNS vers GitHub Pages, un fichier `CNAME` dans le dépôt, un certificat HTTPS. Vingt minutes, en théorie.
+Samedi dernier, j'ai fait passer ce blog de `michaelfery.github.io` à **mfery.dev**, un domaine que j'ai chez Cloudflare. La manipulation est classique : quelques enregistrements DNS vers GitHub Pages, un fichier `CNAME` dans le dépôt, un certificat HTTPS. Vingt minutes, en théorie.
 
 En pratique, j'ai passé une partie de la soirée face à un DNS qui me jurait que mes enregistrements n'existaient pas, alors que je les voyais dans le tableau de bord Cloudflare. Le coupable n'était ni Cloudflare, ni GitHub, ni un pare-feu. C'était un cache, celui de ma box, empoisonné par une requête faite trop tôt. Voici l'enquête, parce qu'elle illustre un mécanisme du DNS que peu de gens connaissent : le **cache négatif**.
 
