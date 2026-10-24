@@ -168,3 +168,5 @@ Le texte vit en [Ink](https://www.inklestudios.com/ink/), le langage d'écriture
 - **J'écris pour l'oreille.** Le premier lecteur de Luciole n'est pas l'enfant : c'est le parent qui lit, le soir, avec la voix qui fatigue.
 
 Au fond, Luciole ne fait que mettre en forme ce que mon fils et moi faisions chaque soir : garder l'histoire, et changer ce qu'on a envie de changer.
+
+Et le soir, chez moi, l'histoire continue de changer de héros. Simplement, maintenant, c'est mon fils qui appuie sur le bouton.
