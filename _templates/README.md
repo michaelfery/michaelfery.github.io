@@ -74,7 +74,7 @@ Règles :
 | `{{APP_TAGLINE}}` | Accroche, une ou deux phrases. Sert aussi de `description`. |
 | `{{APP_ACCENT}}` | Couleur hex de l'app |
 | `{{PACKAGE_ID}}` | Identifiant Play (`com.example.app`) |
-| `{{ABSOLUTE_URL}}` | URL absolue du dossier de l'app, sans slash final ni `/en/` (`https://michaelfery.github.io/almanac`). Alimente le bloc « URLs absolues » : `canonical`, `hreflang`, `og:url`, `og:image`. Seule exception au tout-relatif : les scrapers OG et Google ignorent les URL relatives. |
+| `{{ABSOLUTE_URL}}` | URL absolue du dossier de l'app, sans slash final ni `/en/` (`https://mfery.dev/almanac`). Alimente le bloc « URLs absolues » : `canonical`, `hreflang`, `og:url`, `og:image`. Seule exception au tout-relatif : les scrapers OG et Google ignorent les URL relatives. |
 | `{{PRIVACY_PATH}}` | FR : `privacy/`. EN : `../privacy-en/` si la politique existe dans les deux langues (almanac), `../privacy/` si elle n'existe qu'en anglais (roundside). |
 | `{{META_LINE}}` | Une ligne : prix, Android minimal, « sans publicité »… |
 | `{{HERO_SHOT_KEY}}` / `{{HERO_SHOT_ALT}}` | Capture principale du hero (`01-<mot-cle>.webp`), optionnelle |
