@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Relire une histoire qui n'existe pas en un seul exemplaire"
-date:   2026-11-15 09:00:00.000 +01:00
+date:   2026-11-22 09:00:00.000 +01:00
 img: posts/luciole-studio-comparaison.png
 tags: [Luciole, Écriture, IA, Claude, Android]
 published: false
