@@ -12,6 +12,7 @@ jobs:
   request-build:
     runs-on: ubuntu-latest
     steps:
-      - run: gh api -X POST "repos/${{ github.repository }}/pages/builds" --jq '"build status: " + .status'
+      - run: |
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" --jq '"build status: " + .status'
         env:
           GH_TOKEN: ${{ github.token }}
