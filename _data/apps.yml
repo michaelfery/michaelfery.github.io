@@ -16,8 +16,8 @@
   meta: Android 8.0+ · sans pub ni abonnement
   status: live
   play: https://play.google.com/store/apps/details?id=io.github.michaelfery.almanac
-  color: "#2C6E42"
-  color_soft: "#d1fae5"
+  color: "#9A4A1F"
+  color_soft: "#F9E1D2"
 
 - slug: bookfolio
   name: Bookfolio
