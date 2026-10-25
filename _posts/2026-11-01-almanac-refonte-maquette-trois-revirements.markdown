@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Refondre une app sur une maquette IA : trois revirements et quatre refus"
-date:   2026-11-08 09:00:00.000 +01:00
+date:   2026-11-01 09:00:00.000 +01:00
 tags: [Android, Design, Claude, IA, Almanac]
 ---
 

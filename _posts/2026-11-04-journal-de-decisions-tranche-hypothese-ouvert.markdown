@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "Tranché, Hypothèse, Ouvert : tenir un journal de décisions sur un projet perso"
-date:   2026-11-15 09:00:00.000 +01:00
+date:   2026-11-04 09:00:00.000 +01:00
 tags: [Méthode, Almanac, IA, Claude]
-published: false
 ---
 
 Sur un projet personnel, on ne tient pas de réunion, on n'écrit pas de compte rendu, et personne ne vous demandera pourquoi vous avez fait tel choix il y a trois semaines. Personne, sauf vous… et, de plus en plus, l'assistant IA avec qui vous codez.
