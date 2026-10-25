@@ -5,6 +5,7 @@ app: luciole
 title:  "Lancer une app Android en solo : ce que la Play Console ne vous dit pas"
 description: "Publier une app Android seul, avec un compte personnel : les formulaires dans l'ordre, les attentes, et les pièges que la Play Console ne documente pas."
 date:   2026-11-15 09:00:00.000 +01:00
+img: posts/luciole-lancer-android-banner.png
 tags: [Android, Google Play, Luciole, Almanac]
 published: false
 ---

@@ -788,6 +788,8 @@ a:hover { color: var(--ink); }
   .hero { margin-bottom: 32px; }
   .hero p { font-size: 16px; }
   .post-card__body { padding: 18px; }
+  /* Une bannière par carte allonge vite la liste : plus basse sur téléphone */
+  .post-card__img { height: 110px; }
   .apps-banner { padding: 20px; }
   .app-tile__head { padding: 18px; gap: 14px; }
   .app-tile__head img { width: 60px; height: 60px; border-radius: 14px; }
