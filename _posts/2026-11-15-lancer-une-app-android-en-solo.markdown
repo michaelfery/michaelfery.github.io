@@ -6,7 +6,7 @@ tags: [Android, Google Play, Luciole, Almanac]
 published: false
 ---
 
-[Luciole](/luciole/), mon application d'histoires du soir, arrive sur le Play Store. Ce n'est pas ma première application, [Almanac](/almanac/) l'a précédée, et je croyais connaître le chemin. Je le connaissais à moitié.
+[Luciole](/luciole/), mon application d'histoires du soir, arrive sur le Play Store. C'est ma troisième application en production, après [Bookfolio](/bookfolio/) puis [Almanac](/almanac/), et je croyais connaître le chemin. Je le connaissais à moitié.
 
 Publier une app Android quand on est seul, avec un compte développeur personnel, ce n'est pas un bouton « Publier ». C'est une suite de formulaires dans un ordre que rien n'indique, deux ou trois attentes de plusieurs jours, et quelques pièges qui ne sont documentés nulle part. Voici ce que j'aurais aimé lire avant de commencer.
 
