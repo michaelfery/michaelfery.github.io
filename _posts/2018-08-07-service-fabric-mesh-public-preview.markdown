@@ -18,7 +18,7 @@ Cependant, pour un développeur comme moi, et malgrè toutes ses qualités, Serv
 
 A l'heure du Server-less, Microsoft nous propose du Cluster-less avec la Public [Preview d'Azure Service Fabric Mesh](https://azure.microsoft.com/en-us/blog/azure-service-fabric-mesh-is-now-in-public-preview/).
 
-![Service Fabric Mesh](/posts/636691872395167321/service-fabric-mesh.png "Service Fabric Mesh")
+![Service Fabric Mesh](/assets/img/posts/service-fabric-mesh.png "Service Fabric Mesh")
 
 L'objectif est de ne plus avoir à s'occuper de l'infrastructure sur laquelle nous voulons exécuter nos services et de se concentrer sur le développement et le packaging de nos images.
 

@@ -22,7 +22,7 @@ Vous avez découvert [dans un post précédent](/blog/start-service-fabric-with-
 
 Il y a à peine quelques jours, une nouvelle extension VS Code à été [publiée sur le marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) et comme à son habitude Microsoft a rendu [le code source de ce projet disponible sur github](https://github.com/Microsoft/vscode-service-fabric-reliable-services). L'auteur principal de cette extension est un stagiaire (Peter Pogorski) qui a découvert Service Fabric et TypeScript sur ce projet alors félicitations à lui!
 
-![VS Code extension for C#](/posts/636649190560587483/SF_Extension_MarketPlace.png "VS Code extension for Service Fabric")
+![VS Code extension for C#](/assets/img/posts/SF_Extension_MarketPlace.png "VS Code extension for Service Fabric")
 
 # Features
 
@@ -64,15 +64,15 @@ npm install -g generator-azuresfguest
 
 Si vous souhaitez créer et compiler des applications C#, il vous sera également demandé d'instaler l'extension associée disponible [ici](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) ou directement depuis Visual Studio Code.
 
-![VS Code extension for C#](/posts/636649190560587483/VS_Code_Extension_CSharp.png "VS Code extension for C#")
+![VS Code extension for C#](/assets/img/posts/VS_Code_Extension_CSharp.png "VS Code extension for C#")
 
 Pour publier vos applications depuis Windows, vous devrez également installer l'extension Powershell.
 
-![VS Code extension for C#](/posts/636649190560587483/VS_Code_Extension_PS.png "VS Code extension for PowerShell")
+![VS Code extension for C#](/assets/img/posts/VS_Code_Extension_PS.png "VS Code extension for PowerShell")
 
 Une fois tous ces prérequis remplis, vous pourrez passer aux choses sérieuses en installant l'extension Service Fabric de Microsoft.
 
-![VS Code extension for C#](/posts/636649190560587483/VS_Code_Extension_SF.png "VS Code extension for Service Fabric")![VS Code extension for C#](/posts/636649190560587483/VS_Code_Extension_SF_Install.png "VS Code extension for Service Fabric Installation")
+![VS Code extension for C#](/assets/img/posts/VS_Code_Extension_SF.png "VS Code extension for Service Fabric")![VS Code extension for C#](/assets/img/posts/VS_Code_Extension_SF_Install.png "VS Code extension for Service Fabric Installation")
 
 # Commandes
 

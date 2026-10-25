@@ -31,7 +31,7 @@ Une solution pour l’ingestion des messages provenant des appareils est de four
 Comme indiqué précédemment, dans cet article nous utiliserons Azure IOT Hub, un service très complet pour les scénarios IoT, utilisé notamment comme point d’entrée de la communication des devices vers le cloud.  
 Il s’agit d’une passerelle bidirectionnelle de messages apportant également une gestion du parc d’appareils mais son avantage le plus important est bien sûr de savoir accueillir une très forte volumétrie de messages.
 
-![Azure IOT Hub](/posts/636545400234459124/00_IOT_Hub.png "Azure IOT Hub")
+![Azure IOT Hub](/assets/img/posts/00_IOT_Hub.png "Azure IOT Hub")
 
 Pour en savoir un peu plus sur Azure IOT Hub je vous invite à aller sur [la documentation produit de Microsoft](https://azure.microsoft.com/fr-fr/services/iot-hub/) ou sur un de mes précédents articles expliquant [comment provisionner un Hub dans le portail Azure et enregistrer vos premiers appareils](https://blogs.infinitesquare.com/posts/iot/azure-iot-hub-provisioning-et-configuration). (en espérant que la doc n’est pas trop changée :P ).
 
@@ -49,7 +49,7 @@ Pour découvrir ces SDK, consultez: [la documentation officielle](https://docs.m
 Dans le cadre d’un projet backend scalable nous n’utiliserons pas les points de terminaison REST classiques en direct ou via un SDK pour digérer les messages dans un souci d'optimisation des performances.
 
 Event Hub est un autre service Azure qui propose des fonctionnalités très intéressantes de gestion d'évènements efficace des messages vers un tableau de bord ou un service de notification cliente par exemple.  
-Pour récupérer nos messages nous allons donc utiliser la fonctionnalité de points de terminaison « Event-Hub-endpoint » proposée par Azure IOT Hub. ![Azure IOT Hub Provisioning](/posts/636545400234459124/02_Azure_IOT_Hub_Endpoints.png "IOT Hub Provisioning")
+Pour récupérer nos messages nous allons donc utiliser la fonctionnalité de points de terminaison « Event-Hub-endpoint » proposée par Azure IOT Hub. ![Azure IOT Hub Provisioning](/assets/img/posts/02_Azure_IOT_Hub_Endpoints.png "IOT Hub Provisioning")
 
 Dans la plupart des cas nous n’utiliserons que le **endpoint ou « point de terminaison » par défaut (messages/events)** mais il faut savoir que le Hub IOT permet de rediriger automatiquement les messages vers des endpoints à définir, en fonction de critères de contenu du message.  
 
@@ -58,7 +58,7 @@ Dans la plupart des cas nous n’utiliserons que le **endpoint ou « point de te
 Un autre aspect important de l’IOT Hub est sa fonctionnalité native de partitionnement.
 
 Pourquoi utiliser les partitions device-to-cloud dans un IOT Hub unique?  
-Lorsque l’on provisionne un Azure IOT Hub il nous est possible de définir la propriété correspondant au nombre de partitions (entre 2 et 32). **Les partitions sont liées au degré de parallélisme en aval requis lors de la consommation des applications**, c’est-à-dire notre capacité à paralléliser les traitements de débit ou de consommation des messages. ![Azure IOT Hub](/posts/636545400234459124/01_Azure_IOT_Hub_Partitions.png "IOT Hub Provisioning")
+Lorsque l’on provisionne un Azure IOT Hub il nous est possible de définir la propriété correspondant au nombre de partitions (entre 2 et 32). **Les partitions sont liées au degré de parallélisme en aval requis lors de la consommation des applications**, c’est-à-dire notre capacité à paralléliser les traitements de débit ou de consommation des messages. ![Azure IOT Hub](/assets/img/posts/01_Azure_IOT_Hub_Partitions.png "IOT Hub Provisioning")
 
 S’il est déconseillé d’essayer de définir dans quelle partition envoyer les messages, on peut se servir de cette fonctionnalité dont le concept est emprunté aux concentrateurs d’évènements ou Event Hubs. Cette fonctionnalité est utilisée justement pour définir des points de terminaison compatibles Event Hub (messages/events) intégrés nativement dans un Azure IoT Hub.
 
