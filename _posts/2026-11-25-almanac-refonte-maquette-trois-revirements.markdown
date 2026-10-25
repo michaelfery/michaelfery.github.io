@@ -4,7 +4,7 @@ topics: [IA, Android]
 app: almanac
 title:  "Refondre une app sur une maquette IA : trois revirements et quatre refus"
 description: "Refaire toute l'interface d'Almanac à partir d'une maquette Claude Design, sans renier trois décisions prises deux jours plus tôt."
-date:   2026-11-01 09:00:00.000 +01:00
+date:   2026-11-25 09:00:00.000 +01:00
 img: posts/almanac-refonte-banner.png
 tags: [Android, Design, Claude, IA, Almanac]
 ---
