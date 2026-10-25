@@ -4,13 +4,9 @@
    Dépend de tokens.css (à charger avant). Aucune police, aucune icône de
    police : les icônes sont des SVG inline dans le HTML.
 
-   Deux portées :
-   1. `body.app-page` : tout ce qui sert à une page d'app autonome (reset
-      minimal, typographie, en-tête, sections, pied). Ces règles sont
-      préfixées pour ne pas déborder sur le reste du site quand ce fichier
-      est chargé par la home.
-   2. `.app-cards` : le composant « liste d'apps », volontairement hors
-      portée pour servir sur la home (index.html) à côté de main.css.
+   Portée `body.app-page` : tout ce qui sert à une page d'app autonome (reset
+   minimal, typographie, en-tête, sections, pied). La liste des apps, elle,
+   vit dans le blog (apps.html, site.css) et lit _data/apps.yml.
 
    Mobile d'abord : les media queries sont en min-width (600 px, 900 px).
    Lisible à 360 px : gouttière de 16 px, rien de plus large que l'écran
@@ -133,8 +129,7 @@ body.app-page {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .app-page *,
-  .app-cards * {
+  .app-page * {
     transition: none !important;
     animation: none !important;
     scroll-behavior: auto !important;
@@ -555,88 +550,4 @@ body.app-page {
 .app-footer__copyright {
   margin: 0;
   text-align: center;
-}
-
-
-/* 9. Liste d'apps (home) --------------------------------------------------
-   Hors portée body.app-page : ce bloc vit dans .content-box de index.html,
-   au-dessus des posts, et s'appuie sur main.css pour le reste.
-   ------------------------------------------------------------------------- */
-
-.app-cards {
-  width: 100%;
-  margin-bottom: 1.5rem;
-}
-
-/* Même traitement que .contact-title dans la sidebar : petit, capitales */
-.app-cards__title {
-  margin: 0 0 0.75rem;
-  font-family: var(--font-serif);
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--color-heading);
-}
-
-.app-cards__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-@media (min-width: 600px) {
-  .app-cards__list {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  }
-}
-
-/* La carte entière est le lien, comme la vignette d'un .post.
-   height: 100% : deux cartes voisines gardent la même hauteur. */
-.app-card {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  gap: 1rem;
-  min-height: 44px;
-  padding: 1rem;
-  background: var(--color-surface);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  color: var(--color-text);
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.app-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-raised);
-}
-
-.app-card:focus-visible {
-  outline: 3px solid var(--color-focus);
-  outline-offset: 2px;
-}
-
-.app-card img {
-  width: 56px;
-  height: 56px;
-  flex: none;
-  border-radius: 22%;
-}
-
-.app-card__name {
-  display: block;
-  font-family: var(--font-serif);
-  font-size: 1.125rem;
-  color: var(--color-accent);
-}
-
-.app-card__tagline {
-  display: block;
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
 }

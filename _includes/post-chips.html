@@ -1,0 +1,15 @@
+{% comment %}
+  Pastilles d'un article : ses sujets (topics), puis l'app dont il parle
+  (app: <slug>, décrite dans _data/apps.yml).
+  Paramètres : include.post ; include.link=true pour que la pastille de l'app
+  mène à sa page (pas dans une carte, qui est déjà un lien).
+  Rend un <ul> si l'article a quelque chose à montrer.
+{% endcomment %}
+{% assign chip_app = site.data.apps | where: "slug", include.post.app | first %}
+{% if include.post.topics or chip_app %}
+<ul class="chips" aria-label="Sujets">
+  {% for topic in include.post.topics %}<li class="chip">{{ topic }}</li>{% endfor %}
+  {% if chip_app %}{% capture chip_icon %}<img src="{{ chip_app.slug | prepend: '/' | append: '/assets/icon-192.png' | relative_url }}" alt="" width="18" height="18">{% endcapture %}
+  <li>{% if include.link %}<a class="chip chip--app" href="{{ chip_app.slug | prepend: '/' | append: '/' | relative_url }}">{{ chip_icon }}{{ chip_app.name }}</a>{% else %}<span class="chip chip--app">{{ chip_icon }}{{ chip_app.name }}</span>{% endif %}</li>{% endif %}
+</ul>
+{% endif %}

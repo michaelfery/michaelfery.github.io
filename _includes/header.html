@@ -7,7 +7,7 @@
     </a>
     <nav class="site-nav" aria-label="Principale">
       <a href="{{ '/' | relative_url }}"{% if page.url == '/' or page.layout == 'post' or page.url contains '/page' %} aria-current="page"{% endif %}>Articles</a>
-      <a href="{{ '/#apps' | relative_url }}">Apps</a>
+      <a href="{{ '/apps/' | relative_url }}"{% if page.url == '/apps/' %} aria-current="page"{% endif %}>Apps</a>
       <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>À propos</a>
     </nav>
   </div>

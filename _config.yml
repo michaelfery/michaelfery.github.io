@@ -17,7 +17,7 @@ social-linkedin: mfery
 
 # Mesure d'audience : Cloudflare Web Analytics (voir _includes/analytics.html).
 # Vide = aucun script chargé.
-cloudflare_analytics_token: ""
+cloudflare_analytics_token: "23d1d7337fcd476382b57ca7b0a947a8"
 
 # Build settings
 markdown: kramdown

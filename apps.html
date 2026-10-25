@@ -1,0 +1,67 @@
+---
+layout: default
+title: Apps
+description: Des apps Android simples, sans publicité, conçues et développées par Michaël Fery.
+permalink: /apps/
+---
+{% assign live = site.data.apps | where: "status", "live" %}
+{% assign soon = site.data.apps | where: "status", "soon" %}
+
+<section class="hero">
+  <p class="eyebrow">APPS ANDROID</p>
+  <h1>Des apps simples, sans publicité.</h1>
+  <p>Je les conçois et je les développe seul. Chacune a sa page, avec ses captures et sa politique de confidentialité.</p>
+</section>
+
+{% if live.size > 0 %}
+<section class="apps-section" aria-labelledby="apps-live">
+  <h2 class="section-title" id="apps-live">Sur Google Play <span class="status status--live">disponibles</span></h2>
+  <ul class="app-grid">
+    {% for app in live %}
+    {% assign coulisses = site.posts | where: "app", app.slug %}
+    <li class="app-tile">
+      <div class="app-tile__head" style="background: {{ app.color }}">
+        <img src="{{ app.slug | prepend: '/' | append: '/assets/icon-192.png' | relative_url }}" alt="" width="84" height="84">
+        <div>
+          <h3 class="app-tile__name">{{ app.name }}</h3>
+          <p class="app-tile__meta" style="color: {{ app.color_soft }}">{{ app.meta }}</p>
+        </div>
+      </div>
+      <div class="app-tile__body">
+        <p class="app-tile__tagline">{{ app.tagline }}</p>
+        <div class="app-tile__actions">
+          <a class="button button--primary" href="{{ app.slug | prepend: '/' | append: '/' | relative_url }}">Découvrir</a>
+          <a class="button" href="{{ app.play }}">Google Play</a>
+        </div>
+        {% if coulisses.size > 0 %}
+        <a class="app-tile__more" href="{{ app.slug | prepend: '/' | append: '/#coulisses' | relative_url }}">{{ coulisses.size }} article{% if coulisses.size > 1 %}s{% endif %} sur sa fabrication →</a>
+        {% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if soon.size > 0 %}
+<section class="apps-section" aria-labelledby="apps-soon">
+  <h2 class="section-title" id="apps-soon">Bientôt <span class="status">en test</span></h2>
+  <ul class="app-grid">
+    {% for app in soon %}
+    {% assign coulisses = site.posts | where: "app", app.slug %}
+    <li>
+      <a class="app-teaser" style="background: {{ app.color }}" href="{{ app.slug | prepend: '/' | append: '/' | relative_url }}">
+        <img src="{{ app.slug | prepend: '/' | append: '/assets/icon-192.png' | relative_url }}" alt="" width="72" height="72">
+        <span class="app-teaser__text">
+          <span class="app-teaser__name">{{ app.name }}</span>
+          <span class="app-teaser__tagline" style="color: {{ app.color_soft }}">{{ app.tagline }}</span>
+          <span class="app-teaser__cta">Découvrir{% if coulisses.size > 0 %} · {{ coulisses.size }} article{% if coulisses.size > 1 %}s{% endif %}{% endif %} →</span>
+        </span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<p class="apps-contact">Une question sur une app : <a href="mailto:mferyapps@gmail.com">mferyapps@gmail.com</a></p>

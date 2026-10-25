@@ -17,14 +17,12 @@ layout: default
     <li>
       <a class="post-card" href="{{ post.url | relative_url }}">
         {% if post.img %}<img class="post-card__img" src="{{ post.img | prepend: '/assets/img/' | relative_url }}" alt="" loading="lazy">{% endif %}
-        <span class="post-card__body">
+        <div class="post-card__body">
           <span class="post-card__meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d.%m.%Y' }}</time> · {{ minutes }} min</span>
           <span class="post-card__title">{{ post.title }}</span>
           <span class="post-card__excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | truncatewords: 22 }}{% endif %}</span>
-          {% if post.topics %}
-          <span class="chips">{% for topic in post.topics %}<span class="chip">{{ topic }}</span>{% endfor %}</span>
-          {% endif %}
-        </span>
+          {% include post-chips.html post=post %}
+        </div>
       </a>
     </li>
     {% endfor %}
@@ -33,18 +31,16 @@ layout: default
 </section>
 
 {% if paginator.page == 1 %}
-<!-- Apps : une icône par application qui a sa page <slug>/index.html.
-     Provisoire : remplacé par _data/apps.yml et la page /apps/. -->
-<section class="apps-banner" id="apps" aria-labelledby="apps-title">
+{% assign live_count = site.data.apps | where: "status", "live" | size %}
+{% assign soon_count = site.data.apps | where: "status", "soon" | size %}
+<a class="apps-banner" href="{{ '/apps/' | relative_url }}">
   <span class="apps-banner__icons">
-    <a href="{{ '/almanac/' | relative_url }}"><img src="{{ '/almanac/assets/icon-192.png' | relative_url }}" alt="Almanac" width="44" height="44"></a>
-    <a href="{{ '/bookfolio/' | relative_url }}"><img src="{{ '/bookfolio/assets/icon-192.png' | relative_url }}" alt="Bookfolio" width="44" height="44"></a>
-    <a href="{{ '/luciole/' | relative_url }}"><img src="{{ '/luciole/assets/icon-192.png' | relative_url }}" alt="Luciole" width="44" height="44"></a>
-    <a href="{{ '/asuivre/' | relative_url }}"><img src="{{ '/asuivre/assets/icon-192.png' | relative_url }}" alt="À suivre" width="44" height="44"></a>
+    {% for app in site.data.apps %}<img src="{{ app.slug | prepend: '/' | append: '/assets/icon-192.png' | relative_url }}" alt="" width="44" height="44">{% endfor %}
   </span>
-  <div class="apps-banner__text">
-    <h2 class="apps-banner__title" id="apps-title">Je publie aussi des apps Android</h2>
-    <p class="apps-banner__sub">Sans publicité. Deux sur Google Play, deux en préparation.</p>
-  </div>
-</section>
+  <span class="apps-banner__text">
+    <span class="apps-banner__title">Je publie aussi des apps Android</span>
+    <span class="apps-banner__sub">Sans publicité. {{ live_count }} sur Google Play{% if soon_count > 0 %}, {{ soon_count }} en préparation{% endif %}.</span>
+  </span>
+  <span class="apps-banner__cta">Voir les apps →</span>
+</a>
 {% endif %}
