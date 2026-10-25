@@ -5,7 +5,8 @@
   mène à sa page (pas dans une carte, qui est déjà un lien).
   Rend un <ul> si l'article a quelque chose à montrer.
 {% endcomment %}
-{% assign chip_app = site.data.apps | where: "slug", include.post.app | first %}
+{% assign chip_app = nil %}
+{% if include.post.app %}{% assign chip_app = site.data.apps | where: "slug", include.post.app | first %}{% endif %}
 {% if include.post.topics or chip_app %}
 <ul class="chips" aria-label="Sujets">
   {% for topic in include.post.topics %}<li class="chip">{{ topic }}</li>{% endfor %}

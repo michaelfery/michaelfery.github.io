@@ -1,0 +1,37 @@
+---
+layout: default
+title: Tous les articles
+description: Tous les articles du blog de Michaël Fery, des plus récents aux archives Azure de 2015.
+permalink: /articles/
+# L'ancienne home était paginée : ses pages 2 à 5 mènent ici
+redirect_from:
+  - /page/2/
+  - /page/3/
+  - /page/4/
+  - /page/5/
+---
+<section class="hero">
+  <p class="eyebrow">{{ site.posts.size }} ARTICLES</p>
+  <h1>Tous les articles</h1>
+  <p>Des plus récents aux archives de 2015 à 2020, surtout consacrées à Azure.</p>
+</section>
+
+<div class="filter-bar">{% include post-filter.html target="all-posts" %}</div>
+
+<div id="all-posts" class="archive">
+  {% assign by_year = site.posts | group_by_exp: "p", "p.date | date: '%Y'" %}
+  {% for year in by_year %}
+  <section class="archive__year" data-year="{{ year.name }}" aria-labelledby="y{{ year.name }}">
+    <h2 class="archive__title" id="y{{ year.name }}">{{ year.name }}</h2>
+    <ul class="archive__list">
+      {% for post in year.items %}
+      <li data-topics="{{ post.topics | join: '|' }}">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d.%m' }}</time>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        {% include post-chips.html post=post %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>

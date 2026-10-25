@@ -1,0 +1,15 @@
+{% comment %}
+  Sommaire construit à partir des <h2 id="…"> que kramdown génère.
+  Paramètre : include.html, le contenu rendu de l'article.
+  Ne rend rien sous trois intertitres : un sommaire de deux lignes n'aide pas.
+{% endcomment %}
+{% assign toc_parts = include.html | split: '<h2 id="' %}
+{% if toc_parts.size > 3 %}
+<ol class="toc__list">
+  {% for part in toc_parts offset: 1 %}
+  {% assign toc_id = part | split: '"' | first %}
+  {% assign toc_text = part | split: '</h2>' | first | split: '">' | shift | join: '">' | strip_html | strip %}
+  <li><a href="#{{ toc_id }}">{{ toc_text }}</a></li>
+  {% endfor %}
+</ol>
+{% endif %}

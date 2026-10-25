@@ -1,0 +1,17 @@
+{% comment %}
+  Carte d'article de la grille. Paramètre : include.post.
+  data-topics sert au filtre par sujet (post-filter.html).
+{% endcomment %}
+{% assign card = include.post %}
+{% assign minutes = card.content | number_of_words | divided_by: 220 | at_least: 1 %}
+<li data-topics="{{ card.topics | join: '|' }}">
+  <a class="post-card" href="{{ card.url | relative_url }}">
+    {% if card.img %}<img class="post-card__img" src="{{ card.img | prepend: '/assets/img/' | relative_url }}" alt="" loading="lazy">{% endif %}
+    <div class="post-card__body">
+      <span class="post-card__meta"><time datetime="{{ card.date | date_to_xmlschema }}">{{ card.date | date: '%d.%m.%Y' }}</time> · {{ minutes }} min</span>
+      <span class="post-card__title">{{ card.title }}</span>
+      <span class="post-card__excerpt">{% if card.description %}{{ card.description }}{% else %}{{ card.content | strip_html | truncatewords: 22 }}{% endif %}</span>
+      {% include post-chips.html post=card %}
+    </div>
+  </a>
+</li>

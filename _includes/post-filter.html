@@ -1,0 +1,37 @@
+{% comment %}
+  Filtre par sujet, sans rechargement. Les sujets viennent du champ topics
+  des articles. Paramètre : include.target, l'id de l'élément qui contient
+  les <li data-topics="…">. Sans JavaScript, le filtre reste caché et tous
+  les articles sont visibles.
+{% endcomment %}
+{% assign all_topics = "" | split: "" %}
+{% for p in site.posts %}{% for t in p.topics %}{% unless all_topics contains t %}{% assign all_topics = all_topics | push: t %}{% endunless %}{% endfor %}{% endfor %}
+{% if all_topics.size > 0 %}
+<div class="filter" role="group" aria-label="Filtrer par sujet" data-filter-for="{{ include.target }}" hidden>
+  <button type="button" aria-pressed="true" data-topic="">Tout</button>
+  {% for t in all_topics %}<button type="button" aria-pressed="false" data-topic="{{ t }}">{{ t }}</button>{% endfor %}
+</div>
+<script>
+  (function () {
+    var group = document.currentScript.previousElementSibling;
+    group.hidden = false;
+    group.addEventListener('click', function (e) {
+      // La liste filtrée peut suivre le filtre dans la page : on la cherche au clic
+      var target = document.getElementById(group.dataset.filterFor);
+      var button = e.target.closest('button');
+      if (!button || !target) return;
+      var topic = button.dataset.topic;
+      group.querySelectorAll('button').forEach(function (b) {
+        b.setAttribute('aria-pressed', b === button ? 'true' : 'false');
+      });
+      target.querySelectorAll('[data-topics]').forEach(function (item) {
+        item.hidden = topic !== '' && item.dataset.topics.split('|').indexOf(topic) === -1;
+      });
+      // Une année sans article visible disparaît aussi (page /articles/)
+      target.querySelectorAll('[data-year]').forEach(function (year) {
+        year.hidden = !year.querySelector('[data-topics]:not([hidden])');
+      });
+    });
+  })();
+</script>
+{% endif %}

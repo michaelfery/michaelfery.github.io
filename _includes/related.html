@@ -1,0 +1,35 @@
+{% comment %}
+  « À lire aussi » : jusqu'à deux articles qui parlent de la même app ou
+  partagent un sujet, les plus récents d'abord ; à défaut, les articles
+  voisins que Jekyll propose (site.related_posts).
+{% endcomment %}
+{% assign related = "" | split: "" %}
+{% for p in site.posts %}
+  {% if related.size >= 2 %}{% break %}{% endif %}
+  {% if p.url == page.url %}{% continue %}{% endif %}
+  {% assign match = false %}
+  {% if page.app and p.app == page.app %}{% assign match = true %}{% endif %}
+  {% for t in page.topics %}{% if p.topics contains t %}{% assign match = true %}{% endif %}{% endfor %}
+  {% if match %}{% assign related = related | push: p %}{% endif %}
+{% endfor %}
+{% if related.size < 2 %}
+  {% for p in site.related_posts %}
+    {% if related.size >= 2 %}{% break %}{% endif %}
+    {% unless related contains p %}{% assign related = related | push: p %}{% endunless %}
+  {% endfor %}
+{% endif %}
+{% if related.size > 0 %}
+<section class="related" aria-labelledby="related-title">
+  <h2 class="related__title" id="related-title">À lire aussi</h2>
+  <ul class="related__list">
+    {% for p in related %}
+    <li>
+      <a class="related__card" href="{{ p.url | relative_url }}">
+        <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: '%d.%m.%Y' }}</time>
+        <span>{{ p.title }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

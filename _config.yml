@@ -23,14 +23,9 @@ cloudflare_analytics_token: "23d1d7337fcd476382b57ca7b0a947a8"
 markdown: kramdown
 plugins:
   - jekyll-sitemap
-  - jekyll-paginate
   - jekyll-feed
   - jekyll-redirect-from
   - jemoji
-
-# Multiple de 3 : la grille d'articles fait trois colonnes sur grand écran
-paginate: 9
-paginate_path: "/page/:num"
 
 future: false
 

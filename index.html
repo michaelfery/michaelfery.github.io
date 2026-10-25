@@ -1,36 +1,57 @@
 ---
 layout: default
 ---
-{% if paginator.page == 1 %}
+{% comment %}
+  À la une : le dernier article marqué « featured: true », sinon le dernier
+  article tout court. La grille montre les suivants ; la liste complète est
+  sur /articles/.
+{% endcomment %}
+{% assign featured = site.posts | where: "featured", true | first %}
+{% unless featured %}{% assign featured = site.posts | first %}{% endunless %}
+{% assign recent_limit = 9 %}
+
 <section class="hero">
   <p class="eyebrow">{{ site.author-title }}</p>
   <h1>Ce que je construis, et les problèmes que je croise en route.</h1>
   <p>IA et agents, cloud et DevOps, Android. Des retours d'expérience, avec le code et les erreurs.</p>
 </section>
+
+{% if featured %}
+{% assign featured_app = nil %}
+{% if featured.app %}{% assign featured_app = site.data.apps | where: "slug", featured.app | first %}{% endif %}
+{% assign minutes = featured.content | number_of_words | divided_by: 220 | at_least: 1 %}
+<a class="featured{% unless featured.img or featured_app %} featured--text{% endunless %}" href="{{ featured.url | relative_url }}">
+  {% if featured.img %}
+  <span class="featured__visual"><img src="{{ featured.img | prepend: '/assets/img/' | relative_url }}" alt=""></span>
+  {% elsif featured_app %}
+  <span class="featured__visual featured__visual--icon" style="background: {{ featured_app.color }}"><img src="{{ featured_app.slug | prepend: '/' | append: '/assets/icon-192.png' | relative_url }}" alt="" width="120" height="120"></span>
+  {% endif %}
+  <div class="featured__body">
+    <span class="eyebrow">À LA UNE · {{ featured.date | date: '%d.%m.%Y' }} · {{ minutes }} MIN</span>
+    <span class="featured__title">{{ featured.title }}</span>
+    <span class="featured__excerpt">{% if featured.description %}{{ featured.description }}{% else %}{{ featured.content | strip_html | truncatewords: 30 }}{% endif %}</span>
+    {% include post-chips.html post=featured %}
+  </div>
+</a>
 {% endif %}
 
 <section aria-labelledby="posts-title">
-  <h2 class="section-title" id="posts-title">{% if paginator.page == 1 %}Articles récents{% else %}Articles, page {{ paginator.page }}{% endif %}</h2>
-  <ul class="post-grid">
-    {% for post in paginator.posts %}
-    {% assign minutes = post.content | number_of_words | divided_by: 220 | at_least: 1 %}
-    <li>
-      <a class="post-card" href="{{ post.url | relative_url }}">
-        {% if post.img %}<img class="post-card__img" src="{{ post.img | prepend: '/assets/img/' | relative_url }}" alt="" loading="lazy">{% endif %}
-        <div class="post-card__body">
-          <span class="post-card__meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d.%m.%Y' }}</time> · {{ minutes }} min</span>
-          <span class="post-card__title">{{ post.title }}</span>
-          <span class="post-card__excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | truncatewords: 22 }}{% endif %}</span>
-          {% include post-chips.html post=post %}
-        </div>
-      </a>
-    </li>
+  <div class="section-head">
+    <h2 class="section-title" id="posts-title">Articles récents</h2>
+    {% include post-filter.html target="recent-posts" %}
+  </div>
+  <ul class="post-grid" id="recent-posts">
+    {% assign shown = 0 %}
+    {% for post in site.posts %}
+      {% if post.url == featured.url %}{% continue %}{% endif %}
+      {% if shown >= recent_limit %}{% break %}{% endif %}
+      {% include post-card.html post=post %}
+      {% assign shown = shown | plus: 1 %}
     {% endfor %}
   </ul>
-  {% include pagination.html %}
+  <p class="more"><a class="button" href="{{ '/articles/' | relative_url }}">Tous les articles, depuis {{ site.posts.last.date | date: '%Y' }}</a></p>
 </section>
 
-{% if paginator.page == 1 %}
 {% assign live_count = site.data.apps | where: "status", "live" | size %}
 {% assign soon_count = site.data.apps | where: "status", "soon" | size %}
 <a class="apps-banner" href="{{ '/apps/' | relative_url }}">
@@ -43,4 +64,3 @@ layout: default
   </span>
   <span class="apps-banner__cta">Voir les apps →</span>
 </a>
-{% endif %}
