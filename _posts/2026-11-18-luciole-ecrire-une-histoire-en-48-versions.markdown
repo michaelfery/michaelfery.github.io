@@ -4,10 +4,9 @@ topics: [Android]
 app: luciole
 title:  "Écrire une histoire du soir qui existe en 48 versions"
 description: "Une histoire du soir dont l'enfant choisit le héros, le compagnon et le décor ne s'écrit pas comme une autre. La méthode, et le piège du Mad Libs."
-date:   2026-11-15 09:00:00.000 +01:00
+date:   2026-11-18 09:00:00.000 +01:00
 img: posts/luciole-48-versions-banner.png
 tags: [Luciole, Écriture, Android]
-published: false
 ---
 
 Tout est parti d'un rituel du soir. Mon fils adorait que je lui raconte **la même histoire**, encore et encore. Et très vite, on a pris l'habitude de la faire bouger : un soir, le héros changeait ; le lendemain, c'était le compagnon ; le surlendemain, l'aventure se passait ailleurs. La même histoire, mais jamais tout à fait la même. Ce qu'il aimait, c'était à la fois de retrouver une histoire connue et de décider de ce qui allait changer.
