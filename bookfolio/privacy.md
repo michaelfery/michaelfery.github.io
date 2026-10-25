@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: prose
+lang: en
 title: "Bookfolio Privacy Policy"
 description: "What the Bookfolio app does with your data. Short answer: no Bookfolio server; your library is on your phone, plus Android's backup, Google Drive if you turn sync on, and telemetry only if you turn it on."
 permalink: /bookfolio/privacy/

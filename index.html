@@ -1,64 +1,50 @@
 ---
-layout: main
+layout: default
 ---
 {% if paginator.page == 1 %}
-<!-- Apps : une carte par application publiée, page 1 seulement.
-     Ajouter une carte quand la page <slug>/index.html existe. -->
-<section class="app-cards" aria-labelledby="apps-title">
-  <h2 class="app-cards__title" id="apps-title">Apps</h2>
-  <ul class="app-cards__list" role="list">
-    <li>
-      <a class="app-card" href="{{ site.baseurl }}/almanac/" lang="fr">
-        <img src="{{ site.baseurl }}/almanac/assets/icon-192.png" alt="" width="56" height="56">
-        <span>
-          <span class="app-card__name">Almanac</span>
-          <span class="app-card__tagline">Ce qu'il faut entretenir chez vous, quand, et comment.</span>
-        </span>
-      </a>
-    </li>
-    <li>
-      <a class="app-card" href="{{ site.baseurl }}/bookfolio/" lang="fr">
-        <img src="{{ site.baseurl }}/bookfolio/assets/icon-192.png" alt="" width="56" height="56">
-        <span>
-          <span class="app-card__name">Bookfolio</span>
-          <span class="app-card__tagline">Suivez vos lectures, gérez votre bibliothèque. Hors ligne d'abord.</span>
-        </span>
-      </a>
-    </li>
-    <li>
-      <a class="app-card" href="{{ site.baseurl }}/asuivre/" lang="fr">
-        <img src="{{ site.baseurl }}/asuivre/assets/icon-192.png" alt="" width="56" height="56">
-        <span>
-          <span class="app-card__name">À suivre</span>
-          <span class="app-card__tagline">Un roman à choix, un épisode par jour.</span>
-        </span>
-      </a>
-    </li>
-    <li>
-      <a class="app-card" href="{{ site.baseurl }}/luciole/" lang="fr">
-        <img src="{{ site.baseurl }}/luciole/assets/icon-192.png" alt="" width="56" height="56">
-        <span>
-          <span class="app-card__name">Luciole</span>
-          <span class="app-card__tagline">Ce soir, ton enfant décide comment l'histoire finit.</span>
-        </span>
-      </a>
-    </li>
-  </ul>
+<section class="hero">
+  <p class="eyebrow">{{ site.author-title }}</p>
+  <h1>Ce que je construis, et les problèmes que je croise en route.</h1>
+  <p>IA et agents, cloud et DevOps, Android. Des retours d'expérience, avec le code et les erreurs.</p>
 </section>
 {% endif %}
-{% for post in paginator.posts %}
-<article class="post">
-  {% if post.img %}
-    <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
-  {% else %}
-  {% endif %}
-  <div class="post-content">
-    <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
-    <p>{{ post.content | strip_html | truncatewords: 15 }}</p>
-    <span class="post-date">{{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-    <span class="post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: " minute read" }}{% endunless %}</span>
-  </div>
-</article>
-{% endfor %}
 
-{% include pagination.html %}
+<section aria-labelledby="posts-title">
+  <h2 class="section-title" id="posts-title">{% if paginator.page == 1 %}Articles récents{% else %}Articles, page {{ paginator.page }}{% endif %}</h2>
+  <ul class="post-grid">
+    {% for post in paginator.posts %}
+    {% assign minutes = post.content | number_of_words | divided_by: 220 | at_least: 1 %}
+    <li>
+      <a class="post-card" href="{{ post.url | relative_url }}">
+        {% if post.img %}<img class="post-card__img" src="{{ post.img | prepend: '/assets/img/' | relative_url }}" alt="" loading="lazy">{% endif %}
+        <span class="post-card__body">
+          <span class="post-card__meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d.%m.%Y' }}</time> · {{ minutes }} min</span>
+          <span class="post-card__title">{{ post.title }}</span>
+          <span class="post-card__excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | truncatewords: 22 }}{% endif %}</span>
+          {% if post.topics %}
+          <span class="chips">{% for topic in post.topics %}<span class="chip">{{ topic }}</span>{% endfor %}</span>
+          {% endif %}
+        </span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% include pagination.html %}
+</section>
+
+{% if paginator.page == 1 %}
+<!-- Apps : une icône par application qui a sa page <slug>/index.html.
+     Provisoire : remplacé par _data/apps.yml et la page /apps/. -->
+<section class="apps-banner" id="apps" aria-labelledby="apps-title">
+  <span class="apps-banner__icons">
+    <a href="{{ '/almanac/' | relative_url }}"><img src="{{ '/almanac/assets/icon-192.png' | relative_url }}" alt="Almanac" width="44" height="44"></a>
+    <a href="{{ '/bookfolio/' | relative_url }}"><img src="{{ '/bookfolio/assets/icon-192.png' | relative_url }}" alt="Bookfolio" width="44" height="44"></a>
+    <a href="{{ '/luciole/' | relative_url }}"><img src="{{ '/luciole/assets/icon-192.png' | relative_url }}" alt="Luciole" width="44" height="44"></a>
+    <a href="{{ '/asuivre/' | relative_url }}"><img src="{{ '/asuivre/assets/icon-192.png' | relative_url }}" alt="À suivre" width="44" height="44"></a>
+  </span>
+  <div class="apps-banner__text">
+    <h2 class="apps-banner__title" id="apps-title">Je publie aussi des apps Android</h2>
+    <p class="apps-banner__sub">Sans publicité. Deux sur Google Play, deux en préparation.</p>
+  </div>
+</section>
+{% endif %}

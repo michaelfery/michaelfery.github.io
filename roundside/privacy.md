@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: prose
+lang: en
 title: "Roundside Privacy Policy"
 description: "What the Roundside app does with your data. Short answer: there is no Roundside server, nothing you record ever leaves your phone, and the only two requests it makes are for public files."
 permalink: /roundside/privacy/

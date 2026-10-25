@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: prose
+lang: en
 title: "À suivre — Privacy Policy"
 description: "What the À suivre app does with your data. Short answer: nothing — it collects nothing and makes no network request."
 permalink: /asuivre/privacy/

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: prose
 title: "À suivre — Politique de confidentialité"
 description: "Ce que l'application À suivre fait de vos données. Réponse courte : rien — elle ne collecte rien et ne fait aucune requête réseau."
 permalink: /asuivre/confidentialite/
