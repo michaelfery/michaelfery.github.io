@@ -1,16 +1,15 @@
 /* ==========================================================================
    app.css — pages vitrines des applications Android
    --------------------------------------------------------------------------
-   Dépend de tokens.css (à charger avant). Aucune police, aucune icône de
-   police : les icônes sont des SVG inline dans le HTML.
+   Dépend de tokens.css (à charger avant). Même langage que le blog :
+   Inter Tight pour les titres, Inter pour le texte, JetBrains Mono pour les
+   petites étiquettes ; fond clair ou sombre selon le système. Chaque page
+   apporte son accent (--app-accent) ; un thème d'app (luciole.css) peut
+   tout redéfinir par-dessus.
 
-   Portée `body.app-page` : tout ce qui sert à une page d'app autonome (reset
-   minimal, typographie, en-tête, sections, pied). La liste des apps, elle,
-   vit dans le blog (apps.html, site.css) et lit _data/apps.yml.
-
-   Mobile d'abord : les media queries sont en min-width (600 px, 900 px).
-   Lisible à 360 px : gouttière de 16 px, rien de plus large que l'écran
-   hormis la bande de captures, qui défile dans son propre conteneur.
+   Portée `body.app-page`. Mobile d'abord : media queries en min-width
+   (600 px, 900 px). Lisible à 360 px : gouttière de 16 px, rien de plus
+   large que l'écran hormis la bande de captures, qui défile seule.
    ========================================================================== */
 
 
@@ -24,6 +23,11 @@
 }
 
 body.app-page {
+  /* Couleurs dérivées de l'accent de la page : calculées ici, sur body,
+     où --app-accent vaut celui de la page. */
+  --app-accent-text: var(--app-accent);
+  --app-soft: color-mix(in srgb, var(--app-accent) 8%, var(--color-page));
+
   margin: 0;
   background: var(--color-page);
   color: var(--color-text);
@@ -33,13 +37,18 @@ body.app-page {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Signature de l'app : un filet de couleur en haut de page */
-  border-top: 4px solid var(--app-accent);
+}
+
+@media (prefers-color-scheme: dark) {
+  body.app-page {
+    --app-accent-text: color-mix(in srgb, var(--app-accent) 45%, #ffffff);
+    --app-soft: color-mix(in srgb, var(--app-accent) 16%, var(--color-page));
+  }
 }
 
 @media (min-width: 900px) {
   body.app-page {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
   }
 }
 
@@ -53,23 +62,34 @@ body.app-page {
 .app-page h2,
 .app-page h3 {
   font-family: var(--font-serif);
-  font-weight: 400;
-  line-height: 1.25;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   color: var(--color-heading);
   margin: 0 0 var(--space-3);
 }
 
 .app-page h2 {
-  font-size: 1.5rem;
+  font-size: 1.625rem;
+}
+
+.app-page h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 900px) {
+  .app-page h2 {
+    font-size: 2rem;
+  }
 }
 
 .app-page p {
   margin: 0 0 var(--space-3);
 }
 
-/* :where() garde la spécificité à (0,1,0) : les composants (.app-button,
-   .app-header__home, .app-footer a…) peuvent redéfinir la couleur sans
-   surenchère de sélecteurs. */
+/* :where() garde la spécificité à (0,1,0) : les composants peuvent
+   redéfinir la couleur sans surenchère de sélecteurs. */
 .app-page :where(a) {
   color: var(--color-accent);
   text-decoration-thickness: 1px;
@@ -80,42 +100,39 @@ body.app-page {
   text-decoration-thickness: 2px;
 }
 
-/* Anneau de focus visible partout, clavier uniquement */
 .app-page :focus-visible {
-  outline: 3px solid var(--color-focus);
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
-/* Lien d'évitement : invisible jusqu'au focus clavier */
 .app-page .skip-link {
   position: absolute;
   top: -100%;
   left: var(--space-3);
   z-index: 10;
   padding: var(--space-2) var(--space-3);
-  background: var(--color-surface);
-  color: var(--color-accent);
-  border-radius: 0 0 var(--radius) var(--radius);
-  box-shadow: var(--shadow-raised);
+  background: var(--color-heading);
+  color: var(--color-page);
+  border-radius: 0 0 8px 8px;
 }
 
 .app-page .skip-link:focus {
   top: 0;
 }
 
-/* Conteneur : gouttière de 16 px à toute largeur, 60 rem au plus */
+/* Conteneur : celui du blog, 1120 px au plus */
 .app-container {
-  width: min(100% - 2 * var(--space-3), 60rem);
+  width: min(100% - 2 * var(--space-3), 70rem);
   margin-inline: auto;
 }
 
 @media (min-width: 600px) {
   .app-container {
-    width: min(100% - 2 * var(--space-5), 60rem);
+    width: min(100% - 2 * var(--space-5), 70rem);
   }
 }
 
-/* Utilitaire : texte pour lecteurs d'écran seulement */
 .app-page .visually-hidden {
   position: absolute;
   width: 1px;
@@ -136,34 +153,41 @@ body.app-page {
   }
 }
 
+/* Petites étiquettes en chasse fixe : fil d'Ariane, numéros, étapes, méta */
+.app-crumbs,
+.app-hero__meta,
+.app-features li::before,
+.app-steps li::before {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
 
-/* 2. En-tête --------------------------------------------------------------- */
+
+/* 2. En-tête : celui du blog ----------------------------------------------- */
 
 .app-header {
   background: var(--color-surface);
-  box-shadow: var(--shadow);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .app-header .app-container {
   display: flex;
-  flex-wrap: wrap;            /* à 360 px, la nav passe sous le nom si besoin */
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0 var(--space-3);
-  min-height: 3.5rem;
+  min-height: 4rem;
 }
 
-/* Reprise du nom d'auteur de la sidebar : PT Serif, capitales, gras */
 .app-header__home {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: 10px;
   min-height: 44px;
   font-family: var(--font-serif);
-  font-size: 0.875rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
   text-decoration: none;
   white-space: nowrap;
   color: var(--color-heading);
@@ -173,115 +197,192 @@ body.app-page {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--color-heading);
 }
 
 .app-header__nav {
   display: flex;
-  gap: var(--space-2);
+  gap: 4px;
 }
 
 .app-header__nav a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 0 var(--space-2);
-  font-size: 0.875rem;
+  padding: 0 14px;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text);
   text-decoration: none;
 }
 
-.app-header__nav a:hover {
-  text-decoration: underline;
+.app-header__nav a:hover,
+.app-header__nav a[aria-current="page"] {
+  color: var(--color-heading);
+  background: var(--color-surface-alt);
+}
+
+@media (max-width: 599px) {
+  .app-header__nav a {
+    padding: 0 8px;
+  }
 }
 
 
 /* 3. Hero ------------------------------------------------------------------ */
+/* Un seul flux HTML : fil d'Ariane, icône, nom, accroche, bouton, méta, puis
+   la capture. Sur grand écran, la capture passe à droite, posée en bas du
+   bandeau comme un téléphone qui en sort. */
 
 .app-hero {
-  padding-block: var(--space-5) var(--space-4);
-  text-align: center;
+  background: var(--app-soft);
+  border-bottom: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+  overflow: hidden;
+}
+
+.app-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.app-crumbs a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.app-crumbs a:hover {
+  text-decoration: underline;
+}
+
+.app-crumbs__here {
+  color: var(--color-heading);
 }
 
 .app-hero__icon {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto var(--space-3);
-  border-radius: 22%;
-  box-shadow: var(--shadow-raised);
+  width: 80px;
+  height: 80px;
+  margin: 0 0 var(--space-4);
+  border-radius: 19px;
+  box-shadow: 0 10px 28px -8px rgba(15, 23, 42, 0.3);
 }
 
 .app-hero h1 {
-  font-size: 2rem;
-  margin-bottom: var(--space-2);
+  font-size: 2.625rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-3);
 }
 
 .app-hero__tagline {
-  max-width: var(--measure);
-  margin: 0 auto var(--space-4);
-  font-size: 1.125rem;
-  line-height: 1.5;
+  max-width: 34rem;
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-serif);
+  font-size: 1.3125rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
 }
 
 .app-hero__actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: var(--space-2);
 }
 
 .app-hero__meta {
   margin: var(--space-3) 0 0;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
   color: var(--color-text-muted);
 }
 
-/* Capture principale, sous les boutons : l'écran de l'app, pas un mockup */
+/* La capture dans un cadre de téléphone, coupée par le bas du bandeau */
 .app-hero__shot {
-  width: min(100%, 260px);
-  margin: var(--space-4) auto 0;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-raised);
+  width: min(100%, 240px);
+  margin: var(--space-5) auto 0;
+  border: 7px solid var(--color-heading);
+  border-bottom: 0;
+  border-radius: 28px 28px 0 0;
   background: var(--color-surface-alt);
+  box-shadow: 0 24px 60px -20px rgba(15, 23, 42, 0.35);
 }
 
 @media (min-width: 600px) {
-  .app-hero {
-    padding-block: var(--space-6) var(--space-5);
-  }
-
-  .app-hero__shot {
-    width: 300px;
-  }
-
   .app-hero__icon {
-    width: 128px;
-    height: 128px;
+    width: 104px;
+    height: 104px;
+    border-radius: 24px;
   }
 
   .app-hero h1 {
-    font-size: 2.5rem;
+    font-size: 3.75rem;
+  }
+
+  .app-hero__tagline {
+    font-size: 1.625rem;
+  }
+
+  .app-hero__shot {
+    width: 280px;
   }
 }
 
-/* Boutons : 44 px minimum, pilule, icône SVG en tête */
+@media (min-width: 900px) {
+  .app-hero .app-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    column-gap: var(--space-6);
+    align-items: start;
+  }
+
+  .app-hero .app-container > * {
+    grid-column: 1;
+  }
+
+  .app-hero .app-crumbs {
+    grid-column: 1 / -1;
+  }
+
+  .app-hero__meta {
+    margin-bottom: var(--space-7);
+  }
+
+  .app-hero .app-container > .app-hero__shot {
+    grid-column: 2;
+    grid-row: 2 / span 6;
+    align-self: end;
+    width: 300px;
+    margin: var(--space-4) auto 0;
+    border-width: 8px;
+    border-radius: 32px 32px 0 0;
+  }
+}
+
+/* Boutons : 48 px, coins arrondis comme ceux du blog */
 .app-button {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  min-height: 44px;
-  padding: 0.625rem 1.5rem;
-  border: 2px solid var(--app-accent);
-  border-radius: 999px;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1px solid var(--app-accent);
+  border-radius: 10px;
   background: var(--app-accent);
   color: var(--app-accent-ink);
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: filter 0.15s ease;
 }
 
 .app-button:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-raised);
+  filter: brightness(1.08);
 }
 
 .app-button svg {
@@ -292,21 +393,51 @@ body.app-page {
 }
 
 .app-button--secondary {
-  background: transparent;
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-heading);
+  font-weight: 500;
+}
+
+@media (max-width: 599px) {
+  .app-hero__actions .app-button {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
 }
 
 
-/* 4. Captures d'écran ------------------------------------------------------ */
+/* 4. Sections ------------------------------------------------------------- */
 
-.app-shots {
-  padding-block: var(--space-4);
+.app-features,
+.app-steps,
+.app-shots,
+.app-privacy,
+.app-faq,
+.app-behind {
+  padding-block: var(--space-5);
 }
 
-/* Bande défilante : une capture et demie visible à 360 px, snap au doigt.
-   Le conteneur est focusable (tabindex="0" dans le HTML) pour défiler au
-   clavier avec les flèches. */
+@media (min-width: 900px) {
+  .app-features,
+  .app-steps,
+  .app-shots,
+  .app-privacy,
+  .app-faq,
+  .app-behind {
+    padding-block: var(--space-6) 0;
+  }
+
+  main > section:last-child {
+    padding-bottom: var(--space-6);
+  }
+}
+
+
+/* 5. Captures d'écran ------------------------------------------------------ */
+/* Bande défilante sur téléphone, grille sur grand écran. Le conteneur est
+   focusable (tabindex="0" dans le HTML) pour défiler au clavier. */
+
 .app-shots__track {
   display: flex;
   gap: var(--space-3);
@@ -318,14 +449,14 @@ body.app-page {
 }
 
 .app-shots__track > figure {
-  flex: 0 0 min(66vw, 260px);
+  flex: 0 0 min(62vw, 220px);
   margin: 0;
   scroll-snap-align: start;
 }
 
 .app-shots__track img {
   width: 100%;
-  border-radius: var(--radius);
+  border-radius: 18px;
   box-shadow: var(--shadow);
   background: var(--color-surface-alt);
 }
@@ -333,21 +464,28 @@ body.app-page {
 .app-shots__track figcaption {
   margin-top: var(--space-2);
   font-size: 0.875rem;
-  text-align: center;
+  line-height: 1.45;
   color: var(--color-text-muted);
 }
 
-
-/* 5. Fonctionnalités ------------------------------------------------------- */
-
-.app-features {
-  padding-block: var(--space-4);
+@media (min-width: 900px) {
+  .app-shots__track {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-4);
+    overflow: visible;
+    padding: var(--space-1);
+  }
 }
+
+
+/* 6. Fonctionnalités : cartes numérotées ---------------------------------- */
 
 .app-features ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  counter-reset: feature;
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-3);
@@ -355,22 +493,28 @@ body.app-page {
 
 @media (min-width: 600px) {
   .app-features ul {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 .app-features li {
-  padding: var(--space-3);
+  counter-increment: feature;
+  padding: var(--space-4);
   background: var(--color-surface);
-  border-top: 3px solid var(--app-accent);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
+.app-features li::before {
+  content: counter(feature, decimal-leading-zero);
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: 0.75rem;
+  color: var(--app-accent-text);
+}
+
 .app-features h3 {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.1875rem;
   margin: 0 0 var(--space-1);
 }
 
@@ -379,14 +523,9 @@ body.app-page {
 }
 
 
-/* 5b. Comment ça marche ---------------------------------------------------
-   Trois étapes au plus, numérotées par CSS. L'<ol> porte role="list" dans le
-   HTML : list-style: none fait perdre la sémantique de liste à VoiceOver.
-   ------------------------------------------------------------------------- */
-
-.app-steps {
-  padding-block: var(--space-4);
-}
+/* 7. Comment ça marche ---------------------------------------------------- */
+/* Trois étapes au plus. L'<ol> porte role="list" dans le HTML :
+   list-style: none fait perdre la sémantique de liste à VoiceOver. */
 
 .app-steps ol {
   list-style: none;
@@ -395,57 +534,58 @@ body.app-page {
   counter-reset: step;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-3);
+  gap: var(--space-4);
 }
 
 @media (min-width: 600px) {
   .app-steps ol {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
   }
 }
 
 .app-steps li {
   counter-increment: step;
-  display: flex;
-  gap: var(--space-3);
-  align-items: flex-start;
+  padding-top: var(--space-3);
+  border-top: 3px solid var(--app-accent);
 }
 
 .app-steps li::before {
-  content: counter(step);
-  flex: none;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--app-accent);
-  color: var(--app-accent-ink);
-  font-family: var(--font-serif);
-  font-weight: 700;
+  content: "ÉTAPE " counter(step);
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: 0.8125rem;
+  color: var(--app-accent-text);
+}
+
+.app-steps :lang(en) li::before,
+.app-steps li:lang(en)::before {
+  content: "STEP " counter(step);
 }
 
 .app-steps p {
   margin: 0;
-  padding-top: 0.3rem;
+  color: var(--color-heading);
 }
 
 
-/* 6. Confidentialité ------------------------------------------------------- */
-
-.app-privacy {
-  padding-block: var(--space-4);
-}
+/* 8. Vos données ---------------------------------------------------------- */
 
 .app-privacy__box {
-  padding: var(--space-3) var(--space-4);
+  padding: var(--space-4);
   background: var(--color-surface);
-  border-left: 4px solid var(--app-accent);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
-.app-privacy__box p {
+@media (min-width: 900px) {
+  .app-privacy__box {
+    padding: var(--space-5);
+  }
+}
+
+.app-privacy__box p,
+.app-privacy__box ul {
   max-width: var(--measure);
 }
 
@@ -453,14 +593,12 @@ body.app-page {
   margin-bottom: 0;
 }
 
-/* Sous-titres et listes dans la boîte : autorisations, ce qui est payant… */
 .app-privacy__box h3 {
   font-size: 1.125rem;
   margin: var(--space-4) 0 var(--space-2);
 }
 
 .app-privacy__box ul {
-  max-width: var(--measure);
   margin: 0 0 var(--space-3);
   padding-left: 1.25rem;
 }
@@ -469,35 +607,37 @@ body.app-page {
   margin-bottom: var(--space-1);
 }
 
+.app-privacy__box a {
+  font-weight: 600;
+}
 
-/* 7. Questions ------------------------------------------------------------- */
 
-.app-faq {
-  padding-block: var(--space-4);
+/* 9. Questions ------------------------------------------------------------- */
+
+.app-faq .app-container > * {
+  max-width: 48rem;
 }
 
 .app-faq details {
   margin-bottom: var(--space-2);
   background: var(--color-surface);
-  border-radius: var(--radius);
+  border-radius: 12px;
   box-shadow: var(--shadow);
 }
 
 .app-faq summary {
-  padding: var(--space-3);
-  min-height: 44px;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding: var(--space-3) var(--space-4);
+  font-weight: 600;
+  color: var(--color-heading);
   cursor: pointer;
-  border-radius: var(--radius);
-}
-
-.app-faq details[open] summary {
-  border-radius: var(--radius) var(--radius) 0 0;
 }
 
 .app-faq details > :not(summary) {
   margin: 0;
-  padding: 0 var(--space-3) var(--space-3);
+  padding: 0 var(--space-4) var(--space-4);
   max-width: var(--measure);
 }
 
@@ -506,14 +646,9 @@ body.app-page {
 }
 
 
-/* 7 bis. Coulisses ---------------------------------------------------------
-   Les articles du blog sur la fabrication de l'app (_includes/app-coulisses.html).
-   N'apparaît que si au moins un article publié porte « app: <slug> ».
-   ------------------------------------------------------------------------- */
-
-.app-behind {
-  padding-block: var(--space-4);
-}
+/* 10. Coulisses ------------------------------------------------------------ */
+/* Les articles du blog sur la fabrication de l'app
+   (_includes/app-coulisses.html), en cartes avec leur bannière. */
 
 .app-behind__intro {
   max-width: var(--measure);
@@ -525,17 +660,16 @@ body.app-page {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-3);
 }
 
 .app-behind a {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
-  min-height: 44px;
-  padding: var(--space-3);
+  height: 100%;
+  overflow: hidden;
   background: var(--color-surface);
-  border-left: 4px solid var(--app-accent);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   color: var(--color-heading);
@@ -546,35 +680,56 @@ body.app-page {
   box-shadow: var(--shadow-raised);
 }
 
-.app-behind a:focus-visible {
-  outline: 3px solid var(--color-focus);
-  outline-offset: 2px;
+.app-behind img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+}
+
+.app-behind__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .app-behind time {
-  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
   color: var(--color-text-muted);
 }
 
 
-/* 8. Pied de page ---------------------------------------------------------- */
+/* 11. Pied de page : celui du blog ---------------------------------------- */
 
 .app-footer {
   margin-top: var(--space-6);
-  padding-block: var(--space-4);
+  padding-block: var(--space-3);
   background: var(--color-surface);
-  box-shadow: 0 -1px 1px 0 rgba(31, 35, 46, 0.15);
+  border-top: 1px solid var(--color-border);
   font-size: 0.875rem;
   color: var(--color-text-muted);
+}
+
+.app-footer .app-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 var(--space-4);
 }
 
 .app-footer ul {
   list-style: none;
-  margin: 0 0 var(--space-2);
+  margin: 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 0 var(--space-4);
 }
 
@@ -600,5 +755,4 @@ body.app-page {
 
 .app-footer__copyright {
   margin: 0;
-  text-align: center;
 }

@@ -34,8 +34,9 @@
   <meta name="theme-color" content="#3A2E63">
 
   <!-- Polices : exactement celles du reste du site, rien de plus -->
-  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&amp;display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/app.css">
@@ -86,9 +87,10 @@
         <img src="../assets/img/michael-fery-64.png" alt="" width="32" height="32">
         Michaël Fery
       </a>
-      <nav class="app-header__nav" aria-label="Page">
-        <a href="../apps/">Toutes les apps</a>
-        <a href="confidentialite/">Confidentialité</a>
+      <nav class="app-header__nav" aria-label="Principale">
+        <a href="../">Articles</a>
+        <a href="../apps/" aria-current="page">Apps</a>
+        <a href="../about/">À propos</a>
       </nav>
     </div>
   </header>
@@ -97,6 +99,7 @@
 
     <section class="app-hero">
       <div class="app-container">
+        <p class="app-crumbs"><span><a href="../apps/">Apps</a> / <span class="app-crumbs__here">À suivre</span></span></p>
         <img class="app-hero__icon" src="assets/icon-192.png" alt="" width="192" height="192">
         <h1>À suivre</h1>
         <p class="app-hero__tagline">Un roman à choix, un épisode par jour. Tu décides, l'histoire attend demain.</p>

@@ -1,42 +1,41 @@
 /* ==========================================================================
    tokens.css — variables des pages d'app
    --------------------------------------------------------------------------
-   Le bloc "Miroir" reprend les couleurs de l'ancien thème du blog (SCSS de
-   2019, supprimé à la refonte). Le blog a désormais ses propres variables
-   dans site.css ; ce fichier ne sert plus qu'aux pages d'app (app.css), qui
-   gardent leur apparence en attendant d'être alignées sur la refonte.
+   Mêmes couleurs et mêmes polices que le blog (site.css) : une page d'app
+   fait partie du site. Chaque page fixe son accent (--app-accent) dans son
+   <style> ; un thème d'app (luciole.css) peut redéfinir n'importe quelle
+   variable sur body.app-page.<slug>.
 
-   Le bloc "Extensions" complète ces couleurs (contraste AA, espacement,
-   polices) sans rien y redéfinir.
+   Les noms viennent du premier socle et restent ceux que luciole.css
+   surcharge : --font-serif est la police des titres (Inter Tight ici,
+   Literata chez Luciole), même si ce n'est plus un sérif.
    ========================================================================== */
 
 :root {
-  /* --- Miroir de _variables.scss ---------------------------------------- */
-  --color-text:        #515151;   /* $body-color — 7,7:1 sur blanc          */
-  --color-heading:     #333030;   /* $dark                                   */
-  --color-accent:      #263959;   /* $dark-blue — 11,6:1 avec du blanc       */
-  --color-surface:     #ffffff;   /* $white                                  */
-  --color-surface-alt: #fafafa;   /* $lightgray                              */
-  --color-border:      #ecf0f1;   /* $gray                                   */
-  --color-page:        #fbfbfb;   /* body, en dur dans main.scss             */
-
-  /* --- Extensions -------------------------------------------------------- */
-  /* $dark-gray (#a0a0a0) ne passe pas AA en texte (2,6:1). On ne l'expose
-     pas ; on fournit un gris atténué conforme à la place.                  */
-  --color-text-muted:  #6b6b6b;   /* 5,3:1 sur blanc, 5,1:1 sur --color-page */
+  --color-page:        #f8fafc;
+  --color-surface:     #ffffff;
+  --color-surface-alt: #f1f5f9;
+  --color-border:      #e2e8f0;
+  --color-text:        #334155;   /* 10,4:1 sur blanc                       */
+  --color-heading:     #0f172a;   /* 17,8:1                                 */
+  --color-text-muted:  #64748b;   /* 4,8:1 sur blanc                        */
+  --color-accent:      #3730a3;   /* liens de texte, 10,2:1                 */
   --color-on-accent:   #ffffff;
-  --color-focus:       #263959;
+  --color-focus:       #4f46e5;
 
-  /* Accent propre à chaque page d'app. Surchargé dans le <style> de la page.
+  /* Accent propre à chaque page d'app, surchargé dans le <style> de la page.
      Règle : --app-accent-ink doit contraster à 4,5:1 minimum avec
-     --app-accent, sinon choisir un accent plus foncé ou passer l'encre en
-     --color-heading. Par défaut, l'accent est celui du site.               */
-  --app-accent:        var(--color-accent);
-  --app-accent-ink:    var(--color-on-accent);
+     --app-accent (texte du bouton). --app-accent-text est la version de
+     l'accent posée en petit texte sur le fond (numéros, étapes) ; en thème
+     sombre, elle est éclaircie pour rester lisible. */
+  --app-accent:        #4f46e5;
+  --app-accent-ink:    #ffffff;
+  /* --app-accent-text et --app-soft sont calculés dans app.css, sur
+     body.app-page, là où l'accent de la page est connu. */
 
-  /* Polices : celles déjà chargées par le site, rien d'autre. */
-  --font-sans:  'Lato', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-serif: 'PT Serif', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --font-mono:  'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
   /* Échelle d'espacement (base 16 px) */
   --space-1: 0.25rem;
@@ -45,12 +44,31 @@
   --space-4: 1.5rem;
   --space-5: 2.5rem;
   --space-6: 4rem;
+  --space-7: 5rem;
 
-  /* Formes, repris des cartes .post de la home */
-  --radius:        10px;
-  --shadow:        0 1px 1px 0 rgba(31, 35, 46, 0.15);
-  --shadow-raised: 0 15px 45px -10px rgba(10, 16, 34, 0.2);
+  --radius:        14px;
+  --shadow:        0 0 0 1px var(--color-border);
+  --shadow-raised: 0 0 0 1px var(--color-border), 0 16px 40px -12px rgba(15, 23, 42, 0.18);
 
   /* Largeur de lecture confortable pour un paragraphe */
   --measure: 65ch;
+
+  color-scheme: light dark;
+}
+
+/* Thème sombre : celui du blog. Les pages qui ont leur propre thème (Luciole)
+   le fixent sur body et ne sont pas concernées. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-page:        #0b1120;
+    --color-surface:     #131b2e;
+    --color-surface-alt: #1c2639;
+    --color-border:      #263248;
+    --color-text:        #cbd5e1;
+    --color-heading:     #f1f5f9;
+    --color-text-muted:  #8b97ab;
+    --color-accent:      #c7d2fe;
+    --color-focus:       #a5b4fc;
+    --shadow-raised: 0 0 0 1px var(--color-border), 0 16px 40px -12px rgba(0, 0, 0, 0.5);
+  }
 }
