@@ -99,7 +99,7 @@ Le document de publication d'Almanac le pose dès le départ : **la production c
 
 ## Ce que j'en retiens
 
-- **Écrivez la procédure la première fois.** Le chemin ne se fait qu'une fois par application, et il s'oublie d'une fois sur l'autre. Mes deux dépôts ont chacun leur document de publication, réponses aux questionnaires comprises.
+- **Écrivez la procédure la première fois.** Le chemin ne se fait qu'une fois par application, et il s'oublie d'une fois sur l'autre. Les dépôts de Luciole et d'Almanac ont chacun leur document de publication, réponses aux questionnaires comprises.
 - **Préparez les questionnaires à l'avance.** Public cible, sécurité des données, classification : certaines réponses engagent l'application, et ce n'est pas le moment de les improviser.
 - **Soyez exact dans la sécurité des données**, même quand ça vous coûte un badge.
 - **Comptez en semaines, pas en jours.** Entre le premier examen, le test fermé de quatorze jours et l'examen de l'accès à la production, le calendrier n'est pas le vôtre.
