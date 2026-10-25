@@ -1,0 +1,45 @@
+# Les apps Android, une seule fois pour tout le site : page /apps/, bandeau
+# de l'accueil, pastille sous un article qui porte « app: <slug> ».
+#
+# slug     dossier de la page d'app (/<slug>/) et valeur de « app: » dans un article
+# status   live = sur Google Play ; soon = en test, pas encore publiée
+# color    fond de la carte sur /apps/ : la couleur de l'icône de l'app.
+#          Le texte posé dessus est blanc ; color_soft est la teinte claire
+#          des petites lignes. Contraste vérifié à 4,5:1 minimum.
+# play     lien Google Play, seulement si status: live
+#
+# L'ordre de la liste est l'ordre d'affichage : les apps publiées d'abord.
+
+- slug: almanac
+  name: Almanac
+  tagline: Ce qu'il faut entretenir chez vous, quand, et comment.
+  meta: Android 8.0+ · sans pub ni abonnement
+  status: live
+  play: https://play.google.com/store/apps/details?id=io.github.michaelfery.almanac
+  color: "#2C6E42"
+  color_soft: "#d1fae5"
+
+- slug: bookfolio
+  name: Bookfolio
+  tagline: Suivez vos lectures, gérez votre bibliothèque. Hors ligne d'abord.
+  meta: Android 8.0+ · sans publicité
+  status: live
+  play: https://play.google.com/store/apps/details?id=io.bookfolio.app
+  color: "#1F2A44"
+  color_soft: "#f4b8a6"
+
+- slug: luciole
+  name: Luciole
+  tagline: Ce soir, ton enfant décide comment l'histoire finit.
+  meta: Android 8.0+ · sans compte, sans publicité, sans connexion
+  status: soon
+  color: "#0C0A14"
+  color_soft: "#d6d0f5"
+
+- slug: asuivre
+  name: À suivre
+  tagline: Un roman à choix, un épisode par jour.
+  meta: Android 8.0+ · sans compte, sans publicité, sans connexion
+  status: soon
+  color: "#3A2E63"
+  color_soft: "#ded8f3"

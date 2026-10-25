@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: prose
+lang: en
 title: "Almanac Privacy Policy"
 description: "What the Almanac app does with your data. Short answer: there is no Almanac server, and the only copy off your phone is Android's encrypted backup."
 permalink: /almanac/privacy-en/

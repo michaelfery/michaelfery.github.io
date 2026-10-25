@@ -2,18 +2,21 @@
 
 Ce dossier commence par `_`, Jekyll l'ignore : rien ici n'est publié. Il
 contient les gabarits à copier et les conventions à suivre. Les pages d'app
-elles-mêmes sont du HTML statique sans front matter, que Jekyll copie tel quel.
+elles-mêmes sont du HTML statique avec un front matter vide, pour que Jekyll
+exécute la section « Les coulisses » (aucun autre Liquid dans la page).
 
 ## Fichiers du socle
 
 | Fichier | Rôle |
 |---|---|
-| `assets/css/tokens.css` | Variables CSS partagées. Miroir de `_variables.scss` + extensions. |
-| `assets/css/app.css` | Styles des pages d'app (`body.app-page`) et de la liste d'apps de la home (`.app-cards`). |
+| `assets/css/tokens.css` | Variables CSS des pages d'app (couleurs de l'ancien thème + extensions). |
+| `assets/css/app.css` | Styles des pages d'app (`body.app-page`). La section `.app-cards` ne sert plus depuis la refonte du blog. |
 | `_templates/app-page.html` | Gabarit français → `<slug>/index.html` |
 | `_templates/app-page-en.html` | Gabarit anglais → `<slug>/en/index.html` |
-| `index.html` | Section `.app-cards` en tête de la home, page 1 seulement. |
-| `_includes/head.html` | Charge `tokens.css` et `app.css` sur la home seulement (`{% if paginator %}`). |
+| `index.html` | Bandeau des apps en bas de la home, page 1 seulement (provisoire, en attendant `/apps/`). |
+| `_data/apps.yml` | Une entrée par app : nom, accroche, statut (`live` / `soon`), lien Play, couleur de l'icône. Alimente `/apps/`, le bandeau de la home et les pastilles d'articles. À remplir en même temps que la page. |
+| `_includes/app-coulisses.html` | Section « Les coulisses » des pages d'app : les articles qui portent `app: <slug>`. Les pages d'app ont un front matter vide pour que Jekyll l'exécute. |
+| `<slug>/privacy*.md` | Gabarit `prose` : le titre est le `# …` du Markdown. Ajouter `lang: en` aux versions anglaises. |
 
 ## Arborescence d'une app
 

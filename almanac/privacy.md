@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: prose
 title: "Politique de confidentialité d'Almanac"
 description: "Ce que l'application Almanac fait de vos données. Réponse courte : il n'y a pas de serveur Almanac, et la seule copie hors de votre téléphone est la sauvegarde chiffrée d'Android."
 permalink: /almanac/privacy/

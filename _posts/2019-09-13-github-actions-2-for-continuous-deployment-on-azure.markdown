@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  "Github Actions 2.0 : Déploiement Continu sur Azure"
 date:   2019-10-05 08:32:49.067
 # categories: blog
@@ -27,7 +28,7 @@ Vous pourrez m&ecirc;me afficher un petit badge ;)
 
 Tout d'abord, il faut avoir Github Actions activ&eacute;. Oui, je l'ai d&eacute;j&agrave; dit lorsque l'on a mis en place l'int&eacute;gration continue mais bon... Encore une fois, [allez faire votre demande d'acc&egrave;s rapidement](https://github.com/features/actions) ou attendez le 13 novembre pour la disponibilit&eacute; g&eacute;n&eacute;rale.
 
-Il vous faudra &eacute;galement avoir packag&eacute; votre application et cr&eacute;&eacute; un **artifact**. Pour cela je vous invite &agrave; revenir &agrave; [mon article pr&eacute;c&eacute;dent](../github-actions-2-for-dotnet-core-ci), et notamment la section [Package &amp; Artifacts](../github-actions-2-for-dotnet-core-ci#package).
+Il vous faudra &eacute;galement avoir packag&eacute; votre application et cr&eacute;&eacute; un **artifact**. Pour cela je vous invite &agrave; revenir &agrave; [mon article pr&eacute;c&eacute;dent](/2019/09/github-actions-2-for-dotnet-core-ci), et notamment la section [Package &amp; Artifacts](/2019/09/github-actions-2-for-dotnet-core-ci#package).
 
 Vous devriez voir votre artifact dans la partie en haut &agrave; droite de vos logs de workflow :
 
@@ -79,7 +80,7 @@ Passons ensuite au workflow et aux &eacute;tapes de d&eacute;ploiement.
 
 ## Workflow de d&eacute;ploiement
 
-Nous reprendrons ici le fichier workflow que nous avions commenc&eacute; dans l'[article sur l'int&eacute;gration continue](../github-actions-2-for-dotnet-core-ci/).
+Nous reprendrons ici le fichier workflow que nous avions commenc&eacute; dans l'[article sur l'int&eacute;gration continue](/2019/09/github-actions-2-for-dotnet-core-ci).
 
 `/.github/workflows/{workflow_name}.yml`
 

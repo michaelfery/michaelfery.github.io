@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  .NET Core 3.0 disponible sur Azure App Service
 date:   2019-10-05 08:32:49.067
 # categories: blog

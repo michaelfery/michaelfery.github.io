@@ -1,64 +1,66 @@
 ---
-layout: main
+layout: default
 ---
-{% if paginator.page == 1 %}
-<!-- Apps : une carte par application publiée, page 1 seulement.
-     Ajouter une carte quand la page <slug>/index.html existe. -->
-<section class="app-cards" aria-labelledby="apps-title">
-  <h2 class="app-cards__title" id="apps-title">Apps</h2>
-  <ul class="app-cards__list" role="list">
-    <li>
-      <a class="app-card" href="{{ site.baseurl }}/almanac/" lang="fr">
-        <img src="{{ site.baseurl }}/almanac/assets/icon-192.png" alt="" width="56" height="56">
-        <span>
-          <span class="app-card__name">Almanac</span>
-          <span class="app-card__tagline">Ce qu'il faut entretenir chez vous, quand, et comment.</span>
-        </span>
-      </a>
-    </li>
-    <li>
-      <a class="app-card" href="{{ site.baseurl }}/bookfolio/" lang="fr">
-        <img src="{{ site.baseurl }}/bookfolio/assets/icon-192.png" alt="" width="56" height="56">
-        <span>
-          <span class="app-card__name">Bookfolio</span>
-          <span class="app-card__tagline">Suivez vos lectures, gérez votre bibliothèque. Hors ligne d'abord.</span>
-        </span>
-      </a>
-    </li>
-    <li>
-      <a class="app-card" href="{{ site.baseurl }}/asuivre/" lang="fr">
-        <img src="{{ site.baseurl }}/asuivre/assets/icon-192.png" alt="" width="56" height="56">
-        <span>
-          <span class="app-card__name">À suivre</span>
-          <span class="app-card__tagline">Un roman à choix, un épisode par jour.</span>
-        </span>
-      </a>
-    </li>
-    <li>
-      <a class="app-card" href="{{ site.baseurl }}/luciole/" lang="fr">
-        <img src="{{ site.baseurl }}/luciole/assets/icon-192.png" alt="" width="56" height="56">
-        <span>
-          <span class="app-card__name">Luciole</span>
-          <span class="app-card__tagline">Ce soir, ton enfant décide comment l'histoire finit.</span>
-        </span>
-      </a>
-    </li>
-  </ul>
-</section>
-{% endif %}
-{% for post in paginator.posts %}
-<article class="post">
-  {% if post.img %}
-    <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
-  {% else %}
-  {% endif %}
-  <div class="post-content">
-    <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
-    <p>{{ post.content | strip_html | truncatewords: 15 }}</p>
-    <span class="post-date">{{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-    <span class="post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: " minute read" }}{% endunless %}</span>
-  </div>
-</article>
-{% endfor %}
+{% comment %}
+  À la une : le dernier article marqué « featured: true », sinon le dernier
+  article tout court. La grille montre les suivants ; la liste complète est
+  sur /articles/.
+{% endcomment %}
+{% assign featured = site.posts | where: "featured", true | first %}
+{% unless featured %}{% assign featured = site.posts | first %}{% endunless %}
+{% assign recent_limit = 9 %}
 
-{% include pagination.html %}
+<section class="hero">
+  <p class="eyebrow">{{ site.author-title }}</p>
+  <h1>Ce que je construis, et les problèmes que je croise en route.</h1>
+  <p>IA et agents, cloud et DevOps, Android. Des retours d'expérience, avec le code et les erreurs.</p>
+</section>
+
+{% if featured %}
+{% assign featured_app = nil %}
+{% if featured.app %}{% assign featured_app = site.data.apps | where: "slug", featured.app | first %}{% endif %}
+{% assign minutes = featured.content | number_of_words | divided_by: 220 | at_least: 1 %}
+<a class="featured{% unless featured.img or featured_app %} featured--text{% endunless %}" href="{{ featured.url | relative_url }}">
+  {% if featured.img %}
+  <span class="featured__visual"><img src="{{ featured.img | prepend: '/assets/img/' | relative_url }}" alt=""></span>
+  {% elsif featured_app %}
+  <span class="featured__visual featured__visual--icon" style="background: {{ featured_app.color }}"><img src="{{ featured_app.slug | prepend: '/' | append: '/assets/icon-192.png' | relative_url }}" alt="" width="120" height="120"></span>
+  {% endif %}
+  <div class="featured__body">
+    <span class="eyebrow">À LA UNE · {{ featured.date | date: '%d.%m.%Y' }} · {{ minutes }} MIN</span>
+    <span class="featured__title">{{ featured.title }}</span>
+    <span class="featured__excerpt">{% if featured.description %}{{ featured.description }}{% else %}{{ featured.content | strip_html | truncatewords: 30 }}{% endif %}</span>
+    {% include post-chips.html post=featured %}
+  </div>
+</a>
+{% endif %}
+
+<section aria-labelledby="posts-title">
+  <div class="section-head">
+    <h2 class="section-title" id="posts-title">Articles récents</h2>
+    {% include post-filter.html target="recent-posts" %}
+  </div>
+  <ul class="post-grid" id="recent-posts">
+    {% assign shown = 0 %}
+    {% for post in site.posts %}
+      {% if post.url == featured.url %}{% continue %}{% endif %}
+      {% if shown >= recent_limit %}{% break %}{% endif %}
+      {% include post-card.html post=post %}
+      {% assign shown = shown | plus: 1 %}
+    {% endfor %}
+  </ul>
+  <p class="more"><a class="button" href="{{ '/articles/' | relative_url }}">Tous les articles, depuis {{ site.posts.last.date | date: '%Y' }}</a></p>
+</section>
+
+{% assign live_count = site.data.apps | where: "status", "live" | size %}
+{% assign soon_count = site.data.apps | where: "status", "soon" | size %}
+<a class="apps-banner" href="{{ '/apps/' | relative_url }}">
+  <span class="apps-banner__icons">
+    {% for app in site.data.apps %}<img src="{{ app.slug | prepend: '/' | append: '/assets/icon-192.png' | relative_url }}" alt="" width="44" height="44">{% endfor %}
+  </span>
+  <span class="apps-banner__text">
+    <span class="apps-banner__title">Je publie aussi des apps Android</span>
+    <span class="apps-banner__sub">Sans publicité. {{ live_count }} sur Google Play{% if soon_count > 0 %}, {{ soon_count }} en préparation{% endif %}.</span>
+  </span>
+  <span class="apps-banner__cta">Voir les apps →</span>
+</a>

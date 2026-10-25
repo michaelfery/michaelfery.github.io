@@ -1,0 +1,45 @@
+---
+layout: default
+title: À propos
+description: Michaël Fery, Head of Engineering Platform, ancien consultant développement et Microsoft MVP Azure.
+permalink: /about/
+---
+<div class="about">
+  <div class="about__main">
+    <header class="about__head">
+      <img src="{{ '/assets/img/michael-fery.png' | relative_url }}" alt="Michaël Fery" width="128" height="128">
+      <div>
+        <h1>{{ site.author }}</h1>
+        <p class="eyebrow">{{ site.author-title }}</p>
+      </div>
+    </header>
+
+    <div class="prose">
+      <p>Ancien consultant développement et Microsoft MVP Azure, je dirige aujourd’hui une équipe Platform Engineering : landing zones Azure et GCP, gouvernance GitHub, observabilité, accompagnement DevOps. Je m’intéresse surtout à l’expérience développeur et à la place que prennent les agents IA dans nos outils.</p>
+      <p>Je publie aussi quelques <a href="{{ '/apps/' | relative_url }}">apps Android</a> et des <a href="https://marketplace.visualstudio.com/publishers/mfery">extensions VS Code</a>.</p>
+    </div>
+
+    <section class="timeline" aria-labelledby="parcours">
+      <h2 id="parcours">Parcours</h2>
+      <ol>
+        <li><span class="timeline__when">2024 →</span><span class="timeline__what">Head of Engineering Platform</span></li>
+        <li><span class="timeline__when">2020 – 2024</span><span class="timeline__what">Engineering Manager</span></li>
+        <li><span class="timeline__when">2015 – 2021</span><span class="timeline__what">Microsoft MVP, Azure</span></li>
+        <li><span class="timeline__when">2008 – 2020</span><span class="timeline__what">Consultant Dev, Cloud &amp; DevOps</span></li>
+      </ol>
+    </section>
+  </div>
+
+  <aside class="about__aside">
+    <section class="panel" aria-labelledby="ailleurs">
+      <h2 class="panel__title" id="ailleurs">AILLEURS</h2>
+      <a href="https://www.linkedin.com/in/{{ site.social-linkedin }}/">LinkedIn</a>
+      <a href="https://github.com/{{ site.social-github }}">GitHub</a>
+      <a href="{{ '/feed.xml' | relative_url }}">Flux RSS du blog</a>
+    </section>
+    <section class="panel panel--dark" aria-labelledby="contact-apps">
+      <h2 class="panel__title" id="contact-apps">UNE QUESTION SUR UNE APP</h2>
+      <a href="mailto:mferyapps@gmail.com">mferyapps@gmail.com</a>
+    </section>
+  </aside>
+</div>

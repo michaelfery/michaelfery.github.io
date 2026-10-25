@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  "Azure DevOps &amp; App Service : faîtes le ménage dans le dossier wwwroot"
 date:   2019-01-13 13:54:28.422
 # categories: blog

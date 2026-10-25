@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  "[Azure Storage Table] Suppression massive d'entités"
 date:   2018-01-09 10:00:00
 # categories: blog

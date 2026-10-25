@@ -1,12 +1,13 @@
 /* ==========================================================================
-   tokens.css — variables partagées du site
+   tokens.css — variables des pages d'app
    --------------------------------------------------------------------------
-   Le bloc "Miroir" reprend, valeur pour valeur, assets/css/scss/_variables.scss
-   (et les deux couleurs en dur de main.scss). Si une valeur change ici, elle
-   change là-bas, et inversement : c'est la seule règle.
+   Le bloc "Miroir" reprend les couleurs de l'ancien thème du blog (SCSS de
+   2019, supprimé à la refonte). Le blog a désormais ses propres variables
+   dans site.css ; ce fichier ne sert plus qu'aux pages d'app (app.css), qui
+   gardent leur apparence en attendant d'être alignées sur la refonte.
 
-   Le bloc "Extensions" n'existe pas dans la SCSS : il complète le site
-   (contraste AA, espacement, polices) sans rien y redéfinir.
+   Le bloc "Extensions" complète ces couleurs (contraste AA, espacement,
+   polices) sans rien y redéfinir.
    ========================================================================== */
 
 :root {

@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  "VS Code : Créer ses propres extensions"
 date:   2020-03-31 07:00:00.000 +01:00
 # categories: blog
