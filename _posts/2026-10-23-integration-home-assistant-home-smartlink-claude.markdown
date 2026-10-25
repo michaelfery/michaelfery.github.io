@@ -1,6 +1,8 @@
 ---
 layout: post
+topics: [IA]
 title:  "Mes radiateurs Home-SmartLink dans Home Assistant, avec Claude comme binôme"
+description: "Écrire l'intégration Home Assistant de thermostats sans API documentée, avec Claude comme binôme : la méthode, et ce que l'IA a bien et moins bien fait."
 date:   2026-10-23 09:00:00.000 +02:00
 img: posts/home-smartlink-ha-banner.png
 tags: [Home Assistant, Claude, IA, Python, API]

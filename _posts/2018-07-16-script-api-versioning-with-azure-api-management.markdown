@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  Scripter son versioning d'API avec Azure API Management
 date:   2018-07-16 10:38:31
 # categories: blog

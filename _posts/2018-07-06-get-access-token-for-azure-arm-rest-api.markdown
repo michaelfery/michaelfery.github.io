@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  Obtenir un Access Token pour Azure ARM REST API
 date:   2018-07-06 10:00:00
 # categories: blog

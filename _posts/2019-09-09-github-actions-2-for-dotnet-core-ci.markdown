@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  Github Actions 2.0 pour une CI .NET Core
 date:   2019-09-09 05:30:00.000
 # categories: blog

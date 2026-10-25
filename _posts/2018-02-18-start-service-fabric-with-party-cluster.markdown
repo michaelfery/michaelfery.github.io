@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  Débuter sur Service Fabric avec Party Cluster
 date:   2018-02-18 09:08:35
 # categories: blog

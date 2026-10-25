@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  "Service Fabric Mesh Tools: VS Code Extension"
 date:   2018-08-20 05:00:00<
 # categories: blog

@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  Azure IOT Hub, Event Hub endpoints et Partitions
 date:   2018-06-05 12:00:00
 # categories: blog

@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  Provisionner et configurer Azure IOT Hub
 date:   2017-07-18 09:25:55
 # categories: blog

@@ -1,6 +1,9 @@
 ---
 layout: post
+topics: [Android]
+app: almanac
 title:  "216 octets : l'estimation notée comme un fait"
+description: "J'ai écarté une bibliothèque parce qu'elle était trop lourde. Une semaine plus tard, je l'ai mesurée : 216 octets. Sur l'erreur de noter une estimation comme un fait."
 date:   2026-10-11 09:00:00.000 +02:00
 tags: [Android, Méthode, Almanac, IA, Claude]
 ---

@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  "Github Actions 2.0 : Déploiement Continu sur Azure"
 date:   2019-10-05 08:32:49.067
 # categories: blog

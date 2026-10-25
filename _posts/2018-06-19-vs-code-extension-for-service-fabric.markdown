@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  Visual Studio Code Extension pour Service Fabric
 date:   2018-06-19 11:00:00
 # categories: blog

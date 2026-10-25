@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  Azure Functions V3 et CLI
 date:   2019-12-18 05:00:00.000
 # categories: blog

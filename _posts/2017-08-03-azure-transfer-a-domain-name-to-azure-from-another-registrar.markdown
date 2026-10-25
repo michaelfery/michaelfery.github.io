@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  Transfer a domain name to Azure from another registrar
 date:   2017-08-03 00:17:18
 # categories: blog

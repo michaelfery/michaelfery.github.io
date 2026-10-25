@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  Service Fabric Mesh Public Preview
 date:   2018-08-07 06:00:11
 # categories: blog

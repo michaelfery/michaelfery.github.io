@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  "Github Actions : Azure CLI & Service Principal"
 date:   2020-01-27 07:00:00.000 +01:00
 # categories: blog

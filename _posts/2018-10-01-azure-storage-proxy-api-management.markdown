@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  Créer un Proxy pour Azure Storage avec Azure API Management
 date:   2018-10-01 06:06:10
 # categories: blog

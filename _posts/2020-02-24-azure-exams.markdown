@@ -1,5 +1,6 @@
 ---
 layout: post
+topics: [Cloud & DevOps]
 title:  "Azure Exams : Comment se préparer ?"
 date:   2020-02-24 07:00:00.000 +01:00
 # categories: blog
