@@ -82,48 +82,40 @@ Nous allons commencer par définir des variables :
 
 Nous allons ensuite ajouter un header **date** aux requêtes entrantes :
 
-<div style="background-color: #fffffe; font-family: Consolas, 'Courier New', monospace; line-height: 17px; white-space: pre;">
-
-<div style="font-family: Consolas, 'Courier New', monospace; line-height: 17px;">
-
-<pre><span style="color: #383838;"><</span><span style="color: #800000;">set</span><span style="color: #c90000;">-header</span> <span style="color: #c90000;">name</span>=<span style="color: #0451a5;">"date"</span> <span style="color: #c90000;">exists-action</span>=<span style="color: #0451a5;">"override"</span><span style="color: #383838;">></span>  
- <span style="color: #383838;"><</span><span style="color: #800000;">value</span><span style="color: #383838;">></span><span style="color: #e00000;">@(</span>context.Variables.GetValueOrDefault<span style="color: #383838;"><</span><span style="color: #800000;">string</span><span style="color: #383838;">></span>(<span style="color: #a31515;">"UTCNow"</span>)<span style="color: #e00000;">)</span><span style="color: #383838;"></</span><span style="color: #800000;">value</span><span style="color: #383838;">></span>  
-<span style="color: #383838;"></</span><span style="color: #800000;">set</span><span style="color: #c90000;">-header</span><span style="color: #383838;">></span></pre>
-
-</div>
-
-</div>
+```xml
+<set-header name="date" exists-action="override">
+ <value>@(context.Variables.GetValueOrDefault<string>("UTCNow"))</value>
+</set-header>
+```
 
 Enfin nous ajouterons un header **Authorization** :<span style="color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif;"> </span>
 
-<div style="background-color: #fffffe; font-family: Consolas, 'Courier New', monospace; line-height: 17px; white-space: pre;">
-
-<pre><span style="color: #383838;"><</span><span style="color: #800000;">set</span><span style="color: #c90000;">-header</span> <span style="color: #c90000;">name</span>=<span style="color: #0451a5;">"Authorization"</span> <span style="color: #c90000;">exists-action</span>=<span style="color: #0451a5;">"override"</span><span style="color: #383838;">></span>  
- <span style="color: #383838;"><</span><span style="color: #800000;">value</span><span style="color: #383838;">></span><span style="color: #e00000;">@{</span>  
- var account = <span style="color: #a31515;">"storageproxy"</span>;  
- var key = <span style="color: #a31515;">"QOQDHuUMSB9ztzLn49SUph3LpL2gIjVXpfkpOuy8855kkOdMvlvgz7mJ9S2F6zPgN6nCSPdiy0+AgHQFeetBmQ=="</span>;  
- var splitPath = context.Variables.GetValueOrDefault<span style="color: #383838;"><</span><span style="color: #800000;">string</span><span style="color: #383838;">></span>(<span style="color: #a31515;">"RequestPath"</span>).Split(<span style="color: #a31515;">'/'</span>);  
- var container = splitPath.Reverse().Skip(<span style="color: #09885a;">1</span>).First();  
- var file = splitPath.Last();  
- var dateToSign = context.Variables.GetValueOrDefault<span style="color: #383838;"><</span><span style="color: #800000;">string</span><span style="color: #383838;">></span>(<span style="color: #a31515;">"UTCNow"</span>);  
- var stringToSign = string.Format(<span style="color: #a31515;">"GET\n\n\n{0}\n/{1}/{2}/{3}"</span>, dateToSign, account, container, file);  
- string signature;  
- var unicodeKey = Convert.FromBase64String(key);  
- using (var hmacSha256 = new HMACSHA256(unicodeKey))  
- {  
- var dataToHmac = Encoding.UTF8.GetBytes(stringToSign);  
- signature = Convert.ToBase64String(hmacSha256.ComputeHash(dataToHmac));  
- }  
- var authorizationHeader = string.Format(  
- <span style="color: #a31515;">"{0} {1}:{2}"</span>,  
- <span style="color: #a31515;">"SharedKey"</span>,  
- account,  
- signature);  
- return authorizationHeader;  
- <span style="color: #e00000;">}</span><span style="color: #383838;"></</span><span style="color: #800000;">value</span><span style="color: #383838;">></span>  
-<span style="color: #383838;"></</span><span style="color: #800000;">set</span><span style="color: #c90000;">-header</span><span style="color: #383838;">></span></pre>
-
-</div>
+```xml
+<set-header name="Authorization" exists-action="override">
+ <value>@{
+ var account = "storageproxy";
+ var key = "QOQDHuUMSB9ztzLn49SUph3LpL2gIjVXpfkpOuy8855kkOdMvlvgz7mJ9S2F6zPgN6nCSPdiy0+AgHQFeetBmQ==";
+ var splitPath = context.Variables.GetValueOrDefault<string>("RequestPath").Split('/');
+ var container = splitPath.Reverse().Skip(1).First();
+ var file = splitPath.Last();
+ var dateToSign = context.Variables.GetValueOrDefault<string>("UTCNow");
+ var stringToSign = string.Format("GET\n\n\n{0}\n/{1}/{2}/{3}", dateToSign, account, container, file);
+ string signature;
+ var unicodeKey = Convert.FromBase64String(key);
+ using (var hmacSha256 = new HMACSHA256(unicodeKey))
+ {
+ var dataToHmac = Encoding.UTF8.GetBytes(stringToSign);
+ signature = Convert.ToBase64String(hmacSha256.ComputeHash(dataToHmac));
+ }
+ var authorizationHeader = string.Format(
+ "{0} {1}:{2}",
+ "SharedKey",
+ account,
+ signature);
+ return authorizationHeader;
+ }</value>
+</set-header>
+```
 
 Vous remplacerez bien évidemment les variables **account** et **key** par le nom du **StorageAccount** et la **clef SAS** définis dans l'étape du Storage.
 

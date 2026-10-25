@@ -51,7 +51,7 @@ Si vous optez pour le schéma Query, il vous faudra choisir **versioningScheme 
 
 Quand le choix de règle de versionnement est défini, il ne reste qu'à utiliser l'Api Azure REST en veillant à utiliser le verbe PUT afin de pouvoir rejouer le même script à chaque déploiement :
 
-```bash
+```powershell
     # Create the body of the PUT request to the REST API  
     $createOrUpdateApiVersionSetBody = @{  
         name = $apiName  
@@ -69,7 +69,7 @@ Quand le choix de règle de versionnement est défini, il ne reste qu'à utilise
               "?api-version=" + $apimApiVersion) `  
         -Headers @{ Authorization = ("Bearer " + $accessToken)  
                     "Content-Type" = "application/json" } `  
-        -Body ($createOrUpdateApiVersionSetBody | ConvertTo-Json -Compress -Depth 3)</pre>
+        -Body ($createOrUpdateApiVersionSetBody | ConvertTo-Json -Compress -Depth 3)
 ```
 
 ## Créer ou mettre à jour une version d'API
@@ -84,7 +84,7 @@ Pour effectuer cette association dès la création de l'API nous n'avons qu'à r
 
 Ces propriétés sont l'id du Version Set (**apiVersionSetId**) et la version de l'API (**apiVersion**) à fournir dans le header, la query ou le segment selon le schéma choisi.
 
-```bash
+```powershell
     $importApiBody = @{  
         properties = @{  
             type = "Http"  
@@ -106,7 +106,7 @@ Ces propriétés sont l'id du Version Set (**apiVersionSetId**) et la version de
               "?api-version=" + $apimApiVersion) `  
         -Headers @{ Authorization = ("Bearer " + $accessToken)  
                     "Content-Type" = "application/json" } `  
-        -Body ($importApiBody | ConvertTo-Json -Compress -Depth 3)</pre>
+        -Body ($importApiBody | ConvertTo-Json -Compress -Depth 3)
 ```
 
 ## Conclusion

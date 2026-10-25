@@ -29,32 +29,33 @@ Afin de récupèrer un token d'accès, il faut:
 
 La première étape consiste à demander à l'utilisateur de se connecter à Azure via l'interface de connexion OAuth:
 
-```bash
+```powershell
 # Login To Azure  
-$rmAccount = Add-AzureRmAccount -SubscriptionId $subscriptionId</pre>
+$rmAccount = Add-AzureRmAccount -SubscriptionId $subscriptionId
 ```
 
 # Sélection de la souscription
 
 Si vous possédez plusieurs souscriptions, il faut choisir celle qui vous intéresse afin de pouvoir en récuperer un jeton d'accès:
 
-```bash
+```powershell
 # Set Subscription ID  
 $subscriptionId = "YOUR_SUBSCRIPTION-ID"  
 
 # Select Azure Subscription  
-$tenantId = (Get-AzureRmSubscription -SubscriptionId $subscriptionId).TenantId</pre>
+$tenantId = (Get-AzureRmSubscription -SubscriptionId $subscriptionId).TenantId
 
 # Récupération du jeton
 ```
 
 Une fois la connexion établie, il ne reste qu'à extraire les tokens depuis le cache:
 
-```bash
+```powershell
 # Extract token from Cache
 $cachedTokens = $tokenCache.ReadItems() `
  | where { $_.TenantId -eq $tenantId } `
- | sort-object -property ExpiresOn -descending $accessToken = $cachedTokens[0].Accesstoken</pre>
+ | sort-object -property ExpiresOn -descending
+$accessToken = $cachedTokens[0].Accesstoken
 ```
 
 # Utilisation du jeton
@@ -63,7 +64,7 @@ Maintenant que nous avons récupéré le jeton depuis le cache de connexion, il 
 
 La connexion à l'API REST se fait via la commande Invoke-RestMethod en lui spécifiant le jeton dans le Header Authorization:
 
-```bash
+```powershell
 Invoke-RestMethod `
  -Method GET `
  -Uri ("https://management.azure.com/subscriptions/" + $subscriptionId + "/resources/" + "?api-version=2018-02-01") `
