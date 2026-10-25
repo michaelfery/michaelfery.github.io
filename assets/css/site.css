@@ -290,13 +290,27 @@ a:hover { color: var(--ink); }
   background: var(--night);
   overflow: hidden;
 }
-/* Capture posée en biais du coin haut gauche, coupée par le cadre */
+/* Par défaut, l'image remplit le panneau, recadrée au centre. D'où la règle
+   des bannières d'articles : jamais de texte, un sujet centré sur des
+   marges unies, pour que le recadrage ne coupe rien d'utile. */
 .featured__visual img {
   position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* featured-style: capture — pour une capture d'écran, qui elle porte du
+   texte : posée en biais du coin haut gauche, coupée par le cadre. */
+.featured__visual--capture img {
+  inset: auto;
   top: 28px;
   left: 28px;
   width: 640px;
+  height: auto;
   max-width: none;
+  object-fit: initial;
   border-radius: 8px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
 }
@@ -790,7 +804,7 @@ a:hover { color: var(--ink); }
   .prose pre { margin-left: -4px; margin-right: -4px; font-size: 13px; }
   .featured { margin-bottom: 36px; }
   .featured__visual { min-height: 170px; }
-  .featured__visual img { top: 18px; left: 18px; width: 460px; }
+  .featured__visual--capture img { top: 18px; left: 18px; width: 460px; }
   .featured__body { padding: 20px; gap: 10px; }
   .archive__list > li { grid-template-columns: 48px minmax(0, 1fr); }
   .archive__list .chips { grid-column: 2; }

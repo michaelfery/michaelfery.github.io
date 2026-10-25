@@ -22,7 +22,7 @@ layout: default
 {% assign minutes = featured.content | number_of_words | divided_by: 220 | at_least: 1 %}
 <a class="featured{% unless featured.img or featured_app %} featured--text{% endunless %}" href="{{ featured.url | relative_url }}">
   {% if featured.img %}
-  <span class="featured__visual"><img src="{{ featured.img | prepend: '/assets/img/' | relative_url }}" alt=""></span>
+  <span class="featured__visual{% if featured.featured-style == 'capture' %} featured__visual--capture{% endif %}"><img src="{{ featured.img | prepend: '/assets/img/' | relative_url }}" alt=""></span>
   {% elsif featured_app %}
   <span class="featured__visual featured__visual--icon" style="background: {{ featured_app.color }}"><img src="{{ featured_app.slug | prepend: '/' | append: '/assets/icon-192.png' | relative_url }}" alt="" width="120" height="120"></span>
   {% endif %}
