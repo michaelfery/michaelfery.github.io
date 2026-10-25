@@ -94,7 +94,7 @@ Enfin nous ajouterons un header **Authorization** :<span style="color: #000000; 
 <set-header name="Authorization" exists-action="override">
  <value>@{
  var account = "storageproxy";
- var key = "QOQDHuUMSB9ztzLn49SUph3LpL2gIjVXpfkpOuy8855kkOdMvlvgz7mJ9S2F6zPgN6nCSPdiy0+AgHQFeetBmQ==";
+ var key = "<STORAGE_ACCOUNT_KEY>";
  var splitPath = context.Variables.GetValueOrDefault<string>("RequestPath").Split('/');
  var container = splitPath.Reverse().Skip(1).First();
  var file = splitPath.Last();
