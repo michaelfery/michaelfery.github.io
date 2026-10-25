@@ -41,9 +41,6 @@
   <link rel="stylesheet" href="../assets/css/app.css?v={{ site.time | date: '%s' }}">
   <link rel="stylesheet" href="assets/luciole.css?v={{ site.time | date: '%s' }}">
 
-  <!-- Pas d'installUrl ni de bouton Google Play : l'app est sur la piste de test
-       interne, pas en production. Le jour venu :
-       https://play.google.com/store/apps/details?id=fr.luciole.app -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,6 +51,7 @@
     "description": "Une histoire du soir que vous lisez à voix haute, et que votre enfant décide.",
     "inLanguage": "fr",
     "url": "https://mfery.dev/luciole/",
+    "installUrl": "https://play.google.com/store/apps/details?id=fr.luciole.app",
     "image": "https://mfery.dev/luciole/assets/icon-512.png",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
     "author": { "@type": "Person", "name": "Michaël Fery", "url": "https://mfery.dev/" }
@@ -86,6 +84,12 @@
         <img class="app-hero__icon" src="assets/icon-192.png" alt="" width="192" height="192">
         <h1>Luciole</h1>
         <p class="app-hero__tagline">Ce soir, ton enfant décide comment l’histoire finit.</p>
+        <div class="app-hero__actions">
+          <a class="app-button" href="https://play.google.com/store/apps/details?id=fr.luciole.app">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 3l14 9-14 9z"/></svg>
+            Disponible sur Google Play
+          </a>
+        </div>
         <p class="app-hero__meta">Android 8.0 et plus · Sans compte, sans publicité, sans connexion</p>
       </div>
     </section>
