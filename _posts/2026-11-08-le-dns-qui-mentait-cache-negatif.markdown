@@ -4,6 +4,7 @@ topics: [Cloud & DevOps]
 title:  "Le DNS qui mentait : enquête sur un cache négatif de 30 minutes"
 description: "Des enregistrements visibles dans Cloudflare mais introuvables en DNS : l'enquête, jusqu'au cache négatif de ma box."
 date:   2026-11-08 09:00:00.000 +01:00
+img: posts/dns-cache-negatif-banner.png
 tags: [DNS, Cloudflare, GitHub Pages, Réseau]
 ---
 

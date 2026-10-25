@@ -5,6 +5,7 @@ app: almanac
 title:  "Tranché, Hypothèse, Ouvert : tenir un journal de décisions sur un projet perso"
 description: "Sur un projet perso, personne ne vous demandera pourquoi vous avez fait tel choix. Sauf vous, et l'assistant IA avec qui vous codez."
 date:   2026-11-04 09:00:00.000 +01:00
+img: posts/almanac-journal-decisions-banner.png
 tags: [Méthode, Almanac, IA, Claude]
 ---
 
