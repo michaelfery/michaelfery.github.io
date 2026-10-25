@@ -1,0 +1,30 @@
+{% comment %}
+  Section « Les coulisses » d'une page d'app : les articles du blog qui
+  portent « app: <slug> ». Rien n'est rendu tant qu'il n'y en a aucun.
+  Paramètres : include.slug, include.name, include.lang (fr par défaut, en).
+  Styles : .app-behind dans app.css.
+{% endcomment %}
+{% assign behind = site.posts | where: "app", include.slug %}
+{% if behind.size > 0 %}
+<section class="app-behind" id="coulisses" aria-labelledby="coulisses-title">
+  <div class="app-container">
+    {% if include.lang == "en" %}
+    <h2 id="coulisses-title">Behind the scenes</h2>
+    <p class="app-behind__intro">How {{ include.name }} was made, on my blog (in French).</p>
+    {% else %}
+    <h2 id="coulisses-title">Les coulisses</h2>
+    <p class="app-behind__intro">Comment j'ai construit {{ include.name }}, raconté sur mon blog.</p>
+    {% endif %}
+    <ul role="list">
+      {% for post in behind %}
+      <li>
+        <a href="{{ post.url | relative_url }}"{% if include.lang == "en" %} lang="fr" hreflang="fr"{% endif %}>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d.%m.%Y' }}</time>
+          {{ post.title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}

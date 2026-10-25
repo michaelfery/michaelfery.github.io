@@ -506,6 +506,57 @@ body.app-page {
 }
 
 
+/* 7 bis. Coulisses ---------------------------------------------------------
+   Les articles du blog sur la fabrication de l'app (_includes/app-coulisses.html).
+   N'apparaît que si au moins un article publié porte « app: <slug> ».
+   ------------------------------------------------------------------------- */
+
+.app-behind {
+  padding-block: var(--space-4);
+}
+
+.app-behind__intro {
+  max-width: var(--measure);
+  color: var(--color-text-muted);
+}
+
+.app-behind ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.app-behind a {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-height: 44px;
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border-left: 4px solid var(--app-accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--color-heading);
+  text-decoration: none;
+}
+
+.app-behind a:hover {
+  box-shadow: var(--shadow-raised);
+}
+
+.app-behind a:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.app-behind time {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+
 /* 8. Pied de page ---------------------------------------------------------- */
 
 .app-footer {
