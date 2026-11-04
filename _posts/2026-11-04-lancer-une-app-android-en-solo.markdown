@@ -9,11 +9,9 @@ img: posts/luciole-lancer-android-banner.png
 tags: [Android, Google Play, Luciole, Almanac]
 ---
 
-[Luciole](/luciole/), mon application d'histoires du soir, arrive sur le Play Store. C'est ma troisième application en production, après [Bookfolio](/bookfolio/) puis [Almanac](/almanac/), et je croyais connaître le chemin. Je le connaissais à moitié.
+[Luciole](/luciole/), mon application d'histoires du soir, est disponible sur le Play Store. C'est ma troisième application en production, après [Bookfolio](/bookfolio/) puis [Almanac](/almanac/), et je croyais connaître le chemin. Je le connaissais à moitié.
 
 Publier une app Android quand on est seul, avec un compte développeur personnel, ce n'est pas un bouton « Publier ». C'est une suite de formulaires dans un ordre que rien n'indique, deux ou trois attentes de plusieurs jours, et quelques pièges qui ne sont documentés nulle part. Voici ce que j'aurais aimé lire avant de commencer.
-
-<!-- TODO au lancement : date de l'accès à la production et de la sortie, et ajuster l'introduction. -->
 
 ## Avant d'ouvrir la console
 
@@ -72,7 +70,7 @@ C'est l'étape qui surprend le plus. Pour un **compte personnel**, Google impose
 Deux détails ne sont dits nulle part clairement :
 
 - Tant que l'application n'a jamais été examinée, l'API refuse de créer autre chose qu'un brouillon (« Only releases with status draft may be created on draft app »). Le premier envoi à l'examen se fait à la main, dans la console.
-- **Les quatorze jours ne suffisent pas.** L'accès à la production se **demande**, par un questionnaire sur le déroulement du test, et Google l'examine à son tour. Avant cela, la promotion en production échoue avec un laconique `400 Precondition check failed`, sans dire pourquoi.
+- **Les quatorze jours ne suffisent pas.** L'accès à la production se **demande**, par un questionnaire sur le déroulement du test, et Google l'examine à son tour. Avant cela, la promotion en production échoue avec un laconique `400 Precondition check failed`, sans dire pourquoi. Pour Luciole, cet examen a pris une semaine.
 
 Pour une application d'histoires du soir, trouver douze testeurs, c'est trouver douze parents prêts à installer une version de test et à la garder deux semaines. C'est la partie la moins technique du parcours.
 
