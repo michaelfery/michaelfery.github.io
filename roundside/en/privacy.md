@@ -3,7 +3,8 @@ layout: prose
 lang: en
 title: "Roundside Privacy Policy"
 description: "What the Roundside app does with your data. Short answer: there is no Roundside server, nothing you record ever leaves your phone, and the only two requests it makes are for public files."
-permalink: /roundside/privacy/
+permalink: /roundside/en/privacy/
+redirect_from: /roundside/privacy/
 ---
 
 # Roundside Privacy Policy
@@ -11,7 +12,7 @@ permalink: /roundside/privacy/
 *Last updated: 4 September 2026*
 
 > **Roundside is now FanLog MMA.** The policy for it and for every FanLog app is at
-> [/fanlog/privacy/](/fanlog/privacy/) ([en français](/fanlog/privacy-fr/)). This page describes
+> [/fanlog/en/privacy/](/fanlog/en/privacy/) ([en français](/fanlog/confidentialite/)). This page describes
 > the app as it was published under the old name.
 
 Roundside is a fight tracker: you keep a list of fights to watch, mark what you

@@ -3,12 +3,14 @@ layout: prose
 lang: en
 title: "À suivre — Privacy Policy"
 description: "What the À suivre app does with your data. Short answer: nothing — it collects nothing and makes no network request."
-permalink: /asuivre/privacy/
+permalink: /asuivre/en/privacy/
+redirect_from: /asuivre/privacy/
+translation: /asuivre/confidentialite/
 ---
 
 # Privacy policy — "À suivre"
 
-*Last updated: September 15, 2026.*
+*Last updated: November 4, 2026.*
 
 "À suivre" is a reading app: a choice-based novel, one episode a day. It was written to know
 nothing about you.
@@ -42,6 +44,4 @@ of your choice. Nothing leaves without that gesture.
 
 ## Contact
 
-fery.michael@gmail.com
-
-*[Version française](/asuivre/confidentialite/)*
+Write to [mferyapps@gmail.com](mailto:mferyapps@gmail.com).

@@ -2,14 +2,15 @@
 layout: prose
 title: "Politique de confidentialité de FanLog"
 description: "Ce que les applications FanLog font de vos données. Réponse courte : il n'y a pas de serveur FanLog, rien de ce que vous notez ne quitte votre téléphone, et les seules requêtes faites portent sur des fichiers publics."
-permalink: /fanlog/privacy-fr/
+permalink: /fanlog/confidentialite/
+redirect_from: /fanlog/privacy-fr/
+translation: /fanlog/en/privacy/
 ---
 
 # Politique de confidentialité de FanLog
 
 *Dernière mise à jour : 15 octobre 2026*
 
-Read this page in [English](/fanlog/privacy/).
 
 FanLog est une famille d'applications pour suivre un sport à son rythme : **FanLog MMA**, **FanLog
 Rugby**, et toute application publiée plus tard sous le nom FanLog. Chacune garde la liste des

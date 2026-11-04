@@ -3,14 +3,15 @@ layout: prose
 lang: en
 title: "Bookfolio Privacy Policy"
 description: "What the Bookfolio app does with your data. Short answer: no Bookfolio server; your library is on your phone, plus Android's backup, Google Drive if you turn sync on, and telemetry only if you turn it on."
-permalink: /bookfolio/privacy/
+permalink: /bookfolio/en/privacy/
+redirect_from: /bookfolio/privacy/
+translation: /bookfolio/confidentialite/
 ---
 
 # Bookfolio Privacy Policy
 
 *Last updated: 16 September 2026*
 
-Lire cette page en [français](/bookfolio/privacy-fr/).
 
 Bookfolio is a reading tracker. This page describes what it does with your
 data. It is longer than we would like, because the app talks to Google in

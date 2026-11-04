@@ -3,11 +3,12 @@ layout: prose
 title: "À suivre — Politique de confidentialité"
 description: "Ce que l'application À suivre fait de vos données. Réponse courte : rien — elle ne collecte rien et ne fait aucune requête réseau."
 permalink: /asuivre/confidentialite/
+translation: /asuivre/en/privacy/
 ---
 
 # Politique de confidentialité — « À suivre »
 
-*Dernière mise à jour : 15 septembre 2026.*
+*Dernière mise à jour : 4 novembre 2026.*
 
 « À suivre » est une application de lecture : un roman à choix, un épisode par jour. Elle a été
 écrite pour ne rien savoir de vous.
@@ -45,6 +46,4 @@ choisissez ou non d'envoyer, par l'application de votre choix. Rien ne part sans
 
 ## Contact
 
-fery.michael@gmail.com
-
-*[English version](/asuivre/privacy/)*
+Écrivez à [mferyapps@gmail.com](mailto:mferyapps@gmail.com).

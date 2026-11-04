@@ -4,7 +4,18 @@ layout: default
 {% comment %}
   Texte long dont le titre est dans le Markdown lui-même (« # Titre ») :
   les politiques de confidentialité des apps.
+  Front matter :
+    lang         en pour une version anglaise (fr par défaut)
+    translation  adresse de l'autre version, si elle existe : le lien
+                 « Lire cette page en… » et les hreflang en découlent
 {% endcomment %}
 <article class="article prose">
+  {% if page.translation %}
+  {% if page.lang == "en" %}
+  <p class="prose__lang" lang="fr">Lire cette page en <a href="{{ page.translation | relative_url }}" hreflang="fr">français</a>.</p>
+  {% else %}
+  <p class="prose__lang" lang="en">Read this page in <a href="{{ page.translation | relative_url }}" hreflang="en">English</a>.</p>
+  {% endif %}
+  {% endif %}
   {{ content }}
 </article>
