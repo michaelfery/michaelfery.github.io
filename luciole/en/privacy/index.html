@@ -1,0 +1,106 @@
+---
+# Empty front matter: Jekyll processes the page (stylesheet versioning).
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Luciole — Privacy Policy</title>
+  <meta name="description" content="What the Luciole app does with your data: the app itself collects nothing; purchases go through Google Play, whose library sends technical information to Google.">
+
+  <!-- Absolute URLs: the one exception to relative paths (OG scrapers, hreflang). -->
+  <link rel="canonical" href="https://mfery.dev/luciole/en/privacy/">
+  <link rel="alternate" hreflang="fr" href="https://mfery.dev/luciole/confidentialite/">
+  <link rel="alternate" hreflang="en" href="https://mfery.dev/luciole/en/privacy/">
+  <link rel="alternate" hreflang="x-default" href="https://mfery.dev/luciole/confidentialite/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Michaël Fery">
+  <meta property="og:title" content="Luciole — Privacy Policy">
+  <meta property="og:description" content="What the Luciole app does with your data: the app itself collects nothing; purchases go through Google Play, whose library sends technical information to Google.">
+  <meta property="og:url" content="https://mfery.dev/luciole/en/privacy/">
+  <meta property="og:image" content="https://mfery.dev/luciole/assets/og-en.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Luciole — Privacy Policy">
+  <meta name="twitter:description" content="What the Luciole app does with your data: the app itself collects nothing; purchases go through Google Play, whose library sends technical information to Google.">
+  <meta name="twitter:image" content="https://mfery.dev/luciole/assets/og-en.jpg">
+
+  <link rel="icon" href="../../assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta name="theme-color" content="#0C0A14">
+
+  <!-- The app's fonts, from the same service as the site's: Literata for what is read,
+       Public Sans for what is touched (Luciole's design system). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400&family=Public+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../assets/css/tokens.css?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="../../../assets/css/app.css?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="../../assets/luciole.css?v={{ site.time | date: '%s' }}">
+</head>
+
+<body class="app-page luciole">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="app-header">
+    <div class="app-container">
+      <a class="app-header__home" href="../../../">
+        <img src="../../../assets/img/michael-fery-64.png" alt="" width="32" height="32">
+        Michaël Fery
+      </a>
+      <nav class="app-header__nav" aria-label="Page">
+        <a href="../">Luciole</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="app-prose app-container">
+      <h1>Luciole Privacy Policy</h1>
+      <p class="app-prose__date">Last updated: 3 October 2026.</p>
+      <p lang="fr">Lire cette page en <a href="../../confidentialite/" hreflang="fr">français</a>.</p>
+      <p>Luciole is an Android app of bedtime stories, read aloud by a parent to their child. It is published by its author, as an individual.</p>
+      <h2>What the app collects</h2>
+      <p>Luciole itself collects, sends and shares no personal data.</p>
+      <ul><li>There is <strong>no account</strong>, no sign-up, no login, <strong>no advertising</strong>, no audience analytics, no crash reports sent.</li><li>Paid worlds are bought through <strong>Google Play</strong>. Payment happens at Google: Luciole never sees a card, a name or an address. The purchase is handled under <a href="https://policies.google.com/privacy">Google’s privacy policy</a>.</li><li>For these purchases, Luciole includes the <strong>Google Play Billing Library</strong>. It sends Google technical information about its own operation (whether a call to the Play Store succeeded, whether the connection failed), which Google uses to improve billing. It brings two Android permissions: Google Play billing, and Internet access for this technical information. Luciole’s own code opens no connection at all: a check on every build of the app enforces it.</li></ul>
+      <h2>What the app keeps on the phone</h2>
+      <p>To work, Luciole stores on the device, and only there:</p>
+      <ul><li>the child’s name and the chosen pronoun (“she” or “he”), to place them in the story;</li><li>the choices made before each reading (hero, companion, place) and the preferred text size;</li><li>the history of stories read, with the ending reached, and the page where a reading was interrupted.</li></ul>
+      <p>This information never leaves the phone. It is erased with the app when it is uninstalled, and the name can be changed at any time from the home screen.</p>
+      <h2>Children</h2>
+      <p>Luciole is meant for parents, who read, and for children aged five to eight, who listen and choose. Luciole collects no data about children: the name, the choices and the history stay on the phone.</p>
+      <h2>Contact</h2>
+      <p>For any question about this policy, write to <a href="mailto:mferyapps@gmail.com">mferyapps@gmail.com</a>.</p>
+      <h2>Changes</h2>
+      <p>If this policy changes, the date at the top is updated and the new version is published at the same address before it takes effect.</p>
+    </article>
+  </main>
+
+  <footer class="app-footer">
+    <div class="app-container">
+      <ul>
+        <li><a href="../../../">← Back to the site</a></li>
+        <li><a href="./">Privacy</a></li>
+        <li>
+          <a href="https://github.com/michaelfery">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="mailto:mferyapps@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 4h20v16H2zm2 2v.5l8 5.5 8-5.5V6zm0 2.9V18h16V8.9l-8 5.5z"/></svg>
+            mferyapps@gmail.com
+          </a>
+        </li>
+      </ul>
+      <p class="app-footer__copyright">2026 © Michaël Fery</p>
+    </div>
+  </footer>
+</body>
+</html>
