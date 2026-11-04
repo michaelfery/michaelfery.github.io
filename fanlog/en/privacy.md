@@ -3,14 +3,15 @@ layout: prose
 lang: en
 title: "FanLog Privacy Policy"
 description: "What the FanLog apps do with your data. Short answer: there is no FanLog server, nothing you record ever leaves your phone, and the only requests they make are for public files."
-permalink: /fanlog/privacy/
+permalink: /fanlog/en/privacy/
+redirect_from: /fanlog/privacy/
+translation: /fanlog/confidentialite/
 ---
 
 # FanLog Privacy Policy
 
 *Last updated: 15 October 2026*
 
-Lire cette page en [français](/fanlog/privacy-fr/).
 
 FanLog is a family of apps for following a sport on your own schedule: **FanLog MMA**, **FanLog
 Rugby**, and any app published later under the FanLog name. Each one keeps a list of the fights or

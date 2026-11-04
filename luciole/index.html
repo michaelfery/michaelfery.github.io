@@ -1,5 +1,5 @@
 ---
-# Front matter vide : Jekyll traite la page pour la section « Les coulisses ».
+# Front matter vide : Jekyll traite la page (en-tête, pied de page, « Les coulisses »).
 ---
 <!DOCTYPE html>
 <html lang="fr">
@@ -64,19 +64,7 @@
 <body class="app-page luciole">
   <a class="skip-link" href="#main">Aller au contenu</a>
 
-  <header class="app-header">
-    <div class="app-container">
-      <a class="app-header__home" href="../">
-        <img src="../assets/img/michael-fery-64.png" alt="" width="32" height="32">
-        Michaël Fery
-      </a>
-      <nav class="app-header__nav" aria-label="Principale">
-        <a href="../">Articles</a>
-        <a href="../apps/" aria-current="page">Apps</a>
-        <a href="../about/">À propos</a>
-      </nav>
-    </div>
-  </header>
+{% include app-header.html root="../" %}
 
   <main id="main">
 
@@ -204,26 +192,6 @@
 {% include app-coulisses.html slug="luciole" name="Luciole" %}
   </main>
 
-  <footer class="app-footer">
-    <div class="app-container">
-      <ul>
-        <li><a href="../">← Retour au site</a></li>
-        <li><a href="confidentialite/">Confidentialité</a></li>
-        <li>
-          <a href="https://github.com/michaelfery">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            GitHub
-          </a>
-        </li>
-        <li>
-          <a href="mailto:mferyapps@gmail.com">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 4h20v16H2zm2 2v.5l8 5.5 8-5.5V6zm0 2.9V18h16V8.9l-8 5.5z"/></svg>
-            mferyapps@gmail.com
-          </a>
-        </li>
-      </ul>
-      <p class="app-footer__copyright">2026 © Michaël Fery</p>
-    </div>
-  </footer>
+{% include app-footer.html root="../" slug="luciole" %}
 </body>
 </html>
