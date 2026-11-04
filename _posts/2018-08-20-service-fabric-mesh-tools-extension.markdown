@@ -2,7 +2,7 @@
 layout: post
 topics: [Cloud & DevOps]
 title:  "Service Fabric Mesh Tools: VS Code Extension"
-date:   2018-08-20 05:00:00<
+date:   2018-08-20 05:00:00
 # categories: blog
 description: "Dans le dernier post je vous présentais Azure Service Fabric Mesh, la solution cluster-less de Microsoft pour orchestrer vos containers. Cette semaine, je vous propose de découvrir l'extension VS Code que j'ai développée: Service Fabric Mesh Tools."
 img: posts/vscode-banner.png

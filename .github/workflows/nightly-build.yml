@@ -1,8 +1,12 @@
 name: Nightly Build
 on:
   schedule:
-    # Every morning, so that posts dated in the future appear on their day
-    - cron: '5 8 * * *'
+    # Just after midnight Paris time, so that posts dated 00:00 (Paris) appear on
+    # their day. GitHub delays scheduled runs by several hours (5 to 10 observed),
+    # so the cron must come after the post time: the delay then only pushes
+    # publication into the morning, it can never make a post miss its day.
+    # Minute 17 avoids the crowded top of the hour.
+    - cron: '17 23 * * *'
   workflow_dispatch:
 
 permissions:

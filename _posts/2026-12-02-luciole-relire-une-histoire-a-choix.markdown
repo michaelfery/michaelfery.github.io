@@ -4,7 +4,7 @@ topics: [IA]
 app: luciole
 title:  "Relire une histoire qui n'existe pas en un seul exemplaire"
 description: "Comment relire une histoire qui existe en 48 versions : des relecteurs IA, des scripts, une jurisprudence et un petit studio."
-date:   2026-12-02 09:00:00.000 +01:00
+date:   2026-12-02 00:00:00.000 +01:00
 img: posts/luciole-studio-comparaison.png
 featured-style: capture
 tags: [Luciole, Écriture, IA, Claude, Android]
