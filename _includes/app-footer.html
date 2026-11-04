@@ -1,6 +1,6 @@
 {% comment %}
   Pied des pages d'app. Les politiques de confidentialité ont la même adresse
-  pour toutes les apps : /<slug>/confidentialite/ et /<slug>/en/privacy/.
+  pour toutes les apps : /<slug>/privacy/ (FR) et /<slug>/en/privacy/ (EN).
   Paramètres :
     include.root  chemin relatif vers la racine du site ("../" ou "../../")
     include.slug  dossier de l'app (luciole, almanac…)
@@ -15,7 +15,7 @@
         <li><a href="{{ root }}{{ include.slug }}/en/privacy/">Privacy</a></li>
         {% else %}
         <li><a href="{{ root }}">← Retour au site</a></li>
-        <li><a href="{{ root }}{{ include.slug }}/confidentialite/">Confidentialité</a></li>
+        <li><a href="{{ root }}{{ include.slug }}/privacy/">Confidentialité</a></li>
         {% endif %}
         <li>
           <a href="https://github.com/michaelfery">

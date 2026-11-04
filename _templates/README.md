@@ -18,7 +18,7 @@ exécute les trois includes communs : en-tête, pied de page et « Les coulisses
 | `_data/apps.yml` | Une entrée par app : nom, accroche, statut (`live` / `soon`), lien Play, couleur de l'icône. Alimente `/apps/`, le bandeau de la home et les pastilles d'articles. À remplir en même temps que la page. |
 | `_includes/app-coulisses.html` | Section « Les coulisses » des pages d'app : les articles qui portent `app: <slug>`. Les pages d'app ont un front matter vide pour que Jekyll l'exécute. |
 | `_includes/app-header.html`, `_includes/app-footer.html` | En-tête et pied de page, communs à toutes les apps. Paramètres : `root` (`"../"` depuis `<slug>/`, `"../../"` depuis `<slug>/en/`), `lang` (`en`), et `slug` pour le pied de page, qui en tire le lien vers la politique. |
-| `<slug>/confidentialite.md`, `<slug>/en/privacy.md` | Politiques, mise en page `prose` : le titre est le `# …` du Markdown. `lang: en` pour l'anglais, `translation:` pour l'adresse de l'autre version (la mise en page en tire le lien « Lire cette page en… » et les `hreflang`). Ne pas écrire ce lien à la main. |
+| `<slug>/privacy.md`, `<slug>/en/privacy.md` | Politiques, mise en page `prose` : le titre est le `# …` du Markdown. `lang: en` pour l'anglais, `translation:` pour l'adresse de l'autre version (la mise en page en tire le lien « Lire cette page en… » et les `hreflang`). Ne pas écrire ce lien à la main. |
 
 ## Arborescence d'une app
 
@@ -28,7 +28,7 @@ exécute les trois includes communs : en-tête, pied de page et « Les coulisses
   QUESTIONS.md              trous non sourcés ; à ajouter à `exclude:` dans _config.yml
   en/
     index.html              page vitrine EN        → /<slug>/en/
-  confidentialite.md        politique FR (Jekyll)  → /<slug>/confidentialite/
+  privacy.md                politique FR (Jekyll)  → /<slug>/privacy/
   en/privacy.md             politique EN (Jekyll)  → /<slug>/en/privacy/
   assets/
     icon-512.png            icône launcher, carrée, coins droits (le CSS arrondit) ; JSON-LD, pas chargée par la page
@@ -117,7 +117,7 @@ Copier `<slug>/` tel quel, ajouter `tokens.css`, `app.css` et
   HTML rendu (dans `_site/`), et mettre à jour `{{ABSOLUTE_URL}}` dans le bloc
   « URLs absolues ».
 
-Les politiques (`confidentialite.md`, `en/privacy.md`) sont des pages Jekyll :
+Les politiques (`privacy.md` en français, `en/privacy.md` en anglais) sont des pages Jekyll :
 à convertir en HTML (ou à reprendre dans le nouveau site) au moment du
 déplacement. Leurs adresses sont déclarées dans la Play Console : laisser une
 redirection depuis l'ancienne.

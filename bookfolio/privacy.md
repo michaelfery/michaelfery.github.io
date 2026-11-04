@@ -2,7 +2,7 @@
 layout: prose
 title: "Politique de confidentialité de Bookfolio"
 description: "Ce que l'application Bookfolio fait de vos données. Réponse courte : pas de serveur Bookfolio ; votre bibliothèque est sur votre téléphone, plus la sauvegarde Android, Google Drive si vous activez la synchronisation, et la télémétrie seulement si vous l'activez."
-permalink: /bookfolio/confidentialite/
+permalink: /bookfolio/privacy/
 redirect_from: /bookfolio/privacy-fr/
 translation: /bookfolio/en/privacy/
 ---

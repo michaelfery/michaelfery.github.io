@@ -2,7 +2,8 @@
 layout: prose
 title: "Politique de confidentialité de Luciole"
 description: "Ce que l’application Luciole fait de vos données : elle-même ne collecte rien ; les achats passent par Google Play, dont la bibliothèque envoie des informations techniques à Google."
-permalink: /luciole/confidentialite/
+permalink: /luciole/privacy/
+redirect_from: /luciole/confidentialite/
 translation: /luciole/en/privacy/
 ---
 

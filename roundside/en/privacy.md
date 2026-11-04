@@ -12,7 +12,7 @@ redirect_from: /roundside/privacy/
 *Last updated: 4 September 2026*
 
 > **Roundside is now FanLog MMA.** The policy for it and for every FanLog app is at
-> [/fanlog/en/privacy/](/fanlog/en/privacy/) ([en français](/fanlog/confidentialite/)). This page describes
+> [/fanlog/en/privacy/](/fanlog/en/privacy/) ([en français](/fanlog/privacy/)). This page describes
 > the app as it was published under the old name.
 
 Roundside is a fight tracker: you keep a list of fights to watch, mark what you

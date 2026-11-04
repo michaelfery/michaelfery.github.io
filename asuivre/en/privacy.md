@@ -4,8 +4,7 @@ lang: en
 title: "À suivre — Privacy Policy"
 description: "What the À suivre app does with your data. Short answer: nothing — it collects nothing and makes no network request."
 permalink: /asuivre/en/privacy/
-redirect_from: /asuivre/privacy/
-translation: /asuivre/confidentialite/
+translation: /asuivre/privacy/
 ---
 
 # Privacy policy — "À suivre"

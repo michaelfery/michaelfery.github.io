@@ -4,7 +4,7 @@ lang: en
 title: "Luciole Privacy Policy"
 description: "What the Luciole app does with your data: the app itself collects nothing; purchases go through Google Play, whose library sends technical information to Google."
 permalink: /luciole/en/privacy/
-translation: /luciole/confidentialite/
+translation: /luciole/privacy/
 ---
 
 # Luciole Privacy Policy
