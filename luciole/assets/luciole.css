@@ -32,6 +32,10 @@ body.app-page.luciole {
 
 /* Les liens de texte, lavande claire ; les composants gardent les leurs. */
 .luciole :where(a) { color: var(--color-accent); }
+/* Le bouton Google Play : encre de nuit sur lavande (9,3:1). Sans cette
+   règle, celle des liens ci-dessus, chargée après app.css, le passerait
+   en lavande sur lavande. */
+.luciole .app-button { color: var(--app-accent-ink); }
 
 .luciole .app-header {
   background: transparent;

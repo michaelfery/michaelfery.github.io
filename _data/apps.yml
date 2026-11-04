@@ -32,7 +32,8 @@
   name: Luciole
   tagline: Ce soir, ton enfant décide comment l'histoire finit.
   meta: Android 8.0+ · sans compte, sans publicité, sans connexion
-  status: soon
+  status: live
+  play: https://play.google.com/store/apps/details?id=fr.luciole.app
   color: "#0C0A14"
   color_soft: "#d6d0f5"
 
