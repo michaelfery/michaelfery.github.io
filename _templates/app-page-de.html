@@ -1,0 +1,263 @@
+---
+# Front matter vide : Jekyll traite la page (en-tête, pied de page, « Les coulisses »).
+---
+<!DOCTYPE html>
+<!--
+  GABARIT — page vitrine d'une application Android (version allemande)
+  ======================================================================
+  Destination : <slug>/de/index.html        → https://mfery.dev/<slug>/de/
+  Version FR  : <slug>/index.html            → voir _templates/app-page.html
+  Version EN  : <slug>/en/index.html         → voir _templates/app-page-en.html
+
+  Mode d'emploi
+  1. Copier ce fichier vers <slug>/de/index.html.
+  2. Remplacer chaque {{PLACEHOLDER}}, puis supprimer ce commentaire de mode
+     d'emploi : une recherche de deux accolades ouvrantes ne doit plus rien
+     trouver dans le fichier.
+  3. Remplir les blocs « ▼ CONTENU … ▲ ». Les blocs « ▼ OPTIONNEL » se suppriment
+     entièrement s'ils ne servent pas.
+  4. Déposer les assets dans <slug>/assets/ (conventions : _templates/README.md).
+  5. Ouvrir le fichier dans un navigateur à 360 px de large et au clavier (Tab).
+
+  Chemins : cette page vit un niveau plus bas (<slug>/de/). Les assets de
+  l'app sont donc en « ../assets/… », ceux du site en « ../../assets/… ».
+  L'en-tête et le pied de page sont communs à toutes les apps :
+  _includes/app-header.html et _includes/app-footer.html, avec root="../../"
+  (racine du site vue d'ici) et lang="de".
+
+  Langues : sans version anglaise, supprimer la ligne hreflang="en" et le
+  lien « English » du fil d'Ariane. Sur les pages FR et EN, ajouter la ligne
+  hreflang="de" et le lien « Deutsch » (exemple : luciole/).
+
+  Voix : l'app est le sujet des phrases (« Almanac speichert… »), ni « wir »
+  ni « ich ». Tutoiement (« du »), comme sur luciole/de/. Phrases courtes, concret, pas de superlatif : ce que l'app fait, et
+  ce qu'elle ne fait pas.
+-->
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <!-- Pas de maximum-scale : le zoom doit rester possible (WCAG 1.4.4) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{APP_NAME}} — Michaël Fery</title>
+  <meta name="description" content="{{APP_TAGLINE}}">
+
+  <!-- ▼ URLs ABSOLUES — seule entorse au tout-relatif ───────────────────
+       Les scrapers (Play, Mastodon, LinkedIn…) ignorent un og:image relatif,
+       et Google ignore un hreflang relatif. Tout dérive de {{ABSOLUTE_URL}} :
+       l'URL du dossier de l'app (pas de /de/), sans slash final
+       (ex. https://mfery.dev/almanac). Si l'app change de domaine,
+       c'est la seule valeur à changer dans ce fichier. -->
+  <link rel="canonical" href="{{ABSOLUTE_URL}}/de/">
+  <link rel="alternate" hreflang="fr" href="{{ABSOLUTE_URL}}/">
+  <link rel="alternate" hreflang="en" href="{{ABSOLUTE_URL}}/en/">
+  <link rel="alternate" hreflang="de" href="{{ABSOLUTE_URL}}/de/">
+  <link rel="alternate" hreflang="x-default" href="{{ABSOLUTE_URL}}/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Michaël Fery">
+  <meta property="og:title" content="{{APP_NAME}}">
+  <meta property="og:description" content="{{APP_TAGLINE}}">
+  <meta property="og:url" content="{{ABSOLUTE_URL}}/de/">
+  <meta property="og:image" content="{{ABSOLUTE_URL}}/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- ▲ URLs ABSOLUES -->
+
+  <link rel="icon" href="../assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/icon-180.png">
+  <meta name="theme-color" content="{{APP_ACCENT}}">
+
+  <!-- Polices : exactement celles du reste du site, rien de plus -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/tokens.css?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="../../assets/css/app.css?v={{ site.time | date: '%s' }}">
+
+  <!-- Accent de l'app. --app-accent-ink doit contraster à 4,5:1 minimum avec
+       --app-accent (vérifier : https://webaim.org/resources/contrastchecker/).
+       Accent clair → passer l'encre à var(--color-heading). -->
+  <style>
+    body.app-page {
+      --app-accent: {{APP_ACCENT}};
+      --app-accent-ink: #ffffff;
+    }
+  </style>
+
+  <!-- ▼ OPTIONNEL : données structurées (fiche « application » pour les
+       moteurs). URL et prix : le téléchargement est gratuit → price 0. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "{{APP_NAME}}",
+    "operatingSystem": "Android",
+    "applicationCategory": "LifestyleApplication",
+    "description": "{{APP_TAGLINE}}",
+    "inLanguage": "de",
+    "url": "{{ABSOLUTE_URL}}/de/",
+    "installUrl": "https://play.google.com/store/apps/details?id={{PACKAGE_ID}}",
+    "image": "{{ABSOLUTE_URL}}/assets/icon-512.png",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "author": { "@type": "Person", "name": "Michaël Fery", "url": "https://mfery.dev/" }
+  }
+  </script>
+  <!-- ▲ OPTIONNEL -->
+</head>
+
+<body class="app-page">
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       EN-TÊTE — identique sur toutes les pages d'app, ne pas modifier
+       ══════════════════════════════════════════════════════════════════════ -->
+{% include app-header.html root="../../" lang="de" %}
+
+  <main id="main">
+
+    <!-- ▼ CONTENU : présentation ─────────────────────────────────────────
+         Icône 512 px (affichée 96/128), nom, accroche d'une ou deux phrases
+         (celle de la description Play convient), bouton Play Store.
+         La ligne « meta » est libre : prix, version d'Android minimale,
+         taille, « sans publicité »… Une seule ligne. -->
+    <section class="app-hero">
+      <div class="app-container">
+        <p class="app-crumbs"><span><a href="../../apps/">Apps</a> / <span class="app-crumbs__here">{{APP_NAME}}</span></span><span><a class="app-crumbs__lang" href="../" lang="fr" hreflang="fr">Français</a> · <a class="app-crumbs__lang" href="../en/" lang="en" hreflang="en">English</a></span></p>
+        <img class="app-hero__icon" src="../assets/icon-192.png" alt="" width="192" height="192">
+        <h1>{{APP_NAME}}</h1>
+        <p class="app-hero__tagline">{{APP_TAGLINE}}</p>
+        <div class="app-hero__actions">
+          <a class="app-button" href="https://play.google.com/store/apps/details?id={{PACKAGE_ID}}">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 3l14 9-14 9z"/></svg>
+            Jetzt bei Google Play
+          </a>
+          <!-- ▼ OPTIONNEL : second bouton (code source, site de l'app…) -->
+          <a class="app-button app-button--secondary" href="{{SECONDARY_URL}}">{{SECONDARY_LABEL}}</a>
+          <!-- ▲ OPTIONNEL -->
+        </div>
+        <p class="app-hero__meta">{{META_LINE}}</p>
+        <!-- ▼ OPTIONNEL : capture principale, l'écran d'accueil de l'app.
+             Chargée sans lazy : elle est visible à l'ouverture. -->
+        <img class="app-hero__shot" src="../assets/shots/de/01-{{HERO_SHOT_KEY}}.webp" alt="{{HERO_SHOT_ALT}}" width="540" height="1171">
+        <!-- ▲ OPTIONNEL -->
+      </div>
+    </section>
+    <!-- ▲ CONTENU : présentation -->
+
+
+    <!-- ▼ OPTIONNEL : comment ça marche ────────────────────────────────
+         Trois étapes au plus, une phrase chacune. role="list" est requis :
+         le CSS retire les puces, ce qui ferait perdre la liste à VoiceOver. -->
+    <section class="app-steps" aria-labelledby="steps-title">
+      <div class="app-container">
+        <h2 id="steps-title">So funktioniert es</h2>
+        <ol role="list">
+          <li><p>{{STEP_1}}</p></li>
+          <li><p>{{STEP_2}}</p></li>
+          <li><p>{{STEP_3}}</p></li>
+        </ol>
+      </div>
+    </section>
+    <!-- ▲ OPTIONNEL : comment ça marche -->
+
+    <!-- ▼ CONTENU : captures d'écran ────────────────────────────────────
+         3 à 5 images dans assets/shots/<langue>/, numérotées (01-, 02-…),
+         WebP 540 px de large, ≤ 40 Ko chacune (cwebp -q 78). Les attributs
+         width/height évitent le saut de mise en page ; les mettre aux
+         dimensions réelles.
+         Le alt décrit ce que montre l'écran ; le figcaption le nomme.
+         Toutes en loading="lazy" : la capture visible au chargement est
+         celle du hero. -->
+    <section class="app-shots" aria-labelledby="shots-title">
+      <div class="app-container">
+        <h2 id="shots-title">Bildschirmfotos</h2>
+        <div class="app-shots__track" tabindex="0" role="region" aria-label="Bildschirmfotos, horizontal scrollbar">
+          <figure>
+            <img src="../assets/shots/de/02-{{SHOT_1_KEY}}.webp" alt="{{SHOT_1_ALT}}" width="540" height="1171" loading="lazy">
+            <figcaption>{{SHOT_1_CAPTION}}</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/shots/de/03-{{SHOT_2_KEY}}.webp" alt="{{SHOT_2_ALT}}" width="540" height="1171" loading="lazy">
+            <figcaption>{{SHOT_2_CAPTION}}</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/shots/de/04-{{SHOT_3_KEY}}.webp" alt="{{SHOT_3_ALT}}" width="540" height="1171" loading="lazy">
+            <figcaption>{{SHOT_3_CAPTION}}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <!-- ▲ CONTENU : captures d'écran -->
+
+    <!-- ▼ CONTENU : fonctionnalités ─────────────────────────────────────
+         3 à 6 points. Un titre court (3-5 mots), une phrase en dessous.
+         L'app est le sujet (« Almanac speichert… »), pas « wir » ni « ich ».
+         Direct, concret, pas de superlatif. -->
+    <section class="app-features" aria-labelledby="features-title">
+      <div class="app-container">
+        <h2 id="features-title">Was die App macht</h2>
+        <ul role="list">
+          <li>
+            <h3>{{FEATURE_1_TITLE}}</h3>
+            <p>{{FEATURE_1_TEXT}}</p>
+          </li>
+          <li>
+            <h3>{{FEATURE_2_TITLE}}</h3>
+            <p>{{FEATURE_2_TEXT}}</p>
+          </li>
+          <li>
+            <h3>{{FEATURE_3_TITLE}}</h3>
+            <p>{{FEATURE_3_TEXT}}</p>
+          </li>
+          <li>
+            <h3>{{FEATURE_4_TITLE}}</h3>
+            <p>{{FEATURE_4_TEXT}}</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- ▲ CONTENU : fonctionnalités -->
+
+    <!-- ▼ CONTENU : confidentialité ─────────────────────────────────────
+         Deux ou trois phrases, reprises de la section « En une phrase » de la
+         politique de confidentialité. Le lien pointe vers la politique de l'app : privacy/ dans chaque langue (la page FR est sous /<slug>/, la page EN sous /<slug>/en/, la page DE sous /<slug>/de/). -->
+    <section class="app-privacy" aria-labelledby="privacy-title">
+      <div class="app-container">
+        <h2 id="privacy-title">Deine Daten</h2>
+        <div class="app-privacy__box">
+          <p>{{PRIVACY_SUMMARY}}</p>
+          <p><a href="privacy/">Die Datenschutzerklärung lesen</a></p>
+        </div>
+      </div>
+    </section>
+    <!-- ▲ CONTENU : confidentialité -->
+
+    <!-- ▼ OPTIONNEL : questions ─────────────────────────────────────────
+         Sans JavaScript : <details> natif. Supprimer la section entière si
+         vide. Une question par <details>, réponse en un ou deux paragraphes. -->
+    <section class="app-faq" aria-labelledby="faq-title">
+      <div class="app-container">
+        <h2 id="faq-title">Fragen</h2>
+        <details>
+          <summary>{{FAQ_1_QUESTION}}</summary>
+          <p>{{FAQ_1_ANSWER}}</p>
+        </details>
+        <details>
+          <summary>{{FAQ_2_QUESTION}}</summary>
+          <p>{{FAQ_2_ANSWER}}</p>
+        </details>
+      </div>
+    </section>
+    <!-- ▲ OPTIONNEL : questions -->
+
+  <!-- Les coulisses : les articles du blog qui portent « app: {{APP_SLUG}} ».
+       Ne rend rien tant qu'il n'y en a pas. {{APP_SLUG}} : le nom du dossier. -->
+  {% include app-coulisses.html slug="{{APP_SLUG}}" name="{{APP_NAME}}" lang="de" %}
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       PIED DE PAGE — identique sur toutes les pages d'app, ne pas modifier
+       ══════════════════════════════════════════════════════════════════════ -->
+{% include app-footer.html root="../../" slug="{{APP_SLUG}}" lang="de" %}
+</body>
+</html>

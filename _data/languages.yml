@@ -1,0 +1,20 @@
+# Langues des pages traduites, dans l'ordre d'affichage. La première sert de
+# x-default. Utilisé par _includes/head.html (hreflang, og:locale) et
+# _layouts/prose.html (« Lire cette page en… »).
+# Le lien vers une autre version se lit : before + <a>name</a> + after,
+# dans la langue de cette version.
+- code: fr
+  locale: fr_FR
+  before: "Lire cette page en "
+  name: "français"
+  after: "."
+- code: en
+  locale: en_US
+  before: "Read this page in "
+  name: "English"
+  after: "."
+- code: de
+  locale: de_DE
+  before: "Diese Seite auf "
+  name: "Deutsch"
+  after: " lesen."

@@ -4,7 +4,7 @@ lang: en
 title: "FanLog Privacy Policy"
 description: "What the FanLog apps do with your data. Short answer: there is no FanLog server, nothing you record ever leaves your phone, and the only requests they make are for public files."
 permalink: /fanlog/en/privacy/
-translation: /fanlog/privacy/
+translation_key: fanlog-privacy
 ---
 
 # FanLog Privacy Policy

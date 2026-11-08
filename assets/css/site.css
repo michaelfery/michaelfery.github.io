@@ -729,8 +729,9 @@ a:hover { color: var(--ink); }
   overflow-wrap: break-word;
 }
 .prose > :first-child { margin-top: 0; }
-/* Politiques des apps : lien vers l'autre langue, au-dessus du titre */
-.prose p.prose__lang { margin: 0 0 12px; font-size: 15px; color: var(--muted); }
+/* Politiques des apps : liens vers les autres langues, au-dessus du titre */
+.prose .prose__langs { margin: 0 0 12px; }
+.prose p.prose__lang { margin: 0; font-size: 15px; color: var(--muted); }
 .prose p, .prose ul, .prose ol, .prose blockquote, .prose pre,
 .prose table, .prose figure, .prose .highlighter-rouge { margin: 0 0 22px; }
 .prose h1, .prose h2, .prose h3, .prose h4 {

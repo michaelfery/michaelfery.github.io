@@ -4,7 +4,7 @@ title: "Politique de confidentialité de FanLog"
 description: "Ce que les applications FanLog font de vos données. Réponse courte : il n'y a pas de serveur FanLog, rien de ce que vous notez ne quitte votre téléphone, et les seules requêtes faites portent sur des fichiers publics."
 permalink: /fanlog/privacy/
 redirect_from: /fanlog/privacy-fr/
-translation: /fanlog/en/privacy/
+translation_key: fanlog-privacy
 ---
 
 # Politique de confidentialité de FanLog
