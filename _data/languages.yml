@@ -18,3 +18,8 @@
   before: "Diese Seite auf "
   name: "Deutsch"
   after: " lesen."
+- code: es
+  locale: es_ES
+  before: "Leer esta página en "
+  name: "español"
+  after: "."
