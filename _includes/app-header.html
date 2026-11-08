@@ -2,11 +2,13 @@
   En-tête des pages d'app : retour au site, Articles, Apps, À propos.
   Paramètres :
     include.root  chemin relatif vers la racine du site : "../" depuis /<slug>/,
-                  "../../" depuis /<slug>/en/ (les pages d'app restent en relatif)
+                  "../../" depuis /<slug>/en/ ou /<slug>/de/ (les pages d'app
+                  restent en relatif)
     include.lang  fr par défaut, en, de
-  En anglais, les trois liens mènent à des pages en français : une étiquette
-  « FR » le signale (à partir de 600 px, faute de place en dessous), un texte
-  « (in French) » le dit aux lecteurs d'écran, et le lien porte hreflang="fr".
+  En anglais et en allemand, les trois liens mènent à des pages en français :
+  une étiquette « FR » le signale (à partir de 600 px, faute de place en
+  dessous), un texte « (in French) » ou « (auf Französisch) » le dit aux
+  lecteurs d'écran, et le lien porte hreflang="fr".
 {% endcomment %}
 {% assign root = include.root | default: "../" %}
   <header class="app-header">

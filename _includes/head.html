@@ -5,18 +5,28 @@
   {% assign description = page.description | default: site.description | strip_newlines | strip %}
   <meta name="description" content="{{ description }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
-  {% if page.translation %}
-  {% if page.lang == "en" %}{% assign url_fr = page.translation %}{% assign url_en = page.url %}{% else %}{% assign url_fr = page.url %}{% assign url_en = page.translation %}{% endif %}
-  <link rel="alternate" hreflang="fr" href="{{ url_fr | absolute_url }}">
-  <link rel="alternate" hreflang="en" href="{{ url_en | absolute_url }}">
-  <link rel="alternate" hreflang="x-default" href="{{ url_fr | absolute_url }}">
+  {% comment %}
+    Versions traduites : les pages qui partagent la même translation_key.
+    Langues et ordre dans _data/languages.yml ; la première présente est x-default.
+  {% endcomment %}
+  {% assign page_lang = page.lang | default: "fr" %}
+  {% assign page_language = site.data.languages | where: "code", page_lang | first %}
+  {% assign translations = "" | split: "" %}
+  {% if page.translation_key %}{% assign translations = site.pages | where: "translation_key", page.translation_key %}{% endif %}
+  {% if translations.size > 1 %}
+  {% assign url_default = nil %}
+  {% for language in site.data.languages %}{% for version in translations %}{% assign version_lang = version.lang | default: "fr" %}{% if version_lang == language.code %}
+  <link rel="alternate" hreflang="{{ language.code }}" href="{{ version.url | absolute_url }}">{% unless url_default %}{% assign url_default = version.url %}{% endunless %}{% endif %}{% endfor %}{% endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ url_default | absolute_url }}">
   {% endif %}
   {% feed_meta %}
 
   <!-- Aperçus réseaux sociaux -->
   {% if page.img %}{% assign og_image = page.img | prepend: '/assets/img/' | absolute_url %}{% else %}{% assign og_image = site.author-img | prepend: '/assets/img/' | absolute_url %}{% endif %}
   <meta property="og:site_name" content="{{ site.title }}">
-  <meta property="og:locale" content="{% if page.lang == "en" %}en_US{% elsif page.lang == "de" %}de_DE{% else %}fr_FR{% endif %}">
+  <meta property="og:locale" content="{{ page_language.locale | default: "fr_FR" }}">
+  {% if translations.size > 1 %}{% for language in site.data.languages %}{% unless language.code == page_lang %}{% for version in translations %}{% assign version_lang = version.lang | default: "fr" %}{% if version_lang == language.code %}<meta property="og:locale:alternate" content="{{ language.locale }}">
+  {% endif %}{% endfor %}{% endunless %}{% endfor %}{% endif %}
   <meta property="og:title" content="{{ page.title | default: site.title }}">
   <meta property="og:description" content="{{ description }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">

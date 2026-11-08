@@ -5,16 +5,21 @@ layout: default
   Texte long dont le titre est dans le Markdown lui-même (« # Titre ») :
   les politiques de confidentialité des apps.
   Front matter :
-    lang         en pour une version anglaise (fr par défaut)
-    translation  adresse de l'autre version, si elle existe : le lien
-                 « Lire cette page en… » et les hreflang en découlent
+    lang             en, de… (fr par défaut) ; codes de _data/languages.yml
+    translation_key  identifiant commun à toutes les versions d'un même texte
+                     (ex. luciole-privacy) : les liens « Lire cette page en… »
+                     et les hreflang en découlent, pour toutes les langues
 {% endcomment %}
 <article class="article prose">
-  {% if page.translation %}
-  {% if page.lang == "en" %}
-  <p class="prose__lang" lang="fr">Lire cette page en <a href="{{ page.translation | relative_url }}" hreflang="fr">français</a>.</p>
-  {% else %}
-  <p class="prose__lang" lang="en">Read this page in <a href="{{ page.translation | relative_url }}" hreflang="en">English</a>.</p>
+  {% if page.translation_key %}
+  {% assign versions = site.pages | where: "translation_key", page.translation_key %}
+  {% if versions.size > 1 %}
+  {% assign page_lang = page.lang | default: "fr" %}
+  <div class="prose__langs">
+    {% for language in site.data.languages %}{% unless language.code == page_lang %}{% for version in versions %}{% assign version_lang = version.lang | default: "fr" %}{% if version_lang == language.code %}
+    <p class="prose__lang" lang="{{ language.code }}">{{ language.before }}<a href="{{ version.url | relative_url }}" hreflang="{{ language.code }}">{{ language.name }}</a>{{ language.after }}</p>
+    {% endif %}{% endfor %}{% endunless %}{% endfor %}
+  </div>
   {% endif %}
   {% endif %}
   {{ content }}

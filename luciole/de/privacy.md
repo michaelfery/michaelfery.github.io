@@ -4,6 +4,7 @@ lang: de
 title: "Datenschutzerklärung von Luciole"
 description: "Was die App Luciole mit deinen Daten macht: Die App selbst sammelt nichts; Käufe laufen über Google Play, dessen Bibliothek technische Informationen an Google sendet."
 permalink: /luciole/de/privacy/
+translation_key: luciole-privacy
 ---
 
 # Datenschutzerklärung von Luciole

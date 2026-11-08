@@ -4,7 +4,7 @@ title: "À suivre — Politique de confidentialité"
 description: "Ce que l'application À suivre fait de vos données. Réponse courte : rien — elle ne collecte rien et ne fait aucune requête réseau."
 permalink: /asuivre/privacy/
 redirect_from: /asuivre/confidentialite/
-translation: /asuivre/en/privacy/
+translation_key: asuivre-privacy
 ---
 
 # Politique de confidentialité — « À suivre »

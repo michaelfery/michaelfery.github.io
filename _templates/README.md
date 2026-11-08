@@ -14,11 +14,13 @@ exécute les trois includes communs : en-tête, pied de page et « Les coulisses
 | `assets/css/app.css` | Styles des pages d'app (`body.app-page`). La section `.app-cards` ne sert plus depuis la refonte du blog. |
 | `_templates/app-page.html` | Gabarit français → `<slug>/index.html` |
 | `_templates/app-page-en.html` | Gabarit anglais → `<slug>/en/index.html` |
+| `_templates/app-page-de.html` | Gabarit allemand → `<slug>/de/index.html`, optionnel |
 | `index.html` | Bandeau des apps en bas de la home, page 1 seulement (provisoire, en attendant `/apps/`). |
 | `_data/apps.yml` | Une entrée par app : nom, accroche, statut (`live` / `soon`), lien Play, couleur de l'icône. Alimente `/apps/`, le bandeau de la home et les pastilles d'articles. À remplir en même temps que la page. |
 | `_includes/app-coulisses.html` | Section « Les coulisses » des pages d'app : les articles qui portent `app: <slug>`. Les pages d'app ont un front matter vide pour que Jekyll l'exécute. |
-| `_includes/app-header.html`, `_includes/app-footer.html` | En-tête et pied de page, communs à toutes les apps. Paramètres : `root` (`"../"` depuis `<slug>/`, `"../../"` depuis `<slug>/en/`), `lang` (`en`), et `slug` pour le pied de page, qui en tire le lien vers la politique. |
-| `<slug>/privacy.md`, `<slug>/en/privacy.md` | Politiques, mise en page `prose` : le titre est le `# …` du Markdown. `lang: en` pour l'anglais, `translation:` pour l'adresse de l'autre version (la mise en page en tire le lien « Lire cette page en… » et les `hreflang`). Ne pas écrire ce lien à la main. |
+| `_includes/app-header.html`, `_includes/app-footer.html` | En-tête et pied de page, communs à toutes les apps. Paramètres : `root` (`"../"` depuis `<slug>/`, `"../../"` depuis `<slug>/en/` ou `<slug>/de/`), `lang` (`en`, `de`), et `slug` pour le pied de page, qui en tire le lien vers la politique. |
+| `<slug>/privacy.md`, `<slug>/en/privacy.md`, `<slug>/de/privacy.md` | Politiques, mise en page `prose` : le titre est le `# …` du Markdown. `lang: en` ou `lang: de` hors français, et la même `translation_key: <slug>-privacy` dans toutes les versions (la mise en page en tire les liens « Lire cette page en… » et les `hreflang`). Ne pas écrire ces liens à la main. |
+| `_data/languages.yml` | Langues des pages traduites (code, `og:locale`, phrase « Lire cette page en… »), dans l'ordre d'affichage. Ajouter une langue ici avant sa première politique. |
 
 ## Arborescence d'une app
 
@@ -28,8 +30,11 @@ exécute les trois includes communs : en-tête, pied de page et « Les coulisses
   QUESTIONS.md              trous non sourcés ; à ajouter à `exclude:` dans _config.yml
   en/
     index.html              page vitrine EN        → /<slug>/en/
+  de/
+    index.html              page vitrine DE        → /<slug>/de/ (optionnel)
   privacy.md                politique FR (Jekyll)  → /<slug>/privacy/
   en/privacy.md             politique EN (Jekyll)  → /<slug>/en/privacy/
+  de/privacy.md             politique DE (Jekyll)  → /<slug>/de/privacy/ (optionnel)
   assets/
     icon-512.png            icône launcher, carrée, coins droits (le CSS arrondit) ; JSON-LD, pas chargée par la page
     icon-192.png            même image ; hero (affichée 96/128 px) et carte de la home
@@ -37,10 +42,11 @@ exécute les trois includes communs : en-tête, pied de page et « Les coulisses
     icon-32.png             favicon
     og.png                  1200×630, aperçu réseaux sociaux (FR)
     og-en.png               idem, EN, si le visuel porte du texte
+    og-de.png               idem, DE
     shots/
       fr/01-<mot-cle>.webp  captures numérotées à deux chiffres, un dossier par
-      en/01-<mot-cle>.webp  langue ; 01 = hero. WebP 540 px de large, ≤ 40 Ko
-                            (un seul jeu pour les deux langues : directement dans shots/)
+      en/01-<mot-cle>.webp  langue (fr/, en/, de/) ; 01 = hero. WebP 540 px de large, ≤ 40 Ko
+                            (un seul jeu pour toutes les langues : directement dans shots/)
 ```
 
 Quand le repo de l'app n'a pas de captures, la fiche Google Play publique les a :
@@ -64,6 +70,8 @@ Règles :
 1. `mkdir -p <slug>/en <slug>/assets/shots`
 2. `cp _templates/app-page.html <slug>/index.html`
    `cp _templates/app-page-en.html <slug>/en/index.html`
+   (en allemand : `mkdir <slug>/de && cp _templates/app-page-de.html <slug>/de/index.html`,
+   puis ajouter `hreflang="de"` et le lien « Deutsch » aux pages FR et EN)
 3. Remplacer chaque `{{PLACEHOLDER}}` et supprimer le commentaire de mode d'emploi
    en tête du fichier — `grep -n '{{' <slug>/index.html <slug>/en/index.html` doit rendre vide.
 4. Remplir les blocs `▼ CONTENU … ▲`, supprimer les blocs `▼ OPTIONNEL` inutiles.
@@ -79,7 +87,7 @@ Règles :
 | `{{APP_TAGLINE}}` | Accroche, une ou deux phrases. Sert aussi de `description`. |
 | `{{APP_ACCENT}}` | Couleur hex de l'app |
 | `{{PACKAGE_ID}}` | Identifiant Play (`com.example.app`) |
-| `{{ABSOLUTE_URL}}` | URL absolue du dossier de l'app, sans slash final ni `/en/` (`https://mfery.dev/almanac`). Alimente le bloc « URLs absolues » : `canonical`, `hreflang`, `og:url`, `og:image`. Seule exception au tout-relatif : les scrapers OG et Google ignorent les URL relatives. |
+| `{{ABSOLUTE_URL}}` | URL absolue du dossier de l'app, sans slash final ni `/en/` ni `/de/` (`https://mfery.dev/almanac`). Alimente le bloc « URLs absolues » : `canonical`, `hreflang`, `og:url`, `og:image`. Seule exception au tout-relatif : les scrapers OG et Google ignorent les URL relatives. |
 | `{{APP_SLUG}}` | Nom du dossier de l'app. Alimente « Les coulisses » et le pied de page. |
 | `{{META_LINE}}` | Une ligne : prix, Android minimal, « sans publicité »… |
 | `{{HERO_SHOT_KEY}}` / `{{HERO_SHOT_ALT}}` | Capture principale du hero (`01-<mot-cle>.webp`), optionnelle |
@@ -112,12 +120,12 @@ Copier `<slug>/` tel quel, ajouter `tokens.css`, `app.css` et
 `michael-fery-64.png` dans `<slug>/assets/`, puis :
 
 - `index.html` : remplacer `../assets/` par `assets/` ;
-- `en/index.html` : remplacer `../../assets/` par `../assets/` ;
-- dans les deux : remplacer les includes d'en-tête et de pied de page par leur
+- `en/index.html` et `de/index.html` : remplacer `../../assets/` par `../assets/` ;
+- dans toutes : remplacer les includes d'en-tête et de pied de page par leur
   HTML rendu (dans `_site/`), et mettre à jour `{{ABSOLUTE_URL}}` dans le bloc
   « URLs absolues ».
 
-Les politiques (`privacy.md` en français, `en/privacy.md` en anglais) sont des pages Jekyll :
+Les politiques (`privacy.md` en français, `en/privacy.md` en anglais, `de/privacy.md` en allemand) sont des pages Jekyll :
 à convertir en HTML (ou à reprendre dans le nouveau site) au moment du
 déplacement. Leurs adresses sont déclarées dans la Play Console : laisser une
 redirection depuis l'ancienne.
