@@ -32,7 +32,7 @@
 
   <link rel="icon" href="assets/icon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/icon-180.png">
-  <meta name="theme-color" content="#2A565D">
+  <meta name="theme-color" content="#1F2A44">
 
   <!-- Polices : exactement celles du reste du site, rien de plus -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,13 +42,21 @@
   <link rel="stylesheet" href="../assets/css/tokens.css?v={{ site.time | date: '%s' }}">
   <link rel="stylesheet" href="../assets/css/app.css?v={{ site.time | date: '%s' }}">
 
-  <!-- Accent : le « Ocean » foncé de la palette de l'app (AccentPalette.kt,
-       darkPrimaryContainer #2A565D), 8:1 avec du blanc, celui des captures Play. L'accent vif de
-       l'app (#E76F51) fait 3,1:1 : illisible en texte. -->
+  <!-- Accent : l'encre marine de l'identité « Le Marque-page » (#1F2A44, celle des titres
+       des visuels Play et de _data/apps.yml), 14:1 avec du blanc. Le terracotta de l'app
+       (#E76F51) fait 3,1:1 : illisible en texte. -->
   <style>
     body.app-page {
-      --app-accent: #2A565D;
+      --app-accent: #1F2A44;
       --app-accent-ink: #ffffff;
+    }
+    /* Thème sombre : le marine se perd sur le fond (1,2:1) ; le terracotta prend
+       le relais, texte marine dessus (4,6:1). */
+    @media (prefers-color-scheme: dark) {
+      body.app-page {
+        --app-accent: #E76F51;
+        --app-accent-ink: #1F2A44;
+      }
     }
   </style>
 
@@ -98,7 +106,6 @@
           </a>
         </div>
         <p class="app-hero__meta">Android 8.0 et plus · Sans publicité</p>
-        <img class="app-hero__shot" src="assets/shots/01-library-grid.webp" alt="La bibliothèque en grille : quinze livres lus, présentés par leur couverture, et les onglets Bibliothèque, Wishlist, Recherche et Stats en bas de l'écran." width="540" height="1170">
       </div>
     </section>
 
@@ -143,20 +150,19 @@
 
     <section class="app-shots" aria-labelledby="shots-title">
       <div class="app-container">
-        <h2 id="shots-title">Captures d'écran</h2>
-        <p>Celles de la fiche Google Play. L'interface y mêle français et anglais.</p>
-        <div class="app-shots__track" tabindex="0" role="region" aria-label="Captures d'écran, défilement horizontal">
+        <h2 id="shots-title">En images</h2>
+        <div class="app-shots__track" tabindex="0" role="region" aria-label="Quatre images de l'application, défilement horizontal">
           <figure>
-            <img src="assets/shots/02-library-list.webp" alt="La bibliothèque en liste : le champ de recherche par titre, auteur, ISBN, éditeur ou année ; les filtres Tous, En cours, À lire, Lus ; quatre livres avec leur auteur, leur éditeur et leur année." width="540" height="1170" loading="lazy">
-            <figcaption>La bibliothèque en liste, avec la recherche et les filtres par statut.</figcaption>
+            <img src="assets/shots/fr/01-accueil.webp" alt="« Chaque livre que vous possédez, à sa place. Votre bibliothèque, vos lectures, votre rythme. Hors ligne, sans compte. » Un coin lecture aux étagères garnies, et l'écran Ma Bibliothèque sur un téléphone." width="540" height="960" loading="lazy">
           </figure>
           <figure>
-            <img src="assets/shots/03-detail.webp" alt="La fiche de « The Phoenix Project » : couverture, auteurs, éditeur, année et nombre de pages ; cinq étoiles de note ; les statuts À lire, En cours, Lu, DNF ; les boutons Possédé et Wishlist ; les dates de début et de fin ; le résumé." width="540" height="1170" loading="lazy">
-            <figcaption>La fiche d'un livre : statut, possession, wishlist, note, dates et résumé.</figcaption>
+            <img src="assets/shots/fr/02-bibliotheque.webp" alt="« Votre bibliothèque, en un coup d'œil. Couvertures, statuts, filtres. Le livre en cours toujours en tête. » Ma Bibliothèque : la recherche par titre, auteur ou ISBN, les filtres, « Reprendre la lecture » sur Notre-Dame de Paris, page 583 sur 940, puis les couvertures en grille." width="540" height="960" loading="lazy">
           </figure>
           <figure>
-            <img src="assets/shots/04-stats.webp" alt="Stats : un anneau « 15 sur 12 livres », « Objectif lecture 2026 » atteint à 100 %, 15 livres lus et 4 555 pages ce mois-ci, puis l'activité récente." width="540" height="1170" loading="lazy">
-            <figcaption>Stats : l'objectif de l'année, les livres et les pages lus, l'activité récente.</figcaption>
+            <img src="assets/shots/fr/03-fiche.webp" alt="« Une fiche par livre, tout sous la main. Statut, note, dates, progression : chaque valeur se change d'un geste. » La fiche de Notre-Dame de Paris : statut En cours, note, possédé, dates, page 583 sur 940 et 62 %, mes notes et collections." width="540" height="960" loading="lazy">
+          </figure>
+          <figure>
+            <img src="assets/shots/fr/04-parcours.webp" alt="« Vos lectures, votre rythme. Un objectif annuel, les livres et pages du mois, le fil de vos lectures. » Mon Parcours : l'objectif lecture 2026 à 3 livres sur 12, 1 livre et 1 312 pages lus en septembre, puis l'activité récente." width="540" height="960" loading="lazy">
           </figure>
         </div>
       </div>

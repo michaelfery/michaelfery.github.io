@@ -32,7 +32,7 @@
 
   <link rel="icon" href="../assets/icon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../assets/icon-180.png">
-  <meta name="theme-color" content="#2A565D">
+  <meta name="theme-color" content="#1F2A44">
 
   <!-- Fonts: exactly the ones the rest of the site loads, nothing more -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,11 +42,19 @@
   <link rel="stylesheet" href="../../assets/css/tokens.css?v={{ site.time | date: '%s' }}">
   <link rel="stylesheet" href="../../assets/css/app.css?v={{ site.time | date: '%s' }}">
 
-  <!-- Accent: the dark "Ocean" of the app's palette (AccentPalette.kt), 8:1 on white, matching the Play screenshots. -->
+  <!-- Accent: the navy ink of the "Le Marque-page" identity (#1F2A44, the headline colour of the Play graphics and _data/apps.yml), 14:1 on white. -->
   <style>
     body.app-page {
-      --app-accent: #2A565D;
+      --app-accent: #1F2A44;
       --app-accent-ink: #ffffff;
+    }
+    /* Dark theme: navy vanishes on the page (1.2:1); terracotta takes over,
+       with navy text on it (4.6:1). */
+    @media (prefers-color-scheme: dark) {
+      body.app-page {
+        --app-accent: #E76F51;
+        --app-accent-ink: #1F2A44;
+      }
     }
   </style>
 
@@ -96,7 +104,6 @@
           </a>
         </div>
         <p class="app-hero__meta">Android 8.0 and up · No ads</p>
-        <img class="app-hero__shot" src="../assets/shots/01-library-grid.webp" alt="The library as a grid: fifteen books read, shown by their covers, with the Library, Wishlist, Search and Stats tabs at the bottom." width="540" height="1170">
       </div>
     </section>
 
@@ -142,19 +149,18 @@
     <section class="app-shots" aria-labelledby="shots-title">
       <div class="app-container">
         <h2 id="shots-title">Screenshots</h2>
-        <p>The ones from the Google Play listing. The interface mixes French and English.</p>
-        <div class="app-shots__track" tabindex="0" role="region" aria-label="Screenshots, scrolls horizontally">
+        <div class="app-shots__track" tabindex="0" role="region" aria-label="Four images of the app, scrolls horizontally">
           <figure>
-            <img src="../assets/shots/02-library-list.webp" alt="The library as a list: the search field for title, author, ISBN, publisher or year; the filters All, Reading, To read, Read; four books with author, publisher and year." width="540" height="1170" loading="lazy">
-            <figcaption>The library as a list, with search and status filters.</figcaption>
+            <img src="../assets/shots/en/01-accueil.webp" alt="'Every book you own, in its place. Your library, your reading, your pace. Offline, no account needed.' A reading corner with full shelves, and the My Library screen on a phone." width="540" height="960" loading="lazy">
           </figure>
           <figure>
-            <img src="../assets/shots/03-detail.webp" alt="The page for 'The Phoenix Project': cover, authors, publisher, year and page count; a five-star rating; the statuses To read, Reading, Read, DNF; the Owned and Wishlist buttons; start and finish dates; the summary." width="540" height="1170" loading="lazy">
-            <figcaption>A book's page: status, ownership, wishlist, rating, dates and summary.</figcaption>
+            <img src="../assets/shots/en/02-bibliotheque.webp" alt="'Your library, at a glance. Covers, statuses, filters. The book you are reading stays on top.' My Library: search by title, author or ISBN, the filters, 'Continue reading' on Notre-Dame de Paris, page 583 of 940, then the covers in a grid." width="540" height="960" loading="lazy">
           </figure>
           <figure>
-            <img src="../assets/shots/04-stats.webp" alt="Stats: a ring reading '15 of 12 books', the 2026 reading goal at 100%, 15 books and 4,555 pages read this month, then recent activity." width="540" height="1170" loading="lazy">
-            <figcaption>Stats: the year's goal, books and pages read, recent activity.</figcaption>
+            <img src="../assets/shots/en/03-fiche.webp" alt="'One card per book, everything at hand. Status, rating, dates, progress: each value changes with a tap.' The card for Notre-Dame de Paris: status Reading, rating, owned, dates, page 583 of 940 and 62%, my notes and collections." width="540" height="960" loading="lazy">
+          </figure>
+          <figure>
+            <img src="../assets/shots/en/04-parcours.webp" alt="'Your reading, your pace. A yearly goal, this month's books and pages, the thread of your reading.' My Journey: the 2026 reading goal at 3 of 12 books, 1 book and 1,312 pages read in September, then recent activity." width="540" height="960" loading="lazy">
           </figure>
         </div>
       </div>
