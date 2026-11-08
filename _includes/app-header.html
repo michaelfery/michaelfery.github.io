@@ -3,7 +3,7 @@
   Paramètres :
     include.root  chemin relatif vers la racine du site : "../" depuis /<slug>/,
                   "../../" depuis /<slug>/en/ (les pages d'app restent en relatif)
-    include.lang  fr par défaut, en
+    include.lang  fr par défaut, en, de
   En anglais, les trois liens mènent à des pages en français : une étiquette
   « FR » le signale (à partir de 600 px, faute de place en dessous), un texte
   « (in French) » le dit aux lecteurs d'écran, et le lien porte hreflang="fr".
@@ -20,6 +20,12 @@
         <a href="{{ root }}" hreflang="fr">Articles<span class="app-header__lang" aria-hidden="true">FR</span><span class="visually-hidden"> (in French)</span></a>
         <a href="{{ root }}apps/" hreflang="fr" aria-current="page">Apps<span class="app-header__lang" aria-hidden="true">FR</span><span class="visually-hidden"> (in French)</span></a>
         <a href="{{ root }}about/" hreflang="fr">About<span class="app-header__lang" aria-hidden="true">FR</span><span class="visually-hidden"> (in French)</span></a>
+      </nav>
+      {% elsif include.lang == "de" %}
+      <nav class="app-header__nav" aria-label="Hauptnavigation">
+        <a href="{{ root }}" hreflang="fr">Artikel<span class="app-header__lang" aria-hidden="true">FR</span><span class="visually-hidden"> (auf Französisch)</span></a>
+        <a href="{{ root }}apps/" hreflang="fr" aria-current="page">Apps<span class="app-header__lang" aria-hidden="true">FR</span><span class="visually-hidden"> (auf Französisch)</span></a>
+        <a href="{{ root }}about/" hreflang="fr">Über mich<span class="app-header__lang" aria-hidden="true">FR</span><span class="visually-hidden"> (auf Französisch)</span></a>
       </nav>
       {% else %}
       <nav class="app-header__nav" aria-label="Principale">

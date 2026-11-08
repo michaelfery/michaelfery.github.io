@@ -1,0 +1,199 @@
+---
+# Empty front matter: Jekyll processes the page (header, footer, "Behind the scenes").
+---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Luciole — Michaël Fery</title>
+  <meta name="description" content="Eine Gutenachtgeschichte zum Vorlesen, und dein Kind entscheidet, wie es weitergeht. Eine Android-App ohne Konto, ohne Werbung, ohne Verbindung.">
+
+  <!-- Absolute URLs: the one exception to relative paths (OG scrapers, hreflang). -->
+  <link rel="canonical" href="https://mfery.dev/luciole/de/">
+  <link rel="alternate" hreflang="fr" href="https://mfery.dev/luciole/">
+  <link rel="alternate" hreflang="en" href="https://mfery.dev/luciole/en/">
+  <link rel="alternate" hreflang="de" href="https://mfery.dev/luciole/de/">
+  <link rel="alternate" hreflang="x-default" href="https://mfery.dev/luciole/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Michaël Fery">
+  <meta property="og:title" content="Luciole">
+  <meta property="og:description" content="Eine Gutenachtgeschichte zum Vorlesen, und dein Kind entscheidet, wie es weitergeht. Eine Android-App ohne Konto, ohne Werbung, ohne Verbindung.">
+  <meta property="og:url" content="https://mfery.dev/luciole/de/">
+  <meta property="og:image" content="https://mfery.dev/luciole/assets/og-de.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Luciole">
+  <meta name="twitter:description" content="Eine Gutenachtgeschichte zum Vorlesen, und dein Kind entscheidet, wie es weitergeht. Eine Android-App ohne Konto, ohne Werbung, ohne Verbindung.">
+  <meta name="twitter:image" content="https://mfery.dev/luciole/assets/og-de.jpg">
+
+  <link rel="icon" href="../assets/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/icon-180.png">
+  <meta name="theme-color" content="#0C0A14">
+
+  <!-- The app's fonts, from the same service as the site's: Literata for what is read,
+       Public Sans for what is touched (Luciole's design system). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400&family=Public+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/tokens.css?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="../../assets/css/app.css?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="../assets/luciole.css?v={{ site.time | date: '%s' }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Luciole",
+    "operatingSystem": "Android",
+    "applicationCategory": "EntertainmentApplication",
+    "description": "Eine Gutenachtgeschichte zum Vorlesen, und dein Kind entscheidet, wie es weitergeht.",
+    "inLanguage": "de",
+    "url": "https://mfery.dev/luciole/de/",
+    "installUrl": "https://play.google.com/store/apps/details?id=fr.luciole.app",
+    "image": "https://mfery.dev/luciole/assets/icon-512.png",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "author": { "@type": "Person", "name": "Michaël Fery", "url": "https://mfery.dev/" }
+  }
+  </script>
+</head>
+
+<body class="app-page luciole">
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+{% include app-header.html root="../../" lang="de" %}
+
+  <main id="main">
+
+    <section class="app-hero">
+      <div class="app-container">
+        <p class="app-crumbs"><span><a href="../../apps/">Apps</a> / <span class="app-crumbs__here">Luciole</span></span><span><a class="app-crumbs__lang" href="../" lang="fr" hreflang="fr">Français</a> · <a class="app-crumbs__lang" href="../en/" lang="en" hreflang="en">English</a></span></p>
+        <img class="app-hero__icon" src="../assets/icon-192.png" alt="" width="192" height="192">
+        <h1>Luciole</h1>
+        <p class="app-hero__tagline">Heute Abend entscheidet dein Kind, wie die Geschichte ausgeht.</p>
+        <div class="app-hero__actions">
+          <a class="app-button" href="https://play.google.com/store/apps/details?id=fr.luciole.app">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 3l14 9-14 9z"/></svg>
+            Jetzt bei Google Play
+          </a>
+        </div>
+        <p class="app-hero__meta">Ab Android 8.0 · Kein Konto, keine Werbung, keine Verbindung</p>
+      </div>
+    </section>
+
+    <section class="app-features" aria-labelledby="features-title">
+      <div class="app-container">
+        <h2 id="features-title">Eine Geschichte zum Vorlesen, und dein Kind entscheidet</h2>
+        <ul role="list">
+          <li>
+            <h3>Du liest vor, dein Kind entscheidet</h3>
+            <p>Du hältst das Handy und liest vor. Viermal hält die Geschichte bei einer Frage an, die du deinem Kind stellst. Dein Kind antwortet, du tippst auf die Wahl, und die Geschichte nimmt eine neue Wendung.</p>
+          </li>
+          <li>
+            <h3>Drei Enden</h3>
+            <p>Die Entscheidungen verändern wirklich, was danach kommt. Von einem Abend zum nächsten ist es nie ganz dieselbe Geschichte.</p>
+          </li>
+          <li>
+            <h3>Der Name, die Hauptrolle, die Begleitung, der Ort</h3>
+            <p>Mutig, neugierig, verschmitzt oder ruhig; eine von vier Begleitungen, vom Fuchs bis zum Papagei oder Pinguin; einer von drei Orten, vom Fluss bis zum Wrack oder zum Packeis. Achtundvierzig Fassungen jeder Geschichte, geschrieben, nicht von einer Maschine zusammengesetzt.</p>
+          </li>
+          <li>
+            <h3>Gemacht für das Dunkel</h3>
+            <p>Dunkler Bildschirm, cremefarbene Schrift, eine große Schrift, die du mit einer Geste anpasst. Die Geschichte läuft in einem Stück durch, ohne Umblättern, und jede Frage erscheint in einer Karte, genau wenn es Zeit für sie ist. Hinweise für dich stehen kursiv und werden nicht vorgelesen.</p>
+          </li>
+          <li>
+            <h3>Drei Welten, neun Geschichten</h3>
+            <p>Der Wald ist dabei, mit seinen drei Geschichten; die Piraten und der Schnee, je drei Geschichten, werden einmal und für immer über Google Play freigeschaltet. Für Kinder von fünf bis acht Jahren, je acht bis zehn Minuten Vorlesen.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="app-steps" aria-labelledby="steps-title">
+      <div class="app-container">
+        <h2 id="steps-title">So funktioniert es</h2>
+        <ol role="list">
+          <li><p>Der Name deines Kindes, dann drei Bilder zum Auswählen: wie dein Kind heute Abend ist, wer mitkommt, wo alles spielt.</p></li>
+          <li><p>Du liest vor, in einem Stück, ohne Umblättern.</p></li>
+          <li><p>Bei jeder Frage entscheidet dein Kind. Du tippst auf die Wahl und liest weiter.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="app-shots" aria-labelledby="shots-title">
+      <div class="app-container">
+        <h2 id="shots-title">Bilder</h2>
+        <div class="app-shots__track" tabindex="0" role="region" aria-label="Sieben Bilder der App, waagerecht blättern">
+          <figure>
+            <img src="../assets/shots/de/panneau-1.webp" alt="„Eine Gutenachtgeschichte zum Vorlesen. Und dein Kind entscheidet, wie es weitergeht.“ Ein offenes Fenster zum nächtlichen Wald, und der Anfang von „Ein kleines Geräusch unterm Mond“ auf einem Handy." width="540" height="960" loading="lazy">
+          </figure>
+          <figure>
+            <img src="../assets/shots/de/panneau-2.webp" alt="„Viermal hält die Geschichte an. Du stellst die Frage, dein Kind wählt.“ Auf dem Handy die Karte mit der Frage und zwei Antworten." width="540" height="960" loading="lazy">
+          </figure>
+          <figure>
+            <img src="../assets/shots/de/panneau-3.webp" alt="„Vier Entscheidungen, drei Enden. Nie ganz dieselbe Geschichte.“ Die Spur des Glühwürmchens teilt sich zu drei Enden: Der wiedergefundene Bau, Ein Gast für die Nacht, Der Wald schläft ein." width="540" height="960" loading="lazy">
+          </figure>
+          <figure>
+            <img src="../assets/shots/de/panneau-4.webp" alt="„Eine Geschichte, in der dein Kind die Hauptrolle spielt.“ Drei gewählte Bilder, eine neugierige Hand, der Fuchs und der Fluss, und „48 Fassungen jeder Geschichte, alle im Voraus geschrieben“." width="540" height="960" loading="lazy">
+          </figure>
+          <figure>
+            <img src="../assets/shots/de/panneau-5.webp" alt="„Gemacht zum Vorlesen im Dunkeln. Große Schrift, dunkler Bildschirm, und Hinweise nur für dich.“ Das Lesen auf dem Handy, mit dem Hinweis „sanfte Stimme, wir fangen an“ in Großaufnahme." width="540" height="960" loading="lazy">
+          </figure>
+          <figure>
+            <img src="../assets/shots/de/panneau-6.webp" alt="„Der Name bleibt auf dem Handy. Luciole funktioniert im Flugmodus.“ Das Glühwürmchen, und vier Punkte: kein Konto, keine Werbung, kein Abo, keine Verbindung." width="540" height="960" loading="lazy">
+          </figure>
+          <figure>
+            <img src="../assets/shots/de/panneau-7.webp" alt="„Drei Welten, neun Geschichten. Von 5 bis 8 Jahren, je etwa zehn Minuten.“ Die Medaillons von Der Wald, Die Piraten und Unter dem Schnee, und die Bilder der neun Geschichten." width="540" height="960" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-privacy" aria-labelledby="privacy-title">
+      <div class="app-container">
+        <h2 id="privacy-title">Kein Konto, keine Werbung</h2>
+        <div class="app-privacy__box">
+          <p>Luciole sammelt, sendet und teilt keine personenbezogenen Daten. Kein Konto, keine Verbindung, keine Werbung, kein Abo: Welten werden einmal über Google Play gekauft, und <strong>die App funktioniert im Flugmodus</strong>.</p>
+          <p>Auf dem Handy speichert sie den Namen deines Kindes und das gewählte Pronomen, die Entscheidungen vor jedem Lesen, die Schriftgröße und den Verlauf der gelesenen Geschichten. Wer die App deinstalliert, löscht alles.</p>
+          <p><a href="privacy/">Die Datenschutzerklärung lesen</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-faq" aria-labelledby="faq-title">
+      <div class="app-container">
+        <h2 id="faq-title">Fragen</h2>
+        <details>
+          <summary>Kann mein Kind die App allein benutzen?</summary>
+          <p>Dafür ist sie nicht gemacht. Luciole ist ein Ritual zu zweit: Der Erwachsene hält das Handy und liest vor, das Kind hört zu und entscheidet. Für das Kind gibt es nichts zu lesen, und auf dem Bildschirm bewegt sich nichts.</p>
+        </details>
+        <details>
+          <summary>Für welches Alter?</summary>
+          <p>Von fünf bis acht. Der Wortschatz ist für ein sechsjähriges Kind gedacht, das zuhört, ohne dass es lesen können muss.</p>
+        </details>
+        <details>
+          <summary>Wie viele Geschichten?</summary>
+          <p>Neun, in drei Welten. Der Wald ist dabei: „Ein kleines Geräusch unterm Mond“, „Wer macht hicks?“ und „Wo ist das Kuscheltier?“. Die Piraten und der Schnee werden je mit einem einmaligen Kauf freigeschaltet, ohne Abo. Jede Geschichte gibt es in achtundvierzig Fassungen, je nach Hauptrolle, Begleitung und Ort, mit drei Enden, auf Deutsch, Englisch oder Französisch. Nichts herunterzuladen: Alles ist auf dem Handy.</p>
+        </details>
+        <details>
+          <summary>Braucht die App eine Verbindung?</summary>
+          <p>Zum Lesen nie: Die App funktioniert im Flugmodus. Nur der Kauf einer Welt läuft über Google Play und braucht dann eine Verbindung.</p>
+        </details>
+        <details>
+          <summary>Können wir eine Geschichte dort fortsetzen, wo wir aufgehört haben?</summary>
+          <p>Ja. Wenn dein Kind mittendrin einschläft, bietet der Startbildschirm an, dort weiterzulesen, wo ihr aufgehört habt.</p>
+        </details>
+      </div>
+    </section>
+
+{% include app-coulisses.html slug="luciole" name="Luciole" lang="de" %}
+  </main>
+
+{% include app-footer.html root="../../" slug="luciole" lang="de" %}
+</body>
+</html>

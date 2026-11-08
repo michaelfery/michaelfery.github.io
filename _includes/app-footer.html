@@ -4,7 +4,7 @@
   Paramètres :
     include.root  chemin relatif vers la racine du site ("../" ou "../../")
     include.slug  dossier de l'app (luciole, almanac…)
-    include.lang  fr par défaut, en
+    include.lang  fr par défaut, en, de
 {% endcomment %}
 {% assign root = include.root | default: "../" %}
   <footer class="app-footer">
@@ -13,6 +13,9 @@
         {% if include.lang == "en" %}
         <li><a href="{{ root }}" hreflang="fr">← Back to the site</a></li>
         <li><a href="{{ root }}{{ include.slug }}/en/privacy/">Privacy</a></li>
+        {% elsif include.lang == "de" %}
+        <li><a href="{{ root }}" hreflang="fr">← Zurück zur Website</a></li>
+        <li><a href="{{ root }}{{ include.slug }}/de/privacy/">Datenschutz</a></li>
         {% else %}
         <li><a href="{{ root }}">← Retour au site</a></li>
         <li><a href="{{ root }}{{ include.slug }}/privacy/">Confidentialité</a></li>

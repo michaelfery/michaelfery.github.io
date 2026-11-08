@@ -16,7 +16,7 @@
   <!-- Aperçus réseaux sociaux -->
   {% if page.img %}{% assign og_image = page.img | prepend: '/assets/img/' | absolute_url %}{% else %}{% assign og_image = site.author-img | prepend: '/assets/img/' | absolute_url %}{% endif %}
   <meta property="og:site_name" content="{{ site.title }}">
-  <meta property="og:locale" content="{% if page.lang == "en" %}en_US{% else %}fr_FR{% endif %}">
+  <meta property="og:locale" content="{% if page.lang == "en" %}en_US{% elsif page.lang == "de" %}de_DE{% else %}fr_FR{% endif %}">
   <meta property="og:title" content="{{ page.title | default: site.title }}">
   <meta property="og:description" content="{{ description }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
