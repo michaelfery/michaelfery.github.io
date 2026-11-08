@@ -3,13 +3,13 @@ layout: prose
 title: "Politique de confidentialité d'Almanac"
 description: "Ce que l'application Almanac fait de vos données. Réponse courte : il n'y a pas de serveur Almanac, et la seule copie hors de votre téléphone est la sauvegarde chiffrée d'Android."
 permalink: /almanac/privacy/
+translation: /almanac/en/privacy/
 ---
 
 # Politique de confidentialité d'Almanac
 
 *Dernière mise à jour : 30 août 2026*
 
-Read this page in [English](/almanac/privacy-en/).
 
 Almanac est une application d'entretien du logement. Cette page décrit ce qu'elle
 fait de vos données. Elle est courte parce que l'application en fait peu.

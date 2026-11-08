@@ -1,47 +1,50 @@
 ---
 layout: prose
-lang: en
-title: "À suivre — Privacy Policy"
-description: "What the À suivre app does with your data. Short answer: nothing — it collects nothing and makes no network request."
+title: "À suivre — Politique de confidentialité"
+description: "Ce que l'application À suivre fait de vos données. Réponse courte : rien — elle ne collecte rien et ne fait aucune requête réseau."
 permalink: /asuivre/privacy/
+redirect_from: /asuivre/confidentialite/
+translation: /asuivre/en/privacy/
 ---
 
-# Privacy policy — "À suivre"
+# Politique de confidentialité — « À suivre »
 
-*Last updated: September 15, 2026.*
+*Dernière mise à jour : 4 novembre 2026.*
 
-"À suivre" is a reading app: a choice-based novel, one episode a day. It was written to know
-nothing about you.
+« À suivre » est une application de lecture : un roman à choix, un épisode par jour. Elle a été
+écrite pour ne rien savoir de vous.
 
-## What the app collects
+## Ce que l'application collecte
 
-**Nothing.** No account, no email, no name. No ads, no analytics, no third-party service.
+**Rien.** Elle ne demande aucun compte, aucune adresse, aucun nom. Elle ne contient ni
+publicité, ni outil de mesure d'audience, ni service tiers.
 
-## What the app keeps on your phone
+## Ce que l'application garde sur votre téléphone
 
-- **Your reading choices** — for each episode read, the options taken and the day you read it.
-  That is what lets the story resume where your decisions left it.
-- **Two settings** — the text size, and the hour at which a new episode becomes available.
+- **Vos choix de lecture** — pour chaque épisode lu, les options prises et le jour où vous l'avez
+  lu. C'est ce qui permet à l'histoire de reprendre là où vos décisions l'ont laissée.
+- **Deux réglages** — la taille du texte et l'heure à laquelle un nouvel épisode devient
+  disponible.
 
-This data stays in the app's private storage, on your device. No code in the app sends it
-anywhere: **the app makes no network request at all.** The stories ship inside the app.
+Ces données restent dans le stockage privé de l'application, sur votre appareil. Aucun code de
+l'application ne les envoie nulle part : **l'application ne fait aucune requête réseau.** Les
+histoires sont embarquées dans l'application elle-même.
 
-Uninstalling the app deletes this data.
+Désinstaller l'application efface ces données.
 
-## Android backup
+## La sauvegarde Android
 
-Like most apps, "À suivre" lets Android include its data in the device backup (Google One),
-encrypted with the device credentials. Android does it, not the app; it can be turned off in your
-phone's settings, under *Backup*.
+Comme la plupart des applications, « À suivre » laisse Android inclure ses données dans la
+sauvegarde de l'appareil (Google One), chiffrée avec les identifiants de l'appareil. C'est
+Android qui la fait, pas l'application ; elle se désactive dans les réglages de votre téléphone,
+sous *Sauvegarde*.
 
-## Test builds
+## Les versions de test
 
-Debug builds — never the Play Store ones — have a "Send my logs" button that prepares a message
-containing your reading choices and their dates, which you may or may not send, through the app
-of your choice. Nothing leaves without that gesture.
+Les versions de débogage — jamais celles du Play Store — comportent un bouton « Envoyer mes
+journaux » qui prépare un message contenant vos choix de lecture et leurs dates, que vous
+choisissez ou non d'envoyer, par l'application de votre choix. Rien ne part sans ce geste.
 
 ## Contact
 
-fery.michael@gmail.com
-
-*[Version française](/asuivre/confidentialite/)*
+Écrivez à [mferyapps@gmail.com](mailto:mferyapps@gmail.com).

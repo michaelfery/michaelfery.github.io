@@ -3,14 +3,15 @@ layout: prose
 lang: en
 title: "Almanac Privacy Policy"
 description: "What the Almanac app does with your data. Short answer: there is no Almanac server, and the only copy off your phone is Android's encrypted backup."
-permalink: /almanac/privacy-en/
+permalink: /almanac/en/privacy/
+redirect_from: /almanac/privacy-en/
+translation: /almanac/privacy/
 ---
 
 # Almanac Privacy Policy
 
 *Last updated: 30 August 2026*
 
-Lire cette page en [français](/almanac/privacy/).
 
 Almanac is a home-maintenance app. This page describes what it does with your
 data. It is short because the app does very little with it.

@@ -27,8 +27,10 @@ question est ouverte, la page n'en parle pas.
 ## Bloquant
 
 3. **URL de la politique déclarée dans la Play Console.** Le repo ne la note
-   pas. La page publie la politique à `/bookfolio/privacy/` (EN, texte du repo)
-   et `/bookfolio/privacy-fr/` (traduction). Si la Console pointe ailleurs :
+   pas. La page publie la politique à `/bookfolio/en/privacy/` (EN, texte du
+   repo) et `/bookfolio/privacy/` (traduction) ; l'ancienne adresse
+   `/bookfolio/privacy-fr/` y redirige, et `/bookfolio/privacy/`, autrefois en
+   anglais, est maintenant la version française. Si la Console pointe ailleurs :
    soit la mettre à jour, soit me donner l'URL existante pour que la page la
    reprenne.
 

@@ -3,7 +3,8 @@
 Ce dossier commence par `_`, Jekyll l'ignore : rien ici n'est publié. Il
 contient les gabarits à copier et les conventions à suivre. Les pages d'app
 elles-mêmes sont du HTML statique avec un front matter vide, pour que Jekyll
-exécute la section « Les coulisses » (aucun autre Liquid dans la page).
+exécute les trois includes communs : en-tête, pied de page et « Les coulisses »
+(aucun autre Liquid dans la page).
 
 ## Fichiers du socle
 
@@ -16,7 +17,8 @@ exécute la section « Les coulisses » (aucun autre Liquid dans la page).
 | `index.html` | Bandeau des apps en bas de la home, page 1 seulement (provisoire, en attendant `/apps/`). |
 | `_data/apps.yml` | Une entrée par app : nom, accroche, statut (`live` / `soon`), lien Play, couleur de l'icône. Alimente `/apps/`, le bandeau de la home et les pastilles d'articles. À remplir en même temps que la page. |
 | `_includes/app-coulisses.html` | Section « Les coulisses » des pages d'app : les articles qui portent `app: <slug>`. Les pages d'app ont un front matter vide pour que Jekyll l'exécute. |
-| `<slug>/privacy*.md` | Gabarit `prose` : le titre est le `# …` du Markdown. Ajouter `lang: en` aux versions anglaises. |
+| `_includes/app-header.html`, `_includes/app-footer.html` | En-tête et pied de page, communs à toutes les apps. Paramètres : `root` (`"../"` depuis `<slug>/`, `"../../"` depuis `<slug>/en/`), `lang` (`en`), et `slug` pour le pied de page, qui en tire le lien vers la politique. |
+| `<slug>/privacy.md`, `<slug>/en/privacy.md` | Politiques, mise en page `prose` : le titre est le `# …` du Markdown. `lang: en` pour l'anglais, `translation:` pour l'adresse de l'autre version (la mise en page en tire le lien « Lire cette page en… » et les `hreflang`). Ne pas écrire ce lien à la main. |
 
 ## Arborescence d'une app
 
@@ -27,7 +29,7 @@ exécute la section « Les coulisses » (aucun autre Liquid dans la page).
   en/
     index.html              page vitrine EN        → /<slug>/en/
   privacy.md                politique FR (Jekyll)  → /<slug>/privacy/
-  privacy-en.md             politique EN (Jekyll)  → /<slug>/privacy-en/
+  en/privacy.md             politique EN (Jekyll)  → /<slug>/en/privacy/
   assets/
     icon-512.png            icône launcher, carrée, coins droits (le CSS arrondit) ; JSON-LD, pas chargée par la page
     icon-192.png            même image ; hero (affichée 96/128 px) et carte de la home
@@ -78,7 +80,7 @@ Règles :
 | `{{APP_ACCENT}}` | Couleur hex de l'app |
 | `{{PACKAGE_ID}}` | Identifiant Play (`com.example.app`) |
 | `{{ABSOLUTE_URL}}` | URL absolue du dossier de l'app, sans slash final ni `/en/` (`https://mfery.dev/almanac`). Alimente le bloc « URLs absolues » : `canonical`, `hreflang`, `og:url`, `og:image`. Seule exception au tout-relatif : les scrapers OG et Google ignorent les URL relatives. |
-| `{{PRIVACY_PATH}}` | FR : `privacy/`. EN : `../privacy-en/` si la politique existe dans les deux langues (almanac), `../privacy/` si elle n'existe qu'en anglais (roundside). |
+| `{{APP_SLUG}}` | Nom du dossier de l'app. Alimente « Les coulisses » et le pied de page. |
 | `{{META_LINE}}` | Une ligne : prix, Android minimal, « sans publicité »… |
 | `{{HERO_SHOT_KEY}}` / `{{HERO_SHOT_ALT}}` | Capture principale du hero (`01-<mot-cle>.webp`), optionnelle |
 | `{{SHOT_n_KEY}}` / `{{SHOT_n_ALT}}` / `{{SHOT_n_CAPTION}}` | mot-clé du fichier ; alt = ce que montre l'écran ; caption = ce qu'on y comprend |
@@ -109,12 +111,16 @@ interventions sur le téléphone »), jamais « nous » ni « je » : les politi
 Copier `<slug>/` tel quel, ajouter `tokens.css`, `app.css` et
 `michael-fery-64.png` dans `<slug>/assets/`, puis :
 
-- `index.html` : remplacer `../assets/` par `assets/` et `href="../"` par `href="./"` ;
-- `en/index.html` : remplacer `../../assets/` par `../assets/` et `../../` par `../` ;
-- dans les deux : mettre à jour `{{ABSOLUTE_URL}}` dans le bloc « URLs absolues ».
+- `index.html` : remplacer `../assets/` par `assets/` ;
+- `en/index.html` : remplacer `../../assets/` par `../assets/` ;
+- dans les deux : remplacer les includes d'en-tête et de pied de page par leur
+  HTML rendu (dans `_site/`), et mettre à jour `{{ABSOLUTE_URL}}` dans le bloc
+  « URLs absolues ».
 
-Les pages `privacy*.md` sont des pages Jekyll : à convertir en HTML (ou à
-reprendre dans le nouveau site) au moment du déplacement.
+Les politiques (`privacy.md` en français, `en/privacy.md` en anglais) sont des pages Jekyll :
+à convertir en HTML (ou à reprendre dans le nouveau site) au moment du
+déplacement. Leurs adresses sont déclarées dans la Play Console : laisser une
+redirection depuis l'ancienne.
 
 ## Contraintes tenues
 

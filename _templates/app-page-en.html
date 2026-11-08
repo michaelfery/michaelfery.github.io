@@ -1,5 +1,5 @@
 ---
-# Front matter vide : Jekyll traite la page pour la section « Les coulisses ».
+# Front matter vide : Jekyll traite la page (en-tête, pied de page, « Les coulisses »).
 ---
 <!DOCTYPE html>
 <!--
@@ -19,11 +19,10 @@
   5. Ouvrir le fichier dans un navigateur à 360 px de large et au clavier (Tab).
 
   Chemins : cette page vit un niveau plus bas (<slug>/en/). Les assets de
-  l'app sont donc en « ../assets/… », ceux du site en « ../../assets/… », la
-  home en « ../../ ». Pour déplacer l'app sur son propre domaine : copier
-  tokens.css, app.css et michael-fery-64.png dans <slug>/assets/, remplacer
-  « ../../assets/ » par « ../assets/ » et « ../../ » par « ../ », et mettre à
-  jour {{ABSOLUTE_URL}} dans le bloc « URLs absolues ». Rien d'autre.
+  l'app sont donc en « ../assets/… », ceux du site en « ../../assets/… ».
+  L'en-tête et le pied de page sont communs à toutes les apps :
+  _includes/app-header.html et _includes/app-footer.html, avec root="../../"
+  (racine du site vue d'ici) et lang="en".
 
   Voix : l'app est le sujet des phrases (« Almanac keeps… »), ni « we » ni
   « I ». Phrases courtes, concret, pas de superlatif : ce que l'app fait, et
@@ -106,19 +105,7 @@
   <!-- ══════════════════════════════════════════════════════════════════════
        EN-TÊTE — identique sur toutes les pages d'app, ne pas modifier
        ══════════════════════════════════════════════════════════════════════ -->
-  <header class="app-header">
-    <div class="app-container">
-      <a class="app-header__home" href="../../">
-        <img src="../../assets/img/michael-fery-64.png" alt="" width="32" height="32">
-        Michaël Fery
-      </a>
-      <nav class="app-header__nav" aria-label="Main">
-        <a href="../../">Articles</a>
-        <a href="../../apps/" aria-current="page">Apps</a>
-        <a href="../../about/">About</a>
-      </nav>
-    </div>
-  </header>
+{% include app-header.html root="../../" lang="en" %}
 
   <main id="main">
 
@@ -227,13 +214,13 @@
 
     <!-- ▼ CONTENU : confidentialité ─────────────────────────────────────
          Deux ou trois phrases, reprises de la section « En une phrase » de la
-         politique de confidentialité. Le lien pointe vers {{PRIVACY_PATH}}. -->
+         politique de confidentialité. Le lien pointe vers la politique de l'app : privacy/ dans les deux langues (la page FR est sous /<slug>/, la page EN sous /<slug>/en/). -->
     <section class="app-privacy" aria-labelledby="privacy-title">
       <div class="app-container">
         <h2 id="privacy-title">Your data</h2>
         <div class="app-privacy__box">
           <p>{{PRIVACY_SUMMARY}}</p>
-          <p><a href="{{PRIVACY_PATH}}">Read the privacy policy</a></p>
+          <p><a href="privacy/">Read the privacy policy</a></p>
         </div>
       </div>
     </section>
@@ -265,32 +252,6 @@
   <!-- ══════════════════════════════════════════════════════════════════════
        PIED DE PAGE — identique sur toutes les pages d'app, ne pas modifier
        ══════════════════════════════════════════════════════════════════════ -->
-  <footer class="app-footer">
-    <div class="app-container">
-      <ul>
-        <li><a href="../../">← Back to the site</a></li>
-        <li><a href="{{PRIVACY_PATH}}">Privacy</a></li>
-        <li>
-          <a href="https://github.com/michaelfery">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            GitHub
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/mfery">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
-          </a>
-        </li>
-        <li>
-          <a href="mailto:mferyapps@gmail.com">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 4h20v16H2zm2 2v.5l8 5.5 8-5.5V6zm0 2.9V18h16V8.9l-8 5.5z"/></svg>
-            mferyapps@gmail.com
-          </a>
-        </li>
-      </ul>
-      <p class="app-footer__copyright">{{YEAR}} © Michaël Fery</p>
-    </div>
-  </footer>
+{% include app-footer.html root="../../" slug="{{APP_SLUG}}" lang="en" %}
 </body>
 </html>

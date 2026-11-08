@@ -228,6 +228,21 @@ body.app-page {
   }
 }
 
+/* Pages anglaises : les liens de l'en-tête mènent à des pages en français. */
+.app-header__lang {
+  margin-left: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 599px) {
+  .app-header__lang {
+    display: none;
+  }
+}
+
 
 /* 3. Hero ------------------------------------------------------------------ */
 /* Un seul flux HTML : fil d'Ariane, icône, nom, accroche, bouton, méta, puis

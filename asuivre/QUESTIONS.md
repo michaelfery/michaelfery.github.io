@@ -14,7 +14,7 @@ est ouverte, la page n'en parle pas.
 
 2. **Page anglaise.** Rien n'existe côté app (`values-en/` à venir, fiche
    fr-FR seule) ; le titre anglais prévu est « Nightfall » (décision 0045).
-   La politique existe déjà en anglais (`/asuivre/privacy/`). Le jour venu :
+   La politique existe déjà en anglais (`/asuivre/en/privacy/`). Le jour venu :
    `_templates/app-page-en.html`, `hreflang en`, et retirer `x-default` seul.
 
 ## À trancher
@@ -36,10 +36,9 @@ est ouverte, la page n'en parle pas.
    ni catalogue ni achat à l'unité (0025), que l'app elle-même annonce comme
    « une version à venir » (`porte_sans_facturation`).
 
-6. **Contact.** La fiche Play et la politique donnent `fery.michael@gmail.com`,
-   pas `mferyapps@gmail.com` comme Almanac et Bookfolio. La page suit la
-   fiche. Deux adresses pour les apps du même site : à unifier un jour, dans
-   un sens ou dans l'autre.
+6. **Contact.** Tranché le 4 novembre 2026 : `mferyapps@gmail.com`, comme
+   Almanac et Bookfolio. La page et les deux politiques l'utilisent. La fiche
+   Play (`contact-email.txt` dans livre-jeu) et la Console restent à aligner.
 
 ## Non retenu volontairement
 

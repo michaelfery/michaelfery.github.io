@@ -1,159 +1,166 @@
 ---
 layout: prose
-lang: en
-title: "FanLog Privacy Policy"
-description: "What the FanLog apps do with your data. Short answer: there is no FanLog server, nothing you record ever leaves your phone, and the only requests they make are for public files."
+title: "Politique de confidentialité de FanLog"
+description: "Ce que les applications FanLog font de vos données. Réponse courte : il n'y a pas de serveur FanLog, rien de ce que vous notez ne quitte votre téléphone, et les seules requêtes faites portent sur des fichiers publics."
 permalink: /fanlog/privacy/
+redirect_from: /fanlog/privacy-fr/
+translation: /fanlog/en/privacy/
 ---
 
-# FanLog Privacy Policy
+# Politique de confidentialité de FanLog
 
-*Last updated: 15 October 2026*
+*Dernière mise à jour : 15 octobre 2026*
 
-Lire cette page en [français](/fanlog/privacy-fr/).
 
-FanLog is a family of apps for following a sport on your own schedule: **FanLog MMA**, **FanLog
-Rugby**, and any app published later under the FanLog name. Each one keeps a list of the fights or
-matches you mean to watch, lets you mark what you have seen and rate it, and keeps every result
-hidden until you say otherwise. This page covers all of them; they are built from the same code and
-handle your data the same way. It is short because they do very little with it.
-
----
-
-## In one sentence
-
-**There is no FanLog server, no account and no sign-up.** Your list, what you have marked watched,
-your ratings and the athletes or teams you follow are stored on your phone and are never uploaded.
-The apps make two kinds of network request, both for public files, and neither carries anything
-about you.
+FanLog est une famille d'applications pour suivre un sport à son rythme : **FanLog MMA**, **FanLog
+Rugby**, et toute application publiée plus tard sous le nom FanLog. Chacune garde la liste des
+combats ou des matchs que tu comptes voir, te laisse marquer ce que tu as vu et le noter, et cache
+chaque résultat jusqu'à ce que tu en décides autrement. Cette page les couvre toutes : elles sont
+construites à partir du même code et traitent tes données de la même façon. Elle est courte parce
+qu'elles en font très peu.
 
 ---
 
-## What the app stores, and where
+## En une phrase
 
-Everything is stored **locally on your device**, in files only the app can read:
+**Il n'y a pas de serveur FanLog, pas de compte et pas d'inscription.** Ta liste, ce que tu as
+marqué comme vu, tes notes et les athlètes ou équipes que tu suis sont stockés sur ton téléphone et
+n'en partent jamais. Les applications font deux sortes de requêtes réseau, toutes deux vers des
+fichiers publics, et aucune ne transmet quoi que ce soit qui te concerne.
 
-| Data | Where |
+---
+
+## Ce que l'application garde, et où
+
+Tout est stocké **sur ton appareil**, dans des fichiers que seule l'application peut lire :
+
+| Donnée | Où |
 |---|---|
-| Fights or matches you have added to your list, marked watched, or rated | local SQLite database (`fanlog.db`) |
-| Athletes or teams you follow, and when you started | same database |
-| Which announcements you have already been notified about | same database |
-| The catalogue itself: events, fights or matches, athletes or teams, results | same database, replaced a season at a time on each update |
-| Your settings: theme, text size, language, spoiler masking, notifications, competitions you have put away | local preferences |
+| Les combats ou matchs ajoutés à ta liste, marqués vus ou notés | une base SQLite locale (`fanlog.db`) |
+| Les athlètes ou équipes suivis, et la date du suivi | la même base |
+| Les annonces déjà notifiées | la même base |
+| Le catalogue : événements, combats ou matchs, athlètes ou équipes, résultats | la même base, remplacée une saison à la fois à chaque mise à jour |
+| Tes réglages : thème, taille du texte, langue, masquage des résultats, notifications, compétitions mises de côté | des préférences locales |
 
-None of it is transmitted to the apps' author, or visible to them. There is no identifier of any
-kind — no account, no device id, no advertising id — so there is nothing that could tie this device
-to a person even if the data did leave it.
+Rien n'est transmis à l'auteur des applications, ni visible par lui. Il n'y a aucun identifiant
+d'aucune sorte — ni compte, ni identifiant d'appareil, ni identifiant publicitaire — donc rien qui
+puisse relier cet appareil à une personne, même si ces données en sortaient.
 
-**This matters more here than in most apps.** What you have watched is the whole point of FanLog,
-and it is also the sort of thing nobody should have to share. It is a column in a database on your
-phone, and there is no code in the apps that sends it anywhere.
-
----
-
-## What leaves the device, and when
-
-Four cases, and they are the only ones.
-
-**The catalogue.** Each app ships with a snapshot of its catalogue inside it and refreshes it from
-public files on GitHub, at `raw.githubusercontent.com/michaelfery/fanlog-catalog`. The request asks
-for a file and says nothing else; the app names itself in it (`FanLog` and its version), the way a
-browser does. GitHub sees it the way any website sees a visitor — which means it sees the IP
-address the request came from, as every web server does. Nothing about your list, your ratings or
-your follows is included, because the app has no way to send them.
-
-**Pictures.** Athletes' photographs and, in the team-sport apps, clubs' crests are loaded as you
-scroll from ESPN's image CDN, at `a.espncdn.com`. They are hotlinked rather than bundled, so ESPN's
-servers see those requests the same way GitHub sees the one above: a file asked for, from an IP
-address. The app sends no identifier with them. What it does mean, stated plainly because most
-policies leave it out: **the athletes and clubs whose pictures your phone loads are visible to ESPN
-as image requests**, in the same way that any website loading images from a third party makes those
-requests visible to it.
-
-If the phone has no network, both simply fail and the app carries on with what is already on it.
-The apps are designed to work offline; the network only ever refreshes the catalogue.
-
-**Android's automatic backup.** Android may copy the app's database and settings to the backup
-storage attached to your Google account, as it does for other apps on your phone. It is what gives
-you back your list and your ratings when you reinstall or move to a new phone.
-
-- **Android performs it, not the app.** The app only declares which of its files are worth backing
-  up: the database and the settings. The catalogue is not among them — it is downloaded again — and
-  neither is a crash report.
-- **It is encrypted with your device's lock code**, on Android 9 and later. Google holds the copy
-  without being able to read it, and the apps' author has no access to it at all.
-- **You can turn it off**, in Android's settings under Google then Backup, either for the whole
-  device or for one app alone.
-- **It is deliberate.** With no server, the database on your phone *is* your logbook — everything
-  you have ticked off, going back as far as you have used the app. Without this backup, a lost
-  phone would take all of it with it.
-
-**The tip.** Settings offers one optional purchase, "Support FanLog", which unlocks nothing. It goes
-entirely through Google Play Billing, on your device and your Google account: Google handles the
-payment under its own terms, and the app learns only that the purchase exists, which it reads back
-from Play to say thank you. The author never sees your name or your means of payment, and no
-receipt is sent anywhere, because there is nowhere to send it.
+**C'est plus important ici que dans la plupart des applications.** Ce que tu as regardé est tout
+l'objet de FanLog, et c'est aussi le genre de chose que personne ne devrait avoir à partager. C'est
+une colonne d'une base de données sur ton téléphone, et aucun code dans les applications ne
+l'envoie nulle part.
 
 ---
 
-## If the app crashes
+## Ce qui quitte l'appareil, et quand
 
-It writes a report on the phone — the app's version, the Android version, the device model and the
-place in the code where it broke; nothing about you. Settings then offers to send it, through the
-app of your choice, after you have read it in full. Nothing is sent unless you send it, and the
-report is gone once you discard it.
+Quatre cas, et ce sont les seuls.
+
+**Le catalogue.** Chaque application contient un instantané de son catalogue et le rafraîchit
+depuis des fichiers publics hébergés sur GitHub, à `raw.githubusercontent.com/michaelfery/fanlog-catalog`.
+La requête demande un fichier et ne dit rien d'autre ; l'application s'y nomme (`FanLog` et sa
+version), comme un navigateur se nomme. GitHub voit cette requête comme n'importe quel site voit un
+visiteur — c'est-à-dire qu'il voit l'adresse IP d'où elle vient, comme tout serveur web. Rien de ta
+liste, de tes notes ou de tes suivis n'y figure, puisque l'application n'a aucun moyen de les
+envoyer.
+
+**Les images.** Les photographies des athlètes et, dans les applications de sports d'équipe, les
+écussons des clubs sont chargés au fil du défilement depuis le CDN d'images d'ESPN, à
+`a.espncdn.com`. Elles sont liées et non embarquées, donc les serveurs d'ESPN voient ces requêtes
+comme GitHub voit la précédente : un fichier demandé, depuis une adresse IP. L'application n'envoie
+aucun identifiant avec elles. Ce que cela implique, dit clairement parce que la plupart des
+politiques l'omettent : **les athlètes et les clubs dont ton téléphone charge l'image sont visibles
+par ESPN sous forme de requêtes d'images**, comme tout site qui charge des images chez un tiers rend
+ces requêtes visibles à ce tiers.
+
+Sans réseau, ces deux requêtes échouent simplement et l'application continue avec ce qu'elle a déjà.
+Les applications sont conçues pour fonctionner hors ligne ; le réseau ne sert qu'à rafraîchir le
+catalogue.
+
+**La sauvegarde automatique d'Android.** Android peut copier la base de données et les réglages de
+l'application dans la sauvegarde liée à ton compte Google, comme il le fait pour d'autres
+applications de ton téléphone. C'est ce qui te rend ta liste et tes notes quand tu réinstalles ou
+changes de téléphone.
+
+- **C'est Android qui la fait, pas l'application.** L'application déclare seulement lesquels de ses
+  fichiers méritent d'être sauvegardés : la base de données et les réglages. Le catalogue n'en fait
+  pas partie — il est retéléchargé — ni un rapport de plantage.
+- **Elle est chiffrée avec le code de verrouillage de ton appareil**, à partir d'Android 9. Google
+  conserve la copie sans pouvoir la lire, et l'auteur des applications n'y a aucun accès.
+- **Tu peux la couper**, dans les réglages d'Android, sous Google puis Sauvegarde, pour tout
+  l'appareil ou pour une seule application.
+- **C'est voulu.** Sans serveur, la base de données de ton téléphone *est* ton carnet — tout ce que
+  tu as coché, depuis que tu utilises l'application. Sans cette sauvegarde, un téléphone perdu
+  emporterait tout avec lui.
+
+**Le pourboire.** Les réglages proposent un achat facultatif, « Soutenir FanLog », qui ne débloque
+rien. Il passe entièrement par Google Play Billing, sur ton appareil et ton compte Google : Google
+traite le paiement selon ses propres conditions, et l'application apprend seulement que l'achat
+existe, qu'elle relit depuis Play pour te remercier. L'auteur ne voit ni ton nom, ni ton moyen de
+paiement, et aucun reçu n'est envoyé nulle part, puisqu'il n'existe nulle part où l'envoyer.
 
 ---
 
-## Permissions, and why they exist
+## Si l'application plante
 
-The ones you would see if you inspected an app:
+Elle écrit un rapport sur le téléphone — la version de l'application, la version d'Android, le
+modèle de l'appareil et l'endroit du code où ça a cassé ; rien sur toi. Les réglages te proposent
+ensuite de l'envoyer, par l'application de ton choix, après l'avoir lu en entier. Rien n'est envoyé
+si tu ne l'envoies pas, et le rapport disparaît quand tu l'ignores.
 
-| Permission | Reason |
+---
+
+## Autorisations, et pourquoi
+
+Celles que tu verrais en inspectant une application :
+
+| Autorisation | Pourquoi |
 |---|---|
-| Internet | Fetching the catalogue files and the pictures described above. |
-| Notifications | Telling you that someone you follow has been booked or scheduled, or that an event you track starts soon. Deny it and the app works, without notifications. |
-| Network state, wake lock, foreground service, boot completed | **Contributed by the Android background-work library**, which runs the catalogue refresh and puts reminders back after a restart. Not used for anything else. |
-| Billing | Google Play's, for the optional tip above. |
+| Internet | Récupérer les fichiers du catalogue et les images décrites plus haut. |
+| Notifications | Te prévenir qu'une personne ou une équipe que tu suis est programmée, ou qu'un événement suivi commence bientôt. Refuse-la et l'application fonctionne, sans notifications. |
+| État du réseau, réveil, service au premier plan, démarrage terminé | **Apportées par la bibliothèque Android de travail en arrière-plan**, qui rafraîchit le catalogue et remet les rappels en place après un redémarrage. Utilisées pour rien d'autre. |
+| Facturation | Celle de Google Play, pour le pourboire facultatif ci-dessus. |
 
-Notifications are built and shown **on the device**, from data already on it. Nothing is sent
-anywhere to produce them, and no push service is involved.
+Les notifications sont construites et affichées **sur l'appareil**, à partir de données qui s'y
+trouvent déjà. Rien n'est envoyé pour les produire, et aucun service de push n'est utilisé.
 
-There is **no analytics, no advertising tracker and no crash-reporting tool** in these apps. Not
-configured off — absent from the build.
-
----
-
-## What FanLog does not do
-
-- No ads, no ad network, no advertising id.
-- No selling or sharing of data with third parties.
-- No account, no email address requested, no login of any kind.
-- No location, no contacts, no photos, no microphone.
-- Nothing locked behind a payment, and no subscription.
+Il n'y a **aucun outil d'analyse d'audience, aucun traqueur publicitaire et aucun outil de rapport
+de plantage** dans ces applications. Pas désactivés — absents de la compilation.
 
 ---
 
-## Children
+## Ce que FanLog ne fait pas
 
-The FanLog apps are not directed at children and knowingly collect no data about them: they
-collect none, from anyone.
-
----
-
-## Your rights
-
-Since your data lives only on your device, you control it directly. Uninstalling an app removes
-everything it holds, and clearing the app's storage in Android's settings does the same without
-removing it. There is nothing to request from us, because we hold nothing.
+- Pas de publicité, pas de régie, pas d'identifiant publicitaire.
+- Pas de vente ni de partage de données avec des tiers.
+- Pas de compte, pas d'adresse e-mail demandée, aucune connexion.
+- Pas d'accès à la position, aux contacts, aux photos ni au micro.
+- Rien de verrouillé derrière un paiement, et pas d'abonnement.
 
 ---
 
-## Changes
+## Enfants
 
-This policy will change if the apps change. The date at the top is authoritative. An app added to
-the family is covered here only once this page names it.
+Les applications FanLog ne s'adressent pas aux enfants et ne collectent sciemment aucune donnée à
+leur sujet : elles n'en collectent aucune, de personne.
+
+---
+
+## Tes droits
+
+Tes données n'existent que sur ton appareil, donc c'est toi qui les contrôles, directement.
+Désinstaller une application supprime tout ce qu'elle contient ; effacer son stockage dans les
+réglages d'Android fait la même chose sans la désinstaller. Il n'y a rien à nous demander, parce
+que nous ne détenons rien.
+
+---
+
+## Modifications
+
+Cette politique change si les applications changent. La date en tête fait foi. Une application
+ajoutée à la famille n'est couverte ici qu'une fois que cette page la nomme.
 
 ## Contact
 
-Write to [mferyapps@gmail.com](mailto:mferyapps@gmail.com).
+Écris à [mferyapps@gmail.com](mailto:mferyapps@gmail.com).
