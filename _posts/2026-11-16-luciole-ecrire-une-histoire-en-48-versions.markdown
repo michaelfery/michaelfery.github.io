@@ -4,7 +4,7 @@ topics: [Android]
 app: luciole
 title:  "Écrire une histoire du soir qui existe en 48 versions"
 description: "Une histoire du soir dont l'enfant choisit le héros, le compagnon et le décor ne s'écrit pas comme une autre. La méthode, et le piège du Mad Libs."
-date:   2026-11-18 00:00:00.000 +01:00
+date:   2026-11-16 00:00:00.000 +01:00
 img: posts/luciole-48-versions-banner.png
 tags: [Luciole, Écriture, Android]
 ---
@@ -12,6 +12,8 @@ tags: [Luciole, Écriture, Android]
 Tout est parti d'un rituel du soir. Mon fils adorait que je lui raconte **la même histoire**, encore et encore. Et très vite, on a pris l'habitude de la faire bouger : un soir, le héros changeait ; le lendemain, c'était le compagnon ; le surlendemain, l'aventure se passait ailleurs. La même histoire, mais jamais tout à fait la même. Ce qu'il aimait, c'était à la fois de retrouver une histoire connue et de décider de ce qui allait changer.
 
 [Luciole](/luciole/) est née de là : une application d'histoires du soir qu'un parent lit à voix haute, où l'enfant choisit le héros, le compagnon et le décor, puis décide de la suite à chaque question. Une histoire Luciole, c'est notre rituel, mis en forme.
+
+Il y a aussi là-dedans un souvenir de lecteur. Enfant, je dévorais les « Livres dont vous êtes le héros », ces livres où l'on choisit sa page, et que l'on recommence pour voir l'autre fin. Luciole en garde le plaisir de décider, à hauteur d'enfant et à deux : c'est lui qui choisit, c'est moi qui lis.
 
 Il restait à l'écrire. Et une histoire qui change de héros, de compagnon et de décor chaque soir ne s'écrit pas comme une histoire ordinaire. Cet article raconte ma méthode, dans l'ordre où je travaille : **une consigne, trois références, un brief, trois fiches, puis, enfin, le texte**.
 
