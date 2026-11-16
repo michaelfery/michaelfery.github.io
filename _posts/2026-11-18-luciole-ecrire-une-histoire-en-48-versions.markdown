@@ -25,7 +25,7 @@ Personne ne peut écrire 4 096 histoires. Alors on écrit une seule trame avec d
 Le {courageux|curieux|malicieux|doux} {prénom} entra dans la grotte.
 ```
 
-C'est le principe du Mad Libs, ces histoires à trous qu'on remplit au hasard. Mon document de méthode le résume ainsi :
+C'est le principe du Mad Libs, ces histoires à trous qu'on remplit au hasard. [Ink](https://www.inklestudios.com/ink/), le langage dans lequel j'écris, sait très bien faire ça, et c'est précisément ce que je m'interdis. Mon document de méthode résume le piège ainsi :
 
 > Les enfants ne le voient pas. Les parents le voient à la troisième lecture, et ce sont eux qui paient.
 
