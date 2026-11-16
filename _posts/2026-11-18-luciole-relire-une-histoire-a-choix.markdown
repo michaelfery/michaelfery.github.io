@@ -79,7 +79,7 @@ La jurisprudence grossit à chaque boucle et sert toutes les histoires. C'est el
 
 ## La version allégée : des lecteurs naïfs et une oreille
 
-Même optimisée, la grande relecture restait lourde, mécanique et parfois trop exigeante. Une passe complète en anglais prenait encore 35 minutes et 1,6 million de tokens, et la plupart des remarques « importantes » comparaient le texte à une fiche, pas à ce qu'on entend.
+Même optimisée, la grande relecture restait lourde, mécanique et parfois trop exigeante. Une passe complète en anglais prenait encore 35 minutes et 1,6 million de tokens : ce n'est pas la langue dans laquelle j'écris, et j'y demande aux relecteurs d'être plus stricts, sur les doubles sens et les références culturelles par exemple. Et la plupart des remarques « importantes » comparaient le texte à une fiche, pas à ce qu'on entend.
 
 C'est une lecture de fin septembre qui m'a décidé. Tout passait, les scripts comme les relecteurs, et je trouvais pourtant mes histoires poussives : par endroits, on lisait un brief de scène plutôt qu'une histoire. Mes relecteurs recevaient mes fiches, et une phrase conforme à la fiche ne leur paraissait pas fausse. Il me fallait des lecteurs qui n'aient que le texte.
 
