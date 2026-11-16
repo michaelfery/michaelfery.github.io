@@ -4,7 +4,7 @@ topics: [IA]
 app: luciole
 title:  "Relire une histoire qui n'existe pas en un seul exemplaire"
 description: "Comment relire une histoire qui existe en 48 versions : des relecteurs IA, des scripts, une jurisprudence et un petit studio."
-date:   2026-12-02 00:00:00.000 +01:00
+date:   2026-11-18 00:01:00.000 +01:00
 img: posts/luciole-studio-comparaison.png
 featured-style: capture
 tags: [Luciole, Écriture, IA, Claude, Android]
@@ -12,7 +12,7 @@ tags: [Luciole, Écriture, IA, Claude, Android]
 
 [Luciole](/luciole/) est une application d'histoires du soir : un parent lit l'histoire à voix haute, et c'est l'enfant qui décide de la suite. Chaque histoire se personnalise : le prénom de l'enfant, l'accord (il ou elle), le caractère du héros, le compagnon, le décor, la langue.
 
-J'écris ces histoires moi-même. Mais très vite, je me suis heurté à un problème que je n'avais pas vu venir : **je ne pouvais pas les relire**. Pas faute de temps ou d'envie, mais parce qu'une histoire Luciole n'existe pas en un seul exemplaire.
+J'écris ces histoires moi-même, et [l'article précédent](/2026/11/luciole-ecrire-une-histoire-en-48-versions) raconte comment. Mais très vite, je me suis heurté à un problème que je n'avais pas vu venir : **je ne pouvais pas les relire**. Pas faute de temps ou d'envie, mais parce qu'une histoire Luciole n'existe pas en un seul exemplaire.
 
 Cet article raconte l'atelier de relecture que j'ai construit autour de cette écriture : des relecteurs IA, des scripts, une jurisprudence et un petit studio. Je le dis franchement : **sans ces relecteurs, Luciole n'aurait pas pu exister**. L'écriture, les choix et les corrections restent les miens. L'IA m'apporte un harnais supplémentaire, qui attrape les incohérences, les ruptures de continuité et les faux pas de ton à côté desquels on passe forcément quand on relit seul une histoire à choix.
 
@@ -24,7 +24,7 @@ Voici la même histoire, « La carte dans la bouteille », lue avec deux configu
 
 **66 % du récit diffère d'un côté à l'autre.** Les paragraphes grisés sont communs, tout le reste change. Multipliez maintenant les héros par les compagnons, les décors, les accords, les langues, puis par les chemins de choix : une seule histoire produit des centaines de textes. Et l'accord ne change pas qu'un pronom. Selon que le prénom commence par une voyelle ou non, c'est l'élision qui change, et une phrase parfaite pour « Naïa » peut devenir bancale pour « Alix ».
 
-Un linter vérifie des règles : longueur des phrases, mots interdits, structure des choix. Mais il ne lit pas. Les défauts qui restent ne se voient qu'en **lisant une version entière, dans l'ordre** : une couture maladroite entre deux fragments, une voix qui faiblit sur un seul caractère de héros, une peur qui n'est pas résolue sur un chemin. Et personne ne relit des centaines de versions.
+J'ai commencé comme pour du code, par des scripts. Un linter vérifie des règles : longueur des phrases, mots interdits, structure des choix. Mais il ne lit pas. Les défauts qui restent ne se voient qu'en **lisant une version entière, dans l'ordre** : une couture maladroite entre deux fragments, une voix qui faiblit sur un seul caractère de héros, une peur qui n'est pas résolue sur un chemin. Et personne ne relit des centaines de versions.
 
 ## Première version : un relecteur par chemin
 
@@ -81,6 +81,8 @@ La jurisprudence grossit à chaque boucle et sert toutes les histoires. C'est el
 
 Même optimisée, la grande relecture restait lourde, mécanique et parfois trop exigeante. Une passe complète en anglais prenait encore 35 minutes et 1,6 million de tokens, et la plupart des remarques « importantes » comparaient le texte à une fiche, pas à ce qu'on entend.
 
+C'est une lecture de fin septembre qui m'a décidé. Tout passait, les scripts comme les relecteurs, et je trouvais pourtant mes histoires poussives : par endroits, on lisait un brief de scène plutôt qu'une histoire. Mes relecteurs recevaient mes fiches, et une phrase conforme à la fiche ne leur paraissait pas fausse. Il me fallait des lecteurs qui n'aient que le texte.
+
 La relecture d'aujourd'hui tient en **six relecteurs au lieu de 24**, aux rôles bien séparés :
 
 - **Quatre relecteurs de continuité** lisent chacun six chemins à la suite. Lire plusieurs chemins d'affilée aide justement à voir ce qui change de l'un à l'autre. Ils ne reçoivent que ce que l'histoire promet : les choix, les fins, le moment de peur, l'état du monde.
@@ -121,6 +123,13 @@ D'où le **parcours au sort**. Un script tire une histoire publiée, une configu
 - l'explication, la phrase qui résume ce qu'on vient de lire ;
 - la redite de continuité, comme un objet cherché alors qu'on vient de le voir.
 
+Deux corrections sorties d'un même parcours, sur « La carte dans la bouteille » :
+
+- « Le chemin s'est caché sous la mer. » Le lecteur-enfant demandait quel chemin, et comment on ressort de l'épave. C'est devenu « Le chemin du retour s'est caché sous la mer. »
+- « La croix est dedans. On tire la barque au sec, de ce côté de l'eau. » Un écran plus tôt, la croix était « de l'autre côté de l'eau » : l'autre côté devenait ce côté. C'est devenu « La croix de la carte, c'est là, dedans. On tire la barque au sec, sur le sable. »
+
+Rien de spectaculaire. C'est exactement le genre de phrase qu'un auteur ne voit plus, et sur laquelle un parent bute à voix haute.
+
 Il rend **huit propositions au plus**, chacune citée mot pour mot et localisée dans chaque langue de l'histoire, plus trois moments « à ne pas toucher ». Il ne corrige rien : je tranche dans le studio, et une correction faite en français seulement désynchroniserait la version anglaise, d'où l'exigence des deux langues.
 
 C'est devenu le rythme de croisière : **42 parcours au sort** relus à ce jour sur les neuf histoires des trois univers (la forêt, les pirates, l'hiver), et leurs corrections retenues livrées au fil des versions.
@@ -141,4 +150,4 @@ C'est la limite du harnais, et je la trouve rassurante. Les relecteurs IA trouve
 - **Faire contrepoids à l'explicite.** Un lecteur qui ne comprend pas pousse toujours vers une phrase de plus ; il faut une oreille pour en retirer.
 - **Le dernier mot reste humain** : celui de l'auteur, et celui des parents qui lisent les histoires à voix haute, le soir.
 
-[Luciole](/luciole/) est disponible sur Android, sans compte, sans publicité et sans connexion.
+[Luciole](/luciole/) est disponible sur Android, sans compte, sans publicité et sans connexion : trois univers et neuf histoires pour les 5 à 8 ans, en français, anglais, allemand et espagnol. Le premier univers est offert. [L'installer depuis Google Play](https://play.google.com/store/apps/details?id=fr.luciole.app).
